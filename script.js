@@ -1,5 +1,5 @@
 // script.js
-const sentence = "Welcome to Noorani!";
+const sentence = "Welcome to Noorani";
 let index = 0;
 
 function typeSentence() {
