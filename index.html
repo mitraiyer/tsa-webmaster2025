@@ -1,1 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Navbar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Plant Growth Animation */
+        @keyframes grow {
+            0% {
+                transform: scaleY(0);
+                opacity: 0;
+            }
+            100% {
+                transform: scaleY(1);
+                opacity: 1;
+            }
+        }
 
+        .plant {
+            transform-origin: bottom;
+            animation: grow 1.5s ease-out forwards;
+        }
+
+        /* Navbar Fade-In */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .navbar {
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1.5s forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white flex flex-col items-center justify-center h-screen">
+
+    <!-- SVG Plant -->
+    <svg class="plant w-16 h-16 mb-4" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 100C45 65 35 45 10 50C30 25 40 30 50 10C60 30 70 25 90 50C65 45 55 65 50 100Z" fill="green"/>
+    </svg>
+
+    <!-- Navbar -->
+    <nav class="navbar bg-gray-800 p-4 rounded-lg shadow-lg flex space-x-6">
+        <a href="#" class="hover:text-green-400 transition">Home</a>
+        <a href="#" class="hover:text-green-400 transition">Menu</a>
+        <a href="#" class="hover:text-green-400 transition">About</a>
+        <a href="#" class="hover:text-green-400 transition">Contact</a>
+    </nav>
+
+</body>
+</html>
