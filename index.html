@@ -3,30 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noorani - Webmaster 2025</title>
-    <!-- Link to CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <title>Noorani</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
 </head>
 <body>
-    <div class="video-container">
-        <video id="video" autoplay loop muted>
-            <!-- video needs to be changed; video for bg of homescreen -->
-            <source src="images/neighborhood.mp4" type="video/mp4">
-        </video>
-        <center>
-            <!-- words for video are in script file -->
-            <div class="overlay" style="transform: translate(-50%, -50%); left: 50%; top: 15%">
 
-                <body class="cursor-text">
-                    <div class="typing-container">
-                        <span id="sentence" class="sentence"></span>
-                    </div>
-                </body>
-            </div>
-        </center>
+    <!-- Video Background -->
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="assets/homepage.mp4" type="video/mp4">
+            <!-- Your browser does not support the video tag. -->
+        </video>
     </div>
 
-    <!-- Link to JavaScript -->
-    <script src="script.js"></script>
+    <!-- Fading Text -->
+    <div class="overlay">Noorani</div>
+
 </body>
-</html> 
+</html>
