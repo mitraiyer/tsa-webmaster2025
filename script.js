@@ -11,3 +11,17 @@ function typeSentence() {
 }
 
 window.onload = typeSentence;  // Starts typing when the page loads
+     // Toggle Mobile Menu
+     document.querySelector('.menu-btn').addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.toggle('active');
+    });
+
+    // Change navbar background color on scroll
+    window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 10) {
+            navbar.style.backgroundColor = 'var(--dark-green)'; // solid color when scrolled
+        } else {
+            navbar.style.backgroundColor = 'transparent'; // transparent when at top
+        }
+    });
