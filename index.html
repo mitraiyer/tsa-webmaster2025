@@ -2,54 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Noorani</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css"> 
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <p>NOORANI</p>
-  <div class="footer">
-      <div class ="socialMedia-container">
-      <img src="images/facebook.png" alt="Facebook Icon"/>
-      <img src="images/instagram.png" alt="Instagram Icon" />
-      <img src="images/youtube.png" alt="Youtube Icon" />
-      <img src="images/Email.png" alt="Email Icon" />
-      </div>
-      <p>© NOORANI 2025. No rights reserved.</p>
-  </div>
-</body>
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="assets/homepage.mp4" type="video/mp4">
+        </video>
+    </div>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="overlay"><b><h1>Noorani</b></h1></div>
 
-    <title>Noorani</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
-    <script src="script.js" defer></script> 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">    
-        
-</head>
-<body>
-    
-
-        <!-- Video Backgroundg -->
-        <div class="video-container">
-            <video autoplay muted loop>
-                <source src="assets/homepage.mp4" type="video/mp4">
-                <!-- Your browser does not support the video tag. -->
-            </video>
-        </div>
-    
-        <!-- Fading Text -->
-        <div class="overlay"><b><h1>Noorani</b></h1></div>
-    
-    
-  
-    <!-- Navbar -->
     <nav class="navbar">
         <div class="logo">Noorani</div>
+        <div class="menu-btn">&#9776;</div>
         <div class="nav-links">
             <a href="#">Home</a>
             <a href="#">Menu</a>
@@ -57,37 +26,17 @@
             <a href="#">Takeout</a>
             <a href="#">Contact</a>
             <a href="farm-to-table.html">Farm to Table Process</a>
-        
         </div>
-        <div class="menu-btn">&#9776;</div>
     </nav>
 
-    <!-- Page Content -->
-   
-
-
-    <!--<script>
-        // Toggle Mobile Menu
-        document.querySelector('.menu-btn').addEventListener('click', () => {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-
-        // Change navbar background color on scroll
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 10) {
-                navbar.style.backgroundColor = 'var(--dark-green)'; // solid color when scrolled
-            } else {
-                navbar.style.backgroundColor = 'transparent'; // transparent when at top
-            }
-        });
-    </script>-->
-
-    <script type="text/javascript" src="script.js"></script>
+    <div class="footer">
+        <div class="socialMedia-container">
+            <img src="images/facebook.png" alt="Facebook Icon"/>
+            <img src="images/instagram.png" alt="Instagram Icon" />
+            <img src="images/youtube.png" alt="Youtube Icon" />
+            <img src="images/Email.png" alt="Email Icon" />
+        </div>
+        <p>&copy; NOORANI 2025. No rights reserved.</p>
+    </div>
 </body>
-   
-<!-- favicon: -->
-
-
-
 </html>

@@ -1,27 +1,24 @@
-// script.js
-const sentence = "Welcome to Noorani";
-let index = 0;
+document.addEventListener("DOMContentLoaded", function () {
+    const sentence = "Welcome to Noorani";
+    let index = 0;
 
-function typeSentence() {
-    if (index < sentence.length) {
-        document.getElementById("sentence").textContent += sentence[index];
-        index++;
-        setTimeout(typeSentence, 100); // Adjust typing speed here
-    }
-}
-
-window.onload = typeSentence;  // Starts typing when the page loads
-     // Toggle Mobile Menu
-     document.querySelector('.menu-btn').addEventListener('click', () => {
-        document.querySelector('.nav-links').classList.toggle('active');
-    });
-
-    // Change navbar background color on scroll
-    window.addEventListener('scroll', () => {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 10) {
-            navbar.style.backgroundColor = 'var(--dark-green)'; // solid color when scrolled
-        } else {
-            navbar.style.backgroundColor = 'transparent'; // transparent when at top
+    function typeSentence() {
+        if (index < sentence.length) {
+            document.getElementById("sentence").textContent += sentence[index];
+            index++;
+            setTimeout(typeSentence, 100); // Adjust typing speed here
         }
-    });
+    }
+
+    typeSentence(); // Starts typing effect
+
+    // Navbar menu toggle functionality
+    const menuBtn = document.querySelector(".menu-btn");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (menuBtn && navLinks) {
+        menuBtn.addEventListener("click", function () {
+            navLinks.classList.toggle("active"); // Fix: use "active" instead of "show"
+        });
+    }
+});
