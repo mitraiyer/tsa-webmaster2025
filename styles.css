@@ -1,39 +1,256 @@
-/* styles.css */
-body {
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: fixed;
+    background-color: #447C74;
+    color: #093c34;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 20px;
+    z-index: 10; /* Ensure footer stays on top */
+ }
+ /* Social media container styling */
+ .socialMedia-container {
+     display: flex; /* Use Flexbox to display images in a row */
+     justify-content: center; /* Center images horizontally */
+     flex-wrap: wrap; /* Allow images to wrap to the next line on small screens */
+     gap: 10px; /* Space between images */
+     padding-top: 20px;
+     position: relative; /* Allow it to stack correctly */
+     height: auto; /* Set a fixed height for the container to prevent it from growing */
+     overflow: hidden; /* Prevent the flexbox from expanding vertically when hovering */
+ }
+ /* Adjust image size for responsiveness */
+ .socialMedia-container img {
+     width: 45px; /* Set width of the images */
+     max-width: 90px; /* Set maximum width for responsiveness */
+     height: 45px; /* Set fixed height */
+     border-radius: 8px; /* Optional: rounded corners */
+     transition: width 0.4s, height 0.4s; /* Transition for width and height on hover */
+     box-sizing: border-box; /* Prevent padding from affecting image size */
+ }
+ /* Hover effect for the images */
+ .socialMedia-container img:hover {
+     width: 40px; /* Increase the size on hover */
+     height: 40px; /* Increase the size on hover */
+ }
+ 
+
+/* Import Elegant Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Marcellus&display=swap');
+
+/* Root Variables */
+:root {
+    --dark-green: #093C34;
+    --teal: #447C74;
+    --light-cream: #F3E2C4;
+}
+
+/* General Reset */
+* {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: rgb(237, 157, 157);
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
 
-.video-container {
-    position: relative;
+/* Full height for body and html */
+body, html {
     width: 100%;
-    height: 100vh;
-    overflow: hidden;
+    height: 100%;
+    font-family: 'Marcellus', serif;
 }
 
-video {
+/* Body Styling */
+body {
+    background-color: #020;
+    color: var(--light-cream);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Video Background */
+.video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-container video {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
+/* Text Overlay */
 .overlay {
     position: absolute;
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
+    color: white;
+    font-size: 4.5rem;
+    font-weight: bold;
+    font-family: 'Cinzel Decorative', serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    animation: fadeIn 3s ease-in forwards;
 }
 
-.cursor-text {
-    cursor: text;
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-.typing-container {
-    font-size: 2em;
-    font-family: 'Courier New', Courier, monospace;
-    color: #fff;
+/* Navbar Styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 11vh;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    z-index: 1000;
+    transition: all 0.3s ease;
 }
+
+/* Logo Styling */
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--light-cream);
+    letter-spacing: 1px;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--light-cream);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover Animation */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: var(--teal);
+    transition: width 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: var(--teal);
+}
+
+/* Mobile Menu Button */
+.menu-btn {
+    font-size: 2rem;
+    color: var(--light-cream);
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        background-color: var(--dark-green);
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        text-align: center;
+        padding: 0;
+        border-radius: 15px;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.4s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+    }
+
+    .nav-links.active {
+        max-height: 300px;
+        opacity: 1;
+        padding: 1rem;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+<<<<<<< HEAD
+}
+=======
+}
+
+/* Footer Styling */
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--teal);
+    color: var(--dark-green);
+    text-align: center;
+    padding: 20px;
+    z-index: 10;
+}
+
+/* Social media container */
+.socialMedia-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 20px;
+    height: auto;
+    overflow: hidden;
+}
+
+/* Social Media Icons */
+.socialMedia-container img {
+    width: 45px;
+    max-width: 90px;
+    height: 45px;
+    border-radius: 8px;
+    transition: width 0.3s, height 0.3s;
+}
+
+/* Hover Effect */
+.socialMedia-container img:hover {
+    width: 50px;
+    height: 50px;
+}
+>>>>>>> f0f7e629fe88be9bf019ce2dacbd5361d9648d3e

@@ -1,34 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noorani - Webmaster 2025</title>
-    <!-- Link to CSS -->
-    <link rel="stylesheet" href="styles.css">
-    <!-- HI TESSTTTT -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noorani</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- Favicon Links -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
 </head>
+
 <body>
-    <div class="video-container">
-        <video id="video" autoplay loop muted>
-            <!-- video needs to be changed; video for bg of homescreen -->
-            <source src="images/neighborhood.mp4" type="video/mp4">
-        </video>
-        <center>
-            <!-- words for video are in script file -->
-            <div class="overlay" style="transform: translate(-50%, -50%); left: 50%; top: 15%">
+  <!-- Video Background -->
+  <div class="video-container">
+    <video autoplay muted loop>
+      <source src="assets/homepage.mp4" type="video/mp4">
+      <!-- Your browser does not support the video tag. -->
+    </video>
+  </div>
 
-                <body class="cursor-text">
-                    <div class="typing-container">
-                        <span id="sentence" class="sentence"></span>
-                    </div>
-                </body>
-            </div>
-        </center>
+  <!-- Fading Text -->
+  <div class="overlay">
+    <h1><b>Noorani</b></h1>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Noorani</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Menu</a>
+      <a href="#">About</a>
+      <a href="#">Takeout</a>
+      <a href="#">Contact</a>
+      <a href="farm-to-table.html">Farm to Table Process</a>
     </div>
+    <div class="menu-btn">&#9776;</div>
+  </nav>
 
-    <!-- Link to JavaScript -->
-    <script src="script.js"></script>
+  <!-- Page Content -->
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="socialMedia-container">
+      <img src="footer/facebook.png" alt="Facebook Icon" />
+      <img src="footer/instagram.png" alt="Instagram Icon" />
+      <img src="footer/youtube.png" alt="Youtube Icon" />
+      <img src="footer/Email.png" alt="Email Icon" />
+    </div>
+    <p>© NOORANI 2025. No rights reserved.</p>
+  </div>
+
+  <!-- JavaScript -->
+  <script type="text/javascript" src="script.js"></script>
 </body>
-</html> 
+
+</html>
