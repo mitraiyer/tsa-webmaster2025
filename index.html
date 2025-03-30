@@ -1,29 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noorani</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noorani</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- favicon: -->
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">    
+  <!-- Favicon Links -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
 </head>
+
 <body>
+    <!-- Video Background Section -->
+    <section class="hero-section">
+        <div class="video-container">
+            <video autoplay muted loop>
+                <source src="assets/homepage.mp4" type="video/mp4">
+                <!-- Your browser does not support the video tag. -->
+            </video>
+        </div>
+    
+        <!-- Fading Text -->
+        <div class="overlay">
+            <h1><span class="tropikal-font fade-in-title">Noorani</span></h1>
+            <p class="subtext fade-in-subtext">Where Every Bite is a Ray of Delight</p>
+        </div>
+    </section>
+    
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Noorani</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Menu</a>
+            <a href="#">About</a>
+            <a href="#">Takeout</a>
+            <a href="#">Contact</a>
+            <a href="farm-to-table.html">Farm to Table Process</a>
+        </div>
+        <div class="menu-btn">&#9776;</div>
+    </nav>
 
-    <!-- Video Background -->
-    <div class="video-container">
-        <video autoplay muted loop>
-            <source src="assets/homepage.mp4" type="video/mp4">
-            <!-- Your browser does not support the video tag. -->
-        </video>
+    <!-- Split Layout Section -->
+    <section class="split-section">
+        <div class="split-image">
+            <img src="assets/emptyplace.jpg" alt="Empty Restraunt">
+        </div>
+        <div class="split-text">
+            <h2>Our Roots</h2>
+            <p>At Noorani, our name, in itself, carries the essence of our culinary palette. When breaking up our name, ‘Noor’ – means light, symbolizing the warmth and rich heritage that Indian and Middle Eastern bring to our table. Our exquisitely picked-out menu shines with bold flavors, fresh ingredients, and traditional food, bringing together two cultures and creating culinary excellence.             </p>
+            <a href="roots.html" class="hero-button">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Quote Over Video Section -->
+<section class="quote-video-section">
+    <video autoplay muted loop playsinline>
+      <source src="assets/quotebg.mp4" type="video/mp4" />
+      
+    </video>
+    <div class="quote-overlay">
+        <p class="quote-source">— Chef's Inspiration</p>
+        <h2 class="quote-text">“Where Flavor Meets Soul”</h2>
+        <a href="menu.html" class="quote-button">Explore Menu</a>
+      </div>
+      
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">Noorani</div>
+      <div class="footer-links">
+        <a href="#">Home</a>
+        <a href="#">Menu</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="socialMedia-container">
+        <img src="footer/facebook.png" alt="Facebook">
+        <img src="footer/instagram.png" alt="Instagram">
+        <img src="footer/youtube.png" alt="YouTube">
+        <img src="footer/email.png" alt="Email">
+      </div>
+      <p>© Noorani 2025. All rights reserved.</p>
     </div>
+  </footer>
 
-    <!-- Fading Text -->
-    <div class="overlay"><b><h1>Noorani</b></h1></div>
-
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
