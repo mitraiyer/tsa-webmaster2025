@@ -50,6 +50,3 @@ window.onload = typeSentence;  // Starts typing when the page loads
       navbar.classList.add('blurred'); // Blurred background
     }
   });
-  
-  
-
