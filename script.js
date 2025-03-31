@@ -18,34 +18,35 @@ document.querySelector('.menu-btn').addEventListener('click', () => {
     navLinks.classList.toggle('active');
 });
 
-// Change navbar background color after passing hero section
+// Change navbar background color based on scroll position
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     const heroSection = document.querySelector('.hero-section');
+    const ourRootsSection = document.querySelector('#our-roots'); // Get the Our Roots section
     const quoteSection = document.querySelector('.quote-video-section');
 
     const scrollY = window.scrollY;
-    const heroTop = heroSection.offsetTop;
-    const heroBottom = heroTop + heroSection.offsetHeight;
+    const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+    const ourRootsTop = ourRootsSection.offsetTop;
     const quoteTop = quoteSection.offsetTop;
-    const quoteBottom = quoteTop + quoteSection.offsetHeight;
 
     // Clear all navbar state classes
-    navbar.classList.remove('scrolled', 'blurred', 'at-top');
+    navbar.classList.remove('scrolled', 'at-top', 'blurred');
 
     // Case 1: At top of page (completely transparent)
     if (scrollY === 0) {
         navbar.classList.add('at-top');
     }
-    // Case 2: Over regular section between the videos
-    else if (scrollY > heroBottom && scrollY < quoteTop) {
-        navbar.classList.add('scrolled'); // Cream background
+    // Case 2: Over the hero section (transparent)
+    else if (scrollY < heroBottom) {
+        navbar.classList.remove('scrolled'); // Keep it transparent
     }
-    // Case 3: Over either video section
-    else if (
-        (scrollY > heroTop && scrollY < heroBottom) ||
-        (scrollY > quoteTop && scrollY < quoteBottom)
-    ) {
-        navbar.classList.add('blurred'); // Blurred background
+    // Case 3: Over the Our Roots section (solid background)
+    else if (scrollY >= ourRootsTop) {
+        navbar.classList.add('scrolled'); // Add class for solid background
+    }
+    // Case 4: Over the Quote Over Video section (transparent blurred background)
+    else if (scrollY >= quoteTop) {
+        navbar.classList.add('blurred'); // Add class for blurred background
     }
 });
