@@ -1,4 +1,7 @@
 // script.js
+
+
+
 const sentence = "Welcome to Noorani";
 let index = 0;
 
@@ -50,3 +53,29 @@ window.onload = typeSentence;  // Starts typing when the page loads
       navbar.classList.add('blurred'); // Blurred background
     }
   });
+  window.addEventListener('load', function() {
+  document.body.classList.add('loaded');
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Create an intersection observer
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // When the element is in view, add the 'visible' class
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // Stop observing the element once it's in view
+      }
+    });
+  }, { threshold: 0.5 }); // Trigger when 50% of the element is visible
+
+  // Select all elements with the 'fade-in-element' class
+  const fadeInElements = document.querySelectorAll('.fade-in-element');
+
+  // Observe each element
+  fadeInElements.forEach(element => {
+    observer.observe(element);
+  });
+});
+

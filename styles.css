@@ -23,6 +23,29 @@ body, html {
     font-family: 'Marcellus', serif;
     scroll-behavior: smooth;
 }
+.fade-in-element {
+    opacity: 0; /* Make it invisible initially */
+    transform: translateY(20px); /* Start slightly below the normal position */
+    transition: opacity 1s ease, transform 1s ease; /* Smooth transition for fade and movement */
+  }
+  
+  .fade-in-element.visible {
+    opacity: 1; /* Make it visible when the class is added */
+    transform: translateY(0); /* Move to the normal position */
+  }
+/* Default state - initially the body is invisible */
+body {
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out; /* Duration of the fade-in effect */
+    background-color: #d3d3d3; /* Light gray background */
+    color: #333; /* Dark text color for better readability */
+  }
+  
+  /* When the 'loaded' class is added, the opacity will be set to 1 */
+  body.loaded {
+    opacity: 1;
+  }
+  
 
 /* Hero Section Layout */
 .hero-section {
@@ -157,12 +180,18 @@ body, html {
 }
 
 /* Logo Styling */
-.logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: var(--light-cream);
-    letter-spacing: 1px;
-    font-family: 'Inter', sans-serif;
+.logo a {
+    display: inline-block; /* Ensures the anchor behaves like a block element */
+}
+
+.logo img {
+    width: 35px; /* Adjust as needed */
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo img:hover {
+    transform: scale(1.1); /* Slight zoom effect */
 }
 
 /* Navigation Links */
