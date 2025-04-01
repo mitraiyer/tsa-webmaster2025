@@ -1,16 +1,16 @@
 // script.js
 
-
-
+// Typing Effect
 const sentence = "Welcome to Noorani";
 let index = 0;
 
 function typeSentence() {
-    if (index < sentence.length) {
-        document.getElementById("sentence").textContent += sentence[index];
-        index++;
-        setTimeout(typeSentence, 100); // Adjust typing speed here
-    }
+  const element = document.getElementById("sentence");
+  if (element && index < sentence.length) {
+    element.textContent += sentence[index];
+    index++;
+    setTimeout(typeSentence, 100); // Adjust typing speed here
+  }
 }
 
 window.onload = typeSentence;  // Starts typing when the page loads
