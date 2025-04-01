@@ -14,6 +14,25 @@ function typeSentence() {
 }
 
 window.onload = typeSentence;  // Starts typing when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+  const fadeInElements = document.querySelectorAll('.fade-in-element');
+  if (fadeInElements.length > 0) {
+      const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  entry.target.classList.add('visible');
+                  observer.unobserve(entry.target); // Stop observing once it's in view
+              }
+          });
+      }, { threshold: 0.5 });
+
+      fadeInElements.forEach(element => {
+          observer.observe(element);
+      });
+  } else {
+      console.warn('No elements with the "fade-in-element" class found!');
+  }
+});
 
 //   Toggle Mobile Menu
   document.querySelector('.menu-btn').addEventListener('click', () => {
@@ -58,24 +77,30 @@ window.onload = typeSentence;  // Starts typing when the page loads
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {
-  // Create an intersection observer
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // When the element is in view, add the 'visible' class
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target); // Stop observing the element once it's in view
-      }
-    });
-  }, { threshold: 0.5 }); // Trigger when 50% of the element is visible
 
-  // Select all elements with the 'fade-in-element' class
-  const fadeInElements = document.querySelectorAll('.fade-in-element');
+document.querySelector(".scroll-down-btn").addEventListener("click", function() {
+  const nextSection = document.querySelector(".farm-to-table"); // Replace with your actual section class
+  if (nextSection) {
+      nextSection.scrollIntoView({ behavior: "smooth" });
+  }
+});
+document.addEventListener("DOMContentLoaded", function () {
+  const steps = document.querySelectorAll(".journey-step");
 
-  // Observe each element
-  fadeInElements.forEach(element => {
-    observer.observe(element);
+  const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+          }
+      });
+  }, { threshold: 0.3 });
+
+  steps.forEach(step => {
+      observer.observe(step);
   });
 });
+
+
+
 
