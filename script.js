@@ -101,6 +101,74 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Add to your existing JavaScript file
+document.addEventListener('DOMContentLoaded', function() {
+  const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+          }
+      });
+  }, {threshold: 0.2});
+  
+  document.querySelectorAll('.journey-step').forEach(step => {
+      observer.observe(step);
+  });
+});
 
+document.addEventListener('DOMContentLoaded', function() {
+  // Observer for journey steps (from previous code)
+  const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+          }
+      });
+  }, {threshold: 0.2});
+  
+  // Observe journey steps
+  document.querySelectorAll('.journey-step').forEach(step => {
+      observer.observe(step);
+  });
+  
+  // Also observe the intro section to fade it in
+  const introSection = document.querySelector('.section-intro');
+  if (introSection) {
+      observer.observe(introSection);
+  }
+});
 
-
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize for the section intro
+  const sectionIntro = document.querySelector('.section-intro');
+  if (sectionIntro) {
+      // Add visible class after a short delay for initial animation
+      setTimeout(function() {
+          sectionIntro.classList.add('visible');
+      }, 300);
+  }
+  
+  // Initialize for journey steps
+  const journeySteps = document.querySelectorAll('.journey-step');
+  
+  // Create intersection observer
+  const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+          // Add visible class when element comes into view
+          if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              // Unobserve after animation is triggered
+              observer.unobserve(entry.target);
+          }
+      });
+  }, {
+      root: null,
+      threshold: 0.2, // Trigger when 20% of the element is visible
+      rootMargin: '-50px' // Trigger slightly before the element comes into view
+  });
+  
+  // Observe all journey steps
+  journeySteps.forEach(step => {
+      observer.observe(step);
+  });
+});
