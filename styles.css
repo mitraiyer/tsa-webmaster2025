@@ -541,6 +541,58 @@ body.loaded {
     justify-content: center;
     width: 100%;
   }
+
+  .subpage-overlay {
+    position: absolute;
+    top: 50%;
+    left: 2%;
+    transform: translateY(-50%);
+    color: white;
+    max-width: 500px;
+}
+
+.subpage-title {
+    font-family: 'Tropikal', serif;
+    font-size: 7vw !important;
+    font-weight: thin;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    letter-spacing: 5px;
+
+}
+
+
+.subpage-subtext {
+    font-size: 1 rem;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+}
+
+.subpage-subtext {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+.scroll-down-btn {
+
+    margin-top: 3rem;
+    padding: 0.75rem 3rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    border: 1px solid white;
+    border-radius: 999px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.scroll-down-btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+    color: black;
+}
+
   
   /* Expanded nav bar after scrolling past video */
   .scrolled .navbar {
