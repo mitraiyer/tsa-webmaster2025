@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noorani Menu</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --light-cream: #F3E2C4;
+      --dark-green: #093C34;
+    }
+    .menu-card {
+      transition: all 0.4s ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .menu-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .menu-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    }
+    .sticky-dropdown-wrapper {
+      position: sticky;
+      top: 11vh;
+      z-index: 40;
+      background-color: var(--light-cream);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .navbar {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-[var(--light-cream)] text-[var(--dark-green)]">
+
+  <!-- Navbar -->
+  <nav class="navbar at-top fixed top-0 left-0 w-full z-50 px-4 py-3 flex justify-between items-center bg-transparent">
+    <div class="flex items-center space-x-3">
+      <img src="android-chrome-192x192.png" alt="Noorani Logo" class="h-10 w-auto" />
+      <div class="text-xl font-bold text-white">Noorani</div>
+    </div>
+    <div class="hidden md:flex space-x-6 font-medium text-white">
+        <a href="#appetizers">Appetizers</a>
+        <a href="#salads">Salads</a>
+        <a href="#mains">Mains</a>
+        <a href="#desserts">Desserts</a>
+        <a href="#drinks">Drinks</a>
+      </div>      
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section relative h-[100vh]">
+    <video autoplay muted loop class="absolute w-full h-full object-cover z-[-1]">
+      <source src="assets/menuvideo.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-black/50 flex items-center justify-center text-white">
+      <h1 class="text-6xl font-bold drop-shadow-xl">Menu</h1>
+    </div>
+  </section>
+
+  <!-- Sticky Dropdown -->
+  <div class="sticky-dropdown-wrapper py-4">
+    <div class="max-w-4xl mx-auto text-center">
+        <select onchange="document.getElementById(this.value).scrollIntoView({behavior: 'smooth'})"
+        class="px-4 py-2 rounded-lg border border-gray-300 shadow-sm w-full md:w-1/2">
+        <option value="appetizers">Jump to Appetizers</option>
+        <option value="salads">Jump to Salads</option>
+        <option value="mains">Jump to Mains</option>
+        <option value="desserts">Jump to Desserts</option>
+        <option value="drinks">Jump to Drinks</option>
+      </select>      
+    </div>
+  </div>
+
+  <!-- Menu Sections -->
+  <section id="appetizers" class="py-12">
+    <h2 class="text-4xl font-bold text-center mb-10">Appetizers / Sides</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 max-w-7xl mx-auto">
+      
+      <div class="menu-card bg-white p-5 rounded-xl shadow-md">
+        <img src="https://source.unsplash.com/600x400/?hummus" class="mb-4 w-full h-48 object-cover rounded-md" alt="Tandoori Spiced Hummus" />
+        <h3 class="text-xl font-semibold mb-2">Tandoori Spiced Hummus</h3>
+        <p>Classic hummus blended with smoky tandoori spices topped with roasted chickpeas and served with naan chips and pita.</p>
+        <p class="mt-2 font-bold">$8.99</p>
+      </div>
+      
+      <div class="menu-card bg-white p-5 rounded-xl shadow-md">
+        <img src="https://source.unsplash.com/600x400/?baba-ganoush" class="mb-4 w-full h-48 object-cover rounded-md" alt="Masala Baba Ganoush" />
+        <h3 class="text-xl font-semibold mb-2">Masala Baba Ganoush</h3>
+        <p>A smoky roasted eggplant dip infused with garam masala and chili. Topped with olive oil and served with cumin-spiced pita chips.</p>
+        <p class="mt-2 font-bold">$7.99</p>
+      </div>
+      
+      <div class="menu-card bg-white p-5 rounded-xl shadow-md">
+        <img src="https://source.unsplash.com/600x400/?samosa" class="mb-4 w-full h-48 object-cover rounded-md" alt="Spiced Feta and Paneer Samosas" />
+        <h3 class="text-xl font-semibold mb-2">Spiced Feta and Paneer Samosas</h3>
+        <p>Stuffed with a blend of crumbled feta and paneer, sautéed onions, garlic, cumin, coriander, and za’atar. Served with mint chutney.</p>
+        <p class="mt-2 font-bold">$9.49</p>
+      </div>
+      
+      <div class="menu-card bg-white p-5 rounded-xl shadow-md">
+        <img src="https://source.unsplash.com/600x400/?falafel" class="mb-4 w-full h-48 object-cover rounded-md" alt="Za’atar Spiced Aloo Gobi Kofta" />
+        <h3 class="text-xl font-semibold mb-2">Za’atar Spiced Aloo Gobi Kofta</h3>
+        <p>Crispy aloo gobi koftas seasoned with za’atar and turmeric. Served with tahini yogurt dip and spicy pomegranate sauce.</p>
+        <p class="mt-2 font-bold">$8.25</p>
+      </div>
+      
+      <div class="menu-card bg-white p-5 rounded-xl shadow-md">
+        <img src="https://source.unsplash.com/600x400/?dolma" class="mb-4 w-full h-48 object-cover rounded-md" alt="Paneer and Pomegranate Dolma" />
+        <h3 class="text-xl font-semibold mb-2">Paneer and Pomegranate Dolma</h3>
+        <p>Grape leaves stuffed with spiced paneer, rice, onions, raisins. Topped with pomegranate seeds and yogurt sauce.</p>
+        <p class="mt-2 font-bold">$8.95</p>
+      </div>
+      
+      <div class="menu-card bg-white p-5 rounded-xl shadow-md">
+        <img src="https://source.unsplash.com/600x400/?fries" class="mb-4 w-full h-48 object-cover rounded-md" alt="French Fries" />
+        <h3 class="text-xl font-semibold mb-2">French Fries</h3>
+        <p>Golden crispy fries served fresh.</p>
+        <p class="mt-2 font-bold">$4.50</p>
+      </div>
+      
+    </div>
+  </section>
+  
+  <section id="salads" class="py-12">
+    <h2 class="text-4xl font-bold text-center mb-10">Salads</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 max-w-7xl mx-auto">
+      
+      <div class="menu-card bg-white p-5 rounded-xl shadow-md">
+        <img src="https://source.unsplash.com/600x400/?arabic-salad" class="mb-4 w-full h-48 object-cover rounded-md" alt="Arabic Salad" />
+        <h3 class="text-xl font-semibold mb-2">Arabic Salad</h3>
+        <p>Cucumbers, tomatoes, red onions, bell peppers, parsley, feta, sumac, lemon-olive oil dressing.</p>
+        <p class="mt-2 font-bold">$7.25</p>
+      </div>
+      
+      <div class="menu-card bg-white p-5 rounded-xl shadow-md">
+        <img src="https://source.unsplash.com/600x400/?tahini-salad" class="mb-4 w-full h-48 object-cover rounded-md" alt="Tahini Salad" />
+        <h3 class="text-xl font-semibold mb-2">Tahini Salad</h3>
+        <p>Romaine and cucumbers with creamy tahini dressing, cherry tomatoes, red onions, toasted sesame.</p>
+        <p class="mt-2 font-bold">$6.95</p>
+      </div>
+      
+      <div class="menu-card bg-white p-5 rounded-xl shadow-md">
+        <img src="https://source.unsplash.com/600x400/?tabbouleh" class="mb-4 w-full h-48 object-cover rounded-md" alt="Tabbouleh" />
+        <h3 class="text-xl font-semibold mb-2">Tabbouleh</h3>
+        <p>Parsley, bulgur, tomatoes, mint, lemon juice, and olive oil.</p>
+        <p class="mt-2 font-bold">$6.50</p>
+      </div>
+      
+      <div class="menu-card bg-white p-5 rounded-xl shadow-md">
+        <img src="https://source.unsplash.com/600x400/?greek-salad" class="mb-4 w-full h-48 object-cover rounded-md" alt="Greek Salad" />
+        <h3 class="text-xl font-semibold mb-2">Greek Salad</h3>
+        <p>Tomatoes, cucumbers, red onions, kalamata olives, feta, oregano-infused olive oil.</p>
+        <p class="mt-2 font-bold">$7.75</p>
+      </div>
+      
+      <div class="menu-card bg-white p-5 rounded-xl shadow-md">
+        <img src="https://source.unsplash.com/600x400/?caesar-salad" class="mb-4 w-full h-48 object-cover rounded-md" alt="Caesar Salad" />
+        <h3 class="text-xl font-semibold mb-2">Caesar Salad</h3>
+        <p>Romaine lettuce with Caesar dressing, parmesan, and crunchy croutons.</p>
+        <p class="mt-2 font-bold">$7.00</p>
+      </div>
+      
+    </div>
+  </section>
+  
+  <section id="mains" class="py-12">
+    <h2 class="text-4xl font-bold text-center mb-10">Mains</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 max-w-7xl mx-auto">
+      
+      <div class="menu-card bg-white p-5 rounded-xl shadow-md">
+        <img src="https://source.unsplash.com/600x400/?shawarma" class="mb-4 w-full h-48 object-cover rounded-md" alt="Butter Paneer Shawarma" />
+        <h3 class="text-xl font-semibold mb-2">Butter Paneer Shawarma</h3>
+        <p>Grilled tandoori-marinated paneer in butter masala sauce wrapped in pita with mint, pickled onions, lettuce, and tahini-yogurt sauce.</p>
+        <p class="mt-2 font-bold">$12.99</p>
+      </div>
+      
+      <div class="menu-card bg-white p-5 rounded-xl shadow-md">
+        <img src="https://source.unsplash.com/600x400/?chaat" class="mb-4 w-full h-48 object-cover rounded-md" alt="Falafel Chaat" />
+        <h3 class="text-xl font-semibold mb-2">Falafel Chaat</h3>
+        <p>Falafel topped with yogurt, tamarind, chutneys, chopped veggies, and crispy sev.</p>
+        <p class="mt-2 font-bold">$10.75</p>
+      </div>
+      
+      <div class="menu-card bg-white p-5 rounded-xl shadow-md">
+        <img src="https://source.unsplash.com/600x400/?biryani" class="mb-4 w-full h-48 object-cover rounded-md" alt="Biryani Makloubeh" />
+        <h3 class="text-xl font-semibold mb-2">Biryani Makloubeh</h3>
+        <p>Layered basmati rice with saffron, Middle Eastern spices, eggplant, potatoes, cauliflower. Served with raita.</p>
+        <p class="mt-2 font-bold">$13.95</p>
+      </div>
+      
+      <div class="menu-card bg-white p-5 rounded-xl shadow-md">
+        <img src="https://source.unsplash.com/600x400/?dal" class="mb-4 w-full h-48 object-cover rounded-md" alt="Harissa Dal Makhani" />
+        <h3 class="text-xl font-semibold mb-2">Harissa Dal Makhani</h3>
+        <p>Slow-cooked black lentils with harissa, tomatoes, butter, cream. Served with naan or cumin rice.</p>
+        <p class="mt-2 font-bold">$11.25</p>
+      </div>
+      
+    </div>
+  </section>
+  
+  <section id="desserts" class="py-12">
+    <h2 class="text-4xl font-bold text-center mb-10">Desserts</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 max-w-7xl mx-auto">
+      
+      <div class="menu-card bg-white p-5 rounded-xl shadow-md">
+        <img src="https://source.unsplash.com/600x400/?baklava" class="mb-4 w-full h-48 object-cover rounded-md" alt="Gulab Baklava" />
+        <h3 class="text-xl font-semibold mb-2">Gulab Baklava</h3>
+        <p>Baklava layered with syrup-soaked gulab and pistachios.</p>
+        <p class="mt-2 font-bold">$6.50</p>
+      </div>
+      
+      <div class="menu-card bg-white p-5 rounded-xl shadow-md">
+        <img src="https://source.unsplash.com/600x400/?kunafa" class="mb-4 w-full h-48 object-cover rounded-md" alt="Kunafa Cheesecake" />
+        <h3 class="text-xl font-semibold mb-2">Kunafa Cheesecake</h3>
+        <p>Chai-spiced cheesecake on kunafa base with date syrup and pistachios.</p>
+        <p class="mt-2 font-bold">$6.95</p>
+      </div>
+      
+      <div class="menu-card bg-white p-5 rounded-xl shadow-md">
+        <img src="https://source.unsplash.com/600x400/?basbousa" class="mb-4 w-full h-48 object-cover rounded-md" alt="Rosewater Basbousa" />
+        <h3 class="text-xl font-semibold mb-2">Rosewater Basbousa</h3>
+        <p>Semolina cake with rosewater and cardamom, honey syrup, almonds.</p>
+        <p class="mt-2 font-bold">$5.99</p>
+      </div>
+      
+    </div>
+  </section>
+
+  <section id="drinks" class="py-12">
+    <h2 class="text-4xl font-bold text-center mb-10">Drinks</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 max-w-7xl mx-auto">
+      
+      <div class="menu-card bg-white p-5 rounded-xl shadow-md">
+        <img src="https://source.unsplash.com/600x400/?lemonade" class="mb-4 w-full h-48 object-cover rounded-md" alt="Rose and Mint Cumin Lemonade" />
+        <h3 class="text-xl font-semibold mb-2">Rose and Mint Cumin Lemonade</h3>
+        <p>Lemon, fresh mint, jaggery, roasted cumin, rose water, sparkling water.</p>
+        <p class="mt-2 font-bold">$4.75</p>
+      </div>
+      
+      <div class="menu-card bg-white p-5 rounded-xl shadow-md">
+        <img src="https://source.unsplash.com/600x400/?mango-lassi" class="mb-4 w-full h-48 object-cover rounded-md" alt="Mango Lassi" />
+        <h3 class="text-xl font-semibold mb-2">Mango Lassi</h3>
+        <p>Creamy mango yogurt drink with cardamom.</p>
+        <p class="mt-2 font-bold">$4.25</p>
+      </div>
+      
+      <div class="menu-card bg-white p-5 rounded-xl shadow-md">
+        <img src="https://source.unsplash.com/600x400/?iced-coffee" class="mb-4 w-full h-48 object-cover rounded-md" alt="Spiced Chai Iced Arabic Coffee" />
+        <h3 class="text-xl font-semibold mb-2">Spiced Chai Iced Arabic Coffee</h3>
+        <p>Arabic coffee with chai spices. Iced, sweetened with condensed milk.</p>
+        <p class="mt-2 font-bold">$5.00</p>
+      </div>
+      
+      <div class="menu-card bg-white p-5 rounded-xl shadow-md">
+        <img src="https://source.unsplash.com/600x400/?tea" class="mb-4 w-full h-48 object-cover rounded-md" alt="Tea" />
+        <h3 class="text-xl font-semibold mb-2">Chai</h3>
+        <p>Freshly brewed hot chai served plain or with milk upon request.</p>
+        <p class="mt-2 font-bold">$2.50</p>
+      </div>
+
+      <div class="menu-card bg-white p-5 rounded-xl shadow-md">
+        <img src="https://source.unsplash.com/600x400/?water-bottle" class="mb-4 w-full h-48 object-cover rounded-md" alt="Saratoga Water (Flat)" />
+        <h3 class="text-xl font-semibold mb-2">Saratoga Water (Flat)</h3>
+        <p>Premium still spring water served chilled in a glass bottle.</p>
+        <p class="mt-2 font-bold">$2.50</p>
+      </div>
+      
+      <div class="menu-card bg-white p-5 rounded-xl shadow-md">
+        <img src="https://source.unsplash.com/600x400/?sparkling-water" class="mb-4 w-full h-48 object-cover rounded-md" alt="Saratoga Sparkling Water" />
+        <h3 class="text-xl font-semibold mb-2">Saratoga Sparkling Water</h3>
+        <p>Refreshing sparkling mineral water served in a glass bottle.</p>
+        <p class="mt-2 font-bold">$3.00</p>
+      </div>
+      
+      <!-- <div class="menu-card bg-white p-5 rounded-xl shadow-md">
+        <img src="https://source.unsplash.com/600x400/?soda" class="mb-4 w-full h-48 object-cover rounded-md" alt="Soda" />
+        <h3 class="text-xl font-semibold mb-2">Soda</h3>
+        <p>Chilled cans of classic sodas. Ask for available options.</p>
+        <p class="mt-2 font-bold">$2.50</p>
+      </div> -->
+      
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer mt-16 bg-[var(--dark-green)] text-white text-center py-6">
+    <p>&copy; Noorani 2025. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Animate fade-in cards
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll(".menu-card").forEach(card => {
+      observer.observe(card);
+    });
+  </script>
+</body>
+</html>
