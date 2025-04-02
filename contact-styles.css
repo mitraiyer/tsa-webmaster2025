@@ -1,332 +1,249 @@
-/* Contact Page Specific Styles */
+/* Contact Styles CSS */
 
-/* Hero Section Styling */
-.hero-section .tagline {
-    font-size: 1.25rem;
-    margin-top: 0.5rem;
-    font-weight: 300;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 1s ease forwards;
-    animation-delay: 1s;
-  }
-  
-  /* Contact Info Section */
-  .contact-info {
-    margin-top: 2rem;
+/* Hero Section Modifications */
+.hero-section .overlay h1 {
+    text-align: left;
+    padding-left: 5%;
+}
+
+.hero-section .overlay .subtext,
+.hero-section .overlay .tagline {
+    text-align: left;
+    padding-left: 5%;
+}
+
+/* Contact Information Section */
+.split-section {
+    background-color: #f9f9f9; /* Light background color */
+    padding: 5rem 2rem;
+    color: #093C34; /* Dark text color for contrast */
+}
+
+.contact-info {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  @media (min-width: 768px) {
-    .contact-info {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
-  .contact-item {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.contact-item {
+    background: rgba(9, 60, 52, 0.1); /* Light semi-transparent background */
+    border-radius: 8px;
+    padding: 1.5rem;
     display: flex;
     align-items: flex-start;
     gap: 1rem;
-    padding: 1rem;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 0.5rem;
-    backdrop-filter: blur(10px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .contact-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .contact-icon {
-    width: 2.5rem;
-    height: 2.5rem;
+    transition: transform 0.3s;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.contact-icon {
+    background-color: rgba(9, 60, 52, 0.2); /* Slightly darker background for icons */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--primary-color);
-    border-radius: 50%;
     flex-shrink: 0;
-  }
-  
-  .contact-icon img {
-    width: 1.5rem;
-    height: 1.5rem;
-    filter: brightness(0) invert(1);
-  }
-  
-  .contact-item h3 {
-    font-size: 1.25rem;
+}
+
+.contact-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+.contact-item h3 {
     margin: 0 0 0.5rem 0;
-    color: var(--primary-color);
-  }
-  
-  .contact-item p {
-    margin: 0;
-    line-height: 1.5;
-  }
-  
-  /* Form Section Styling */
-  .form-section {
-    background-color: var(--light-cream);
-    padding: 4rem 1.5rem;
-  }
-  
-  .contact-form-container {
+    font-size: 1.2rem;
+}
+
+.contact-cta {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.cta-button {
+    background-color: #093C34;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #05241f;
+}
+
+/* Contact Form Section */
+.form-section {
+    background-color: #f9f9f9;
+    padding: 5rem 2rem;
+}
+
+.contact-form-container {
     max-width: 800px;
     margin: 0 auto;
     background-color: #fff;
-    padding: 2.5rem;
-    border-radius: 1rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  }
-  
-  .contact-form-container h2 {
-    color: var(--primary-color);
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-  
-  .form-intro {
-    text-align: center;
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form-container h2 {
+    color: #093C34;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+.form-intro {
     margin-bottom: 2rem;
     color: #666;
-  }
-  
-  .contact-form {
+}
+
+.contact-form {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
-  }
-  
-  @media (min-width: 768px) {
-    .contact-form {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
-  .form-group {
+}
+
+.form-group {
     display: flex;
     flex-direction: column;
-  }
-  
-  .form-group.full-width {
-    grid-column: 1 / -1;
-  }
-  
-  .form-label {
-    font-size: 0.9rem;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+.form-label {
     margin-bottom: 0.5rem;
-    color: #444;
+    color: #333;
     font-weight: 500;
-  }
-  
-  .form-input,
-  .form-textarea {
+}
+
+.form-input,
+.form-textarea {
     padding: 0.75rem;
     border: 1px solid #ddd;
-    border-radius: 0.5rem;
+    border-radius: 4px;
     font-family: inherit;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
-  }
-  
-  .form-input:focus,
-  .form-textarea:focus {
+    transition: border-color 0.3s;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    border-color: #093C34;
     outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(9, 60, 52, 0.1);
-  }
-  
-  .form-input.error,
-  .form-textarea.error {
-    border-color: #e74c3c;
-  }
-  
-  .form-submit {
-    grid-column: 1 / -1;
-    background-color: var(--primary-color);
+}
+
+.form-submit {
+    grid-column: span 2;
+    background-color: #093C34;
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
-    font-weight: 600;
-    border-radius: 0.5rem;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    justify-self: center;
-    min-width: 200px;
-  }
-  
-  .form-submit:hover {
-    background-color: #072a25;
-  }
-  
-  .form-success {
-    padding: 1rem;
-    background-color: #e6f7e6;
+    transition: background-color 0.3s;
+}
+
+.form-submit:hover {
+    background-color: #05241f;
+}
+
+.form-success {
+    background-color: #e0f7e0;
     color: #2e7d32;
-    border-radius: 0.5rem;
+    padding: 1rem;
     text-align: center;
+    border-radius: 4px;
     margin-top: 1.5rem;
-  }
-  
-  .hide {
+}
+
+.hide {
     display: none;
-  }
-  
-  /* FAQ Section Styling */
-  .faq-section {
-    padding: 5rem 1.5rem;
-    background-color: #f9f9f9;
-  }
-  
-  .faq-section .container {
-    max-width: 1000px;
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 5rem 2rem;
+    background-color: #fff;
+}
+
+.faq-section .container {
+    max-width: 900px;
     margin: 0 auto;
-  }
-  
-  .section-heading {
+}
+
+.section-heading {
     text-align: center;
-    font-size: 2.5rem;
+    color: #093C34;
     margin-bottom: 3rem;
-    color: var(--primary-color);
-  }
-  
-  .faq-container {
+}
+
+.faq-container {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-  }
-  
-  .faq-item {
-    background-color: white;
-    border-radius: 0.5rem;
+}
+
+.faq-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  }
-  
-  .faq-question {
-    padding: 1.5rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--primary-color);
-    position: relative;
+}
+
+.faq-question {
+    padding: 1.25rem;
+    background-color: #f5f5f5;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .faq-question::after {
+    font-weight: 600;
+    color: #093C34;
+    position: relative;
+}
+
+.faq-question:after {
     content: '+';
+    position: absolute;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
     font-size: 1.5rem;
-    transition: transform 0.3s ease;
-  }
-  
-  .faq-question.active::after {
-    content: '−';
-  }
-  
-  .faq-answer {
+}
+
+.faq-item.active .faq-question:after {
+    content: '-';
+}
+
+.faq-answer {
     padding: 0;
     max-height: 0;
     overflow: hidden;
     transition: all 0.3s ease;
-  }
-  
-  .faq-answer.active {
-    padding: 0 1.5rem 1.5rem 1.5rem;
+    background-color: #fff;
+}
+
+.faq-item.active .faq-answer {
+    padding: 1.25rem;
     max-height: 500px;
-  }
-  
-  .faq-answer p {
-    margin: 0;
-    line-height: 1.6;
-    color: #444;
-  }
-  
-  /* Newsletter Section */
-  .newsletter-section {
-    background-color: var(--primary-color);
-    padding: 4rem 1.5rem;
-    color: white;
-  }
-  
-  .newsletter-container {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  .newsletter-heading {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .newsletter-description {
-    margin-bottom: 2rem;
-    opacity: 0.9;
-    line-height: 1.6;
-  }
-  
-  .newsletter-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-  
-  @media (min-width: 640px) {
-    .newsletter-form {
-      flex-direction: row;
-    }
-  }
-  
-  .newsletter-input {
-    flex-grow: 1;
-    padding: 0.75rem 1rem;
-    border: none;
-    border-radius: 0.25rem;
-    font-size: 1rem;
-  }
-  
-  .newsletter-button {
-    padding: 0.75rem 1.5rem;
-    background-color: #f8b400;
-    color: #333;
-    border: none;
-    border-radius: 0.25rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-  
-  .newsletter-button:hover {
-    background-color: #f0a500;
-  }
-  
-  .newsletter-privacy {
-    margin-top: 1rem;
-    font-size: 0.85rem;
-    opacity: 0.7;
-  }
-  
-  /* Back to Top Button */
-  .back-to-top {
+}
+
+/* Back to Top Button */
+.back-to-top {
     position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    width: 3rem;
-    height: 3rem;
-    background-color: var(--primary-color);
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #093C34;
     color: white;
     border-radius: 50%;
     display: flex;
@@ -335,46 +252,34 @@
     cursor: pointer;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
     z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  .back-to-top.visible {
+}
+
+.back-to-top.visible {
     opacity: 1;
     visibility: visible;
-  }
-  
-  .arrow-up {
+}
+
+.arrow-up {
     font-size: 1.5rem;
-    line-height: 1;
-  }
-  
-  /* Animation */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-form {
+        grid-template-columns: 1fr;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+
+    .form-group.full-width {
+        grid-column: span 1;
     }
-  }
-  
-  .fade-in-element {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  
-  .fade-in-element.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  /* Variable root styles (add these to your main CSS if not already present) */
-  :root {
-    --primary-color: #093C34;
-    --light-cream: #f7f4ef;
-  }
+
+    .form-submit {
+        grid-column: span 1;
+    }
+
+    .contact-form-container {
+        padding: 2rem;
+    }
+}

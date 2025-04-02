@@ -169,3 +169,84 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 });
+// Add to your script.js
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const targetId = this.getAttribute('href');
+    if (targetId === '#') return;
+    
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+document.addEventListener('DOMContentLoaded', function() {
+  const navbar = document.querySelector('.navbar');
+  const heroSection = document.querySelector('.hero-section');
+  const menuBtn = document.querySelector('.menu-btn');
+  
+  // Create mobile menu elements
+  const mobileMenu = document.createElement('div');
+  mobileMenu.className = 'mobile-menu';
+  
+  const menuClose = document.createElement('div');
+  menuClose.className = 'menu-close';
+  menuClose.innerHTML = '&times;';
+  
+  const menuOverlay = document.createElement('div');
+  menuOverlay.className = 'menu-overlay';
+  
+  // Clone navigation links for mobile menu
+  const navLinks = document.querySelector('.nav-links').cloneNode(true);
+  
+  // Append elements
+  mobileMenu.appendChild(menuClose);
+  mobileMenu.appendChild(navLinks);
+  document.body.appendChild(mobileMenu);
+  document.body.appendChild(menuOverlay);
+  
+  // Add video section class initially
+  navbar.classList.add('video-section-active');
+  
+  // Handle scroll events
+  window.addEventListener('scroll', function() {
+    const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+    
+    if (window.pageYOffset > heroBottom - navbar.offsetHeight) {
+      navbar.classList.add('scrolled');
+      navbar.classList.remove('video-section-active');
+    } else {
+      navbar.classList.remove('scrolled');
+      navbar.classList.add('video-section-active');
+    }
+  });
+  
+  // Mobile menu toggle
+  menuBtn.addEventListener('click', function() {
+    mobileMenu.classList.add('active');
+    menuOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+  
+  // Close mobile menu
+  menuClose.addEventListener('click', closeMenu);
+  menuOverlay.addEventListener('click', closeMenu);
+  
+  function closeMenu() {
+    mobileMenu.classList.remove('active');
+    menuOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  
+  // Close menu when clicking on links
+  const mobileLinks = mobileMenu.querySelectorAll('a');
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+});
