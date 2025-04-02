@@ -1,699 +1,854 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" href="styles.css">
- <script src="script.js" defer></script>
- <script src="https://cdn.tailwindcss.com"></script>
- <title>Noorani Reservation System :3</title>
-   <!-- Favicon Links -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+<script src="script.js" defer></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<title>Noorani Reservation System</title>
+  <!-- Favicon Links -->
+ <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+ <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+ <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+ <link rel="manifest" href="/site.webmanifest">
 
 
- <!-- Tailwind CSS CDN -->
- <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-  <!-- React and ReactDOM -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-  <!-- Babel for JSX support -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.21.2/babel.min.js"></script>
-  <style>
-   body {
-     font-family: 'Segoe UI', Tahoma, Genev                                                                  , Verdana, sans-serif;
-     background-color: #011d1e;
-     margin-top: 50px;
-     font-family: 'Cinzel Decorative', serif;
-   }
-   .restaurant-container {
-     max-width: 1200px;
-     margin: 0 auto;
-     padding: 20px;
-   }
-   .header {
-     margin-top: 100px;
-     background: var(--teal);
-     color: white;
-     padding: 1rem;
-     margin-bottom: 2rem;
-     width: 100%;
-     font-size: 20px;
-   }
-   .header p{
-     font-family: 'Marcellus', serif;
-   }
-   label, span, p{
-     font-family: 'Marcellus', serif;
-     font-style: bold;
-   }
-   .header h1{
-     font-size: 35px;
-   }
-   /* General form styling */
-select, input[type="text"], input[type="email"], input[type="tel"], input[type="date"] {
- font-family: 'Marcellus', serif;
- font-size: 14px;
-}
 
 
-/* Target React components specifically */
-#reservation-app select,
-#reservation-app input {
- font-family: 'Marcellus', serif !important;
- font-size: 14px !important;
-}
+<!-- Tailwind CSS CDN hi caitlyn-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+ <!-- React and ReactDOM -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+ <!-- Babel for JSX support -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.21.2/babel.min.js"></script>
+ <style>
+  /* Google Fonts Import for Cinzel Decorative and Marcellus */
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Marcellus&display=swap');
+ 
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #011d1e;
+    margin-top: 50px;
+  }
+  .restaurant-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .header {
+    margin-top: 100px;
+    background: var(--teal);
+    color: white;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    font-size: 20px;
+  }
+  .header p{
+    font-family: 'Marcellus', serif;
+  }
+  label, span, p{
+    font-family: 'Marcellus', serif;
+    font-style: bold;
+  }
+  .header h1{
+    font-size: 35px;
+    font-family: 'Cinzel Decorative', serif;
+    color: #ffffff;
+  }
+  /* Input styling with yellow Cinzel font */
+  select, input[type="text"], input[type="email"], input[type="tel"], input[type="date"] {
+   font-family: 'Marcellus', serif;
+    font-size: 14px;
+    color: #FFD700;
+    background-color: #011d1e;
+    border: 1px solid #ffffff;
+  }
 
 
- </style>
+  /* Target React components specifically */
+  #reservation-app select,
+  #reservation-app input {
+   font-family: 'Marcellus', serif;
+    font-size: 14px !important;
+    color: #000000 !important;
+    background-color: #ffffff !important;
+    border: 1px solid #ffffff !important;
+  }
+ 
+  /* Make input labels yellow */
+  #reservation-app label {
+    color: #ffffff !important;
+    font-family: 'Marcellus', serif;
+
+
+  }
+ 
+  /* Wider input section */
+  #reservation-app .input-section {
+    width: 100% !important;
+    font-family: 'Marcellus', serif;
+
+
+  }
+ 
+  /* Restaurant layout styling */
+  .restaurant-layout {
+    background-color: #10292a !important;
+    border-color: transparent !important;
+  }
+ 
+  /* Button styling */
+  #reservation-app button {
+   font-family: 'Cinzel Decorative', serif !important;
+    background-color: #8c702e !important;
+    color: white !important;
+    border: 1px solid #FFD700 !important;
+  }
+ 
+  #reservation-app button:hover {
+    background-color: #FFD700 !important;
+    color: #011d1e !important;
+  }
+ 
+  /* Table text and legend styling */
+  #reservation-app h2, #reservation-app .text-center {
+    color: #ffffff !important;
+  }
+ 
+  /* Adjusted layout for better width */
+  @media (min-width: 768px) {
+    #reservation-app .input-section {
+      width: 40% !important;
+    }
+    #reservation-app .layout-section {
+      width: 60% !important;
+    }
+  }
+</style>
 </head>
 <body>
+ <!-- Navbar -->
  <nav class="navbar">
-   <div class="logo">Noorani</div>
+   <div class="logo-container" style="display: flex; align-items: center;">
+     <img src="android-chrome-192x192.png" alt="Noorani Logo" style="height: 50px; width: auto; margin-right: 10px;">
+     <div class="logo">Noorani</div>
+   </div>
    <div class="nav-links">
-       <a href="index.html">Home</a>
-       <a href="#">Menu</a>
-       <a href="#">About</a>
-       <a href="#">Takeout</a>
-       <a href="reservations.html">Reserve</a>
-       <a href="#">Contact</a>
-       <a href="farm-to-table.html">Farm to Table Process</a>
-       <a href="sustainability.html">Sustainability</a>
+     <a href="#">Home</a>
+     <a href="#">Menu</a>
+     <a href="farm-to-table.html">Farm-to-Table</a>
+     <a href="#">Takeout</a>
+     <a href="contactus.html">Contact</a>
+     <a href="#our-roots.html">Our Roots</a>
    </div>
    <div class="menu-btn">&#9776;</div>
-</nav>
+ </nav>
+
+
 <div class="header">
- <h1 class="text-2xl font-bold text-center">Make A Reservation</h1>
- <p class="text-center">Fine Dining Experience</p>
+<h1 class="text-2xl font-bold text-center">Make A Reservation</h1>
+<p class="text-center">Fine Dining Experience</p>
 </div>
- <div class="restaurant-container">
-   <div id="reservation-app"></div>
- </div>
+<div class="restaurant-container">
+  <div id="reservation-app"></div>
+</div>
 
 
- <script type="text/babel">
-   const { useState } = React;
 
 
-   const RestaurantReservation = () => {
-     const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
-     const [selectedTime, setSelectedTime] = useState('');
-     const [selectedTable, setSelectedTable] = useState(null);
-     const [selectedSeats, setSelectedSeats] = useState([]);
-     const [reservationComplete, setReservationComplete] = useState(false);
-     const [customerName, setCustomerName] = useState('');
-     const [customerEmail, setCustomerEmail] = useState('');
-     const [customerPhone, setCustomerPhone] = useState('');
-     const [partySize, setPartySize] = useState(2);
-     const [showSeatSelector, setShowSeatSelector] = useState(false);
-     const [bookFullTable, setBookFullTable] = useState(false);
+<script type="text/babel">
+  const { useState } = React;
 
 
-     // Available time slots in EST
-     const timeSlots = ['11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '03:00 PM', '04:00 PM', '05:00 PM', '06:00 PM', '07:00 PM', '08:00 PM', '09:00 PM', '10:00 PM'];
-     // Restaurant tables configuration with seats
-     const tables = [
-       {
-         id: 1,
-         x: 50,
-         y: 50,
-         seats: 2,
-         available: true,
-         shape: 'circle',
-         size: 40,
-         seatPositions: [
-           { id: '1A', x: 50, y: 25, available: true },
-           { id: '1B', x: 50, y: 75, available: true }
-         ]
-       },
-       {
-         id: 2,
-         x: 150,
-         y: 50,
-         seats: 2,
-         available: true,
-         shape: 'circle',
-         size: 40,
-         seatPositions: [
-           { id: '2A', x: 150, y: 25, available: true },
-           { id: '2B', x: 150, y: 75, available: true }
-         ]
-       },
-       {
-         id: 3,
-         x: 250,
-         y: 50,
-         seats: 4,
-         available: false,
-         shape: 'rect',
-         width: 80,
-         height: 40,
-         seatPositions: [
-           { id: '3A', x: 220, y: 50, available: false },
-           { id: '3B', x: 250, y: 80, available: false },
-           { id: '3C', x: 280, y: 50, available: false },
-           { id: '3D', x: 250, y: 20, available: false }
-         ]
-       },
-       {
-         id: 4,
-         x: 50,
-         y: 150,
-         seats: 4,
-         available: true,
-         shape: 'rect',
-         width: 80,
-         height: 40,
-         seatPositions: [
-           { id: '4A', x: 20, y: 150, available: true },
-           { id: '4B', x: 50, y: 180, available: true },
-           { id: '4C', x: 80, y: 150, available: true },
-           { id: '4D', x: 50, y: 120, available: true }
-         ]
-       },
-       {
-         id: 5,
-         x: 150,
-         y: 150,
-         seats: 6,
-         available: true,
-         shape: 'rect',
-         width: 120,
-         height: 40,
-         seatPositions: [
-           { id: '5A', x: 105, y: 150, available: true },
-           { id: '5B', x: 135, y: 180, available: true },
-           { id: '5C', x: 165, y: 180, available: true },
-           { id: '5D', x: 195, y: 150, available: true },
-           { id: '5E', x: 165, y: 120, available: true },
-           { id: '5F', x: 135, y: 120, available: true },
-         ]
-       },
-       {
-         id: 6,
-         x: 250,
-         y: 150,
-         seats: 2,
-         available: true,
-         shape: 'circle',
-         size: 40,
-         seatPositions: [
-           { id: '6A', x: 250, y: 125, available: true },
-           { id: '6B', x: 250, y: 175, available: true }
-         ]
-       },
-       {
-         id: 7,
-         x: 350,
-         y: 150,
-         seats: 2,
-         available: true,
-         shape: 'circle',
-         size: 40,
-         seatPositions: [
-           { id: '7A', x: 350, y: 125, available: true },
-           { id: '7B', x: 350, y: 175, available: true }
-         ]
-       },
-       {
-         id: 8,
-         x: 50,
-         y: 250,
-         seats: 4,
-         available: true,
-         shape: 'rect',
-         width: 80,
-         height: 40,
-         seatPositions: [
-           { id: '8A', x: 20, y: 250, available: true },
-           { id: '8B', x: 50, y: 280, available: false }, // This seat is unavailable
-           { id: '8C', x: 80, y: 250, available: true },
-           { id: '8D', x: 50, y: 220, available: true }
-         ]
-       },
-       {
-         id: 9,
-         x: 150,
-         y: 250,
-         seats: 4,
-         available: false,
-         shape: 'rect',
-         width: 80,
-         height: 40,
-         seatPositions: [
-           { id: '9A', x: 120, y: 250, available: false },
-           { id: '9B', x: 150, y: 280, available: false },
-           { id: '9C', x: 180, y: 250, available: false },
-           { id: '9D', x: 150, y: 220, available: false }
-         ]
-       },
-       {
-         id: 10,
-         x: 250,
-         y: 250,
-         seats: 8,
-         available: true,
-         shape: 'rect',
-         width: 140,
-         height: 50,
-         seatPositions: [
-           { id: '10A', x: 195, y: 250, available: true },
-           { id: '10B', x: 220, y: 280, available: true },
-           { id: '10C', x: 250, y: 280, available: true },
-           { id: '10D', x: 280, y: 280, available: true },
-           { id: '10E', x: 305, y: 250, available: true },
-           { id: '10F', x: 280, y: 220, available: true },
-           { id: '10G', x: 250, y: 220, available: true },
-           { id: '10H', x: 220, y: 220, available: true }
-         ]
-       },
-     ];
 
 
-     const handleTableClick = (tableId) => {
-       const table = tables.find(t => t.id === tableId);
-       if (table && table.available) {
-         setSelectedTable(tableId);
-         setSelectedSeats([]);
-        
-         if (bookFullTable) {
-           // Auto-select all available seats if booking full table
-           const availableSeats = table.seatPositions
-             .filter(seat => seat.available)
-             .map(seat => seat.id);
-           setSelectedSeats(availableSeats);
-           setPartySize(availableSeats.length);
-         } else {
-           setShowSeatSelector(true);
-         }
-       }
-     };
+  const RestaurantReservation = () => {
+    const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
+    const [selectedTime, setSelectedTime] = useState('');
+    const [selectedTable, setSelectedTable] = useState(null);
+    const [selectedSeats, setSelectedSeats] = useState([]);
+    const [reservationComplete, setReservationComplete] = useState(false);
+    const [customerName, setCustomerName] = useState('');
+    const [customerEmail, setCustomerEmail] = useState('');
+    const [customerPhone, setCustomerPhone] = useState('');
+    const [partySize, setPartySize] = useState(2);
+    const [showSeatSelector, setShowSeatSelector] = useState(false);
+    const [bookFullTable, setBookFullTable] = useState(false);
 
 
-     const handleSeatClick = (seatId) => {
-       if (bookFullTable) return; // Disable individual seat selection in full table mode
+
+
+    // Available time slots in EST
+    const timeSlots = ['11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '03:00 PM', '04:00 PM', '05:00 PM', '06:00 PM', '07:00 PM', '08:00 PM', '09:00 PM', '10:00 PM', '11:00 PM'];
+    // Restaurant tables configuration with seats - Updated with aesthetically pleasing colors
+    const tables = [
+      {
+        id: 1,
+        x: 50,
+        y: 50,
+        seats: 2,
+        available: true,
+        shape: 'circle',
+        size: 40,
+        color: 'rgba(136, 159, 151, 0.9)',  // Steel blue
+        seatPositions: [
+          { id: '1A', x: 50, y: 25, available: true },
+          { id: '1B', x: 50, y: 75, available: true }
+        ]
+      },
+      {
+        id: 2,
+        x: 150,
+        y: 50,
+        seats: 2,
+        available: true,
+        shape: 'circle',
+        size: 40,
+        color: 'rgba(136, 159, 151, 0.9)',  // Slate blue
+        seatPositions: [
+          { id: '2A', x: 150, y: 25, available: true },
+          { id: '2B', x: 150, y: 75, available: true }
+        ]
+      },
+      {
+        id: 3,
+        x: 250,
+        y: 50,
+        seats: 4,
+        available: false,
+        shape: 'rect',
+        width: 80,
+        height: 40,
+        color: 'rgba(220, 20, 60, 0.4)',  // Crimson (unavailable)
+        seatPositions: [
+          { id: '3A', x: 220, y: 50, available: false },
+          { id: '3B', x: 250, y: 80, available: false },
+          { id: '3C', x: 280, y: 50, available: false },
+          { id: '3D', x: 250, y: 20, available: false }
+        ]
+      },
+      {
+        id: 4,
+        x: 50,
+        y: 150,
+        seats: 4,
+        available: true,
+        shape: 'rect',
+        width: 80,
+        height: 40,
+        color: 'rgba(136, 159, 151, 0.9)',  // Medium sea green
+        seatPositions: [
+          { id: '4A', x: 20, y: 150, available: true },
+          { id: '4B', x: 50, y: 180, available: true },
+          { id: '4C', x: 80, y: 150, available: true },
+          { id: '4D', x: 50, y: 120, available: true }
+        ]
+      },
+      {
+        id: 5,
+        x: 150,
+        y: 150,
+        seats: 6,
+        available: true,
+        shape: 'rect',
+        width: 120,
+        height: 40,
+        color: 'rgba(136, 159, 151, 0.9)',  // Medium purple
+        seatPositions: [
+          { id: '5A', x: 105, y: 150, available: true },
+          { id: '5B', x: 135, y: 180, available: true },
+          { id: '5C', x: 165, y: 180, available: true },
+          { id: '5D', x: 195, y: 150, available: true },
+          { id: '5E', x: 165, y: 120, available: true },
+          { id: '5F', x: 135, y: 120, available: true },
+        ]
+      },
+      {
+        id: 6,
+        x: 250,
+        y: 150,
+        seats: 2,
+        available: true,
+        shape: 'circle',
+        size: 40,
+        color: 'rgba(136, 159, 151, 0.9)',  // Light sea green
+        seatPositions: [
+          { id: '6A', x: 250, y: 125, available: true },
+          { id: '6B', x: 250, y: 175, available: true }
+        ]
+      },
+      {
+        id: 7,
+        x: 350,
+        y: 150,
+        seats: 2,
+        available: true,
+        shape: 'circle',
+        size: 40,
+        color: 'rgba(136, 159, 151, 0.9)',  // Cornflower blue
+        seatPositions: [
+          { id: '7A', x: 350, y: 125, available: true },
+          { id: '7B', x: 350, y: 175, available: true }
+        ]
+      },
+      {
+        id: 8,
+        x: 50,
+        y: 250,
+        seats: 4,
+        available: true,
+        shape: 'rect',
+        width: 80,
+        height: 40,
+        color: 'rgba(136, 159, 151, 0.9)',  // Medium turquoise
+        seatPositions: [
+          { id: '8A', x: 20, y: 250, available: true },
+          { id: '8B', x: 50, y: 280, available: false }, // This seat is unavailable
+          { id: '8C', x: 80, y: 250, available: true },
+          { id: '8D', x: 50, y: 220, available: true }
+        ]
+      },
+      {
+        id: 9,
+        x: 150,
+        y: 250,
+        seats: 4,
+        available: false,
+        shape: 'rect',
+        width: 80,
+        height: 40,
+        color: 'rgba(220, 20, 60, 0.4)',  // Crimson (unavailable)
+        seatPositions: [
+          { id: '9A', x: 120, y: 250, available: false },
+          { id: '9B', x: 150, y: 280, available: false },
+          { id: '9C', x: 180, y: 250, available: false },
+          { id: '9D', x: 150, y: 220, available: false }
+        ]
+      },
+      {
+        id: 10,
+        x: 250,
+        y: 250,
+        seats: 8,
+        available: true,
+        shape: 'rect',
+        width: 140,
+        height: 50,
+        color: 'rgba(136, 159, 151, 0.9)',  // Medium slate blue
+        seatPositions: [
+          { id: '10A', x: 195, y: 250, available: true },
+          { id: '10B', x: 220, y: 280, available: true },
+          { id: '10C', x: 250, y: 280, available: true },
+          { id: '10D', x: 280, y: 280, available: true },
+          { id: '10E', x: 305, y: 250, available: true },
+          { id: '10F', x: 280, y: 220, available: true },
+          { id: '10G', x: 250, y: 220, available: true },
+          { id: '10H', x: 220, y: 220, available: true }
+        ]
+      },
+    ];
+
+
+
+
+    const handleTableClick = (tableId) => {
+      const table = tables.find(t => t.id === tableId);
+      if (table && table.available) {
+        setSelectedTable(tableId);
+        setSelectedSeats([]);
       
-       const currentTable = tables.find(t => t.id === selectedTable);
-       const seat = currentTable.seatPositions.find(s => s.id === seatId);
-      
-       if (!seat.available) return;
-      
-       if (selectedSeats.includes(seatId)) {
-         setSelectedSeats(selectedSeats.filter(id => id !== seatId));
-       } else {
-         setSelectedSeats([...selectedSeats, seatId]);
-       }
-     };
+        if (bookFullTable) {
+          // Auto-select all available seats if booking full table
+          const availableSeats = table.seatPositions
+            .filter(seat => seat.available)
+            .map(seat => seat.id);
+          setSelectedSeats(availableSeats);
+          setPartySize(availableSeats.length);
+        } else {
+          setShowSeatSelector(true);
+        }
+      }
+    };
 
 
-     const handleBookingTypeChange = (isFullTable) => {
-       setBookFullTable(isFullTable);
-       setSelectedSeats([]);
-      
-       if (isFullTable && selectedTable) {
-         // Auto-select all available seats when switching to full table mode
-         const table = tables.find(t => t.id === selectedTable);
-         const availableSeats = table.seatPositions
-           .filter(seat => seat.available)
-           .map(seat => seat.id);
-         setSelectedSeats(availableSeats);
-         setPartySize(availableSeats.length);
-       }
-     };
 
 
-     const handleReservation = () => {
-       if (!selectedTable || !customerName || !customerEmail || !customerPhone) {
-         alert('Please fill in all required fields and select a table');
-         return;
-       }
-      
-       if (!bookFullTable && selectedSeats.length === 0) {
-         alert('Please select at least one seat');
-         return;
-       }
-      
-       setReservationComplete(true);
-     };
+    const handleSeatClick = (seatId) => {
+      if (bookFullTable) return; // Disable individual seat selection in full table mode
+    
+      const currentTable = tables.find(t => t.id === selectedTable);
+      const seat = currentTable.seatPositions.find(s => s.id === seatId);
+    
+      if (!seat.available) return;
+    
+      if (selectedSeats.includes(seatId)) {
+        setSelectedSeats(selectedSeats.filter(id => id !== seatId));
+      } else {
+        setSelectedSeats([...selectedSeats, seatId]);
+      }
+    };
 
 
-     const resetForm = () => {
-       setSelectedTable(null);
-       setSelectedSeats([]);
-       setReservationComplete(false);
-       setCustomerName('');
-       setCustomerEmail('');
-       setCustomerPhone('');
-       setPartySize(2);
-       setShowSeatSelector(false);
-     };
 
 
-     const renderTable = (table) => {
-       const isSelected = selectedTable === table.id;
-       const baseStyle = {
-         cursor: table.available ? 'pointer' : 'not-allowed',
-         fill: table.available
-           ? (isSelected ? 'rgba(0, 128, 0, 0.3)' : 'rgba(0, 128, 255, 0.3)')
-           : 'rgba(255, 0, 0, 0.2)',
-         stroke: isSelected ? '#004d00' : '#444',
-         strokeWidth: isSelected ? 2 : 1,
-       };
-      
-       if (table.shape === 'circle') {
-         return (
-           <g key={table.id} onClick={() => handleTableClick(table.id)}>
-             <circle
-               cx={table.x}
-               cy={table.y}
-               r={table.size / 2}
-               {...baseStyle}
-             />
-             <text
-               x={table.x}
-               y={table.y}
-               textAnchor="middle"
-               dominantBaseline="middle"
-               fill="#000"
-               fontSize="12"
-             >
-               {table.id}
-             </text>
-           
-           </g>
-         );
-       } else {
-         return (
-           <g key={table.id} onClick={() => handleTableClick(table.id)}>
-             <rect
-               x={table.x - table.width / 2}
-               y={table.y - table.height / 2}
-               width={table.width}
-               height={table.height}
-               {...baseStyle}
-               rx={4}
-               ry={4}
-             />
-             <text
-               x={table.x}
-               y={table.y}
-               textAnchor="middle"
-               dominantBaseline="middle"
-               fill="#000"
-               fontSize="12"
-             >
-               {table.id}
-             </text>
+    const handleBookingTypeChange = (isFullTable) => {
+      setBookFullTable(isFullTable);
+      setSelectedSeats([]);
+    
+      if (isFullTable && selectedTable) {
+        // Auto-select all available seats when switching to full table mode
+        const table = tables.find(t => t.id === selectedTable);
+        const availableSeats = table.seatPositions
+          .filter(seat => seat.available)
+          .map(seat => seat.id);
+        setSelectedSeats(availableSeats);
+        setPartySize(availableSeats.length);
+      }
+    };
+
+
+
+
+    const handleReservation = () => {
+      if (!selectedTable || !customerName || !customerEmail || !customerPhone) {
+        alert('Please fill in all required fields and select a table');
+        return;
+      }
+    
+      if (!bookFullTable && selectedSeats.length === 0) {
+        alert('Please select at least one seat');
+        return;
+      }
+    
+      setReservationComplete(true);
+    };
+
+
+
+
+    const resetForm = () => {
+      setSelectedTable(null);
+      setSelectedSeats([]);
+      setReservationComplete(false);
+      setCustomerName('');
+      setCustomerEmail('');
+      setCustomerPhone('');
+      setPartySize(2);
+      setShowSeatSelector(false);
+    };
+
+
+
+
+    const renderTable = (table) => {
+      const isSelected = selectedTable === table.id;
+      const tableColor = table.available
+        ? (isSelected ? 'rgba(103, 168, 110, 0.9)' : table.color)
+        : 'rgba(177, 96, 90, 0.9)';
+     
+      const baseStyle = {
+        cursor: table.available ? 'pointer' : 'not-allowed',
+        fill: tableColor,
+        stroke: isSelected ? 'black' : '#444',
+        strokeWidth: isSelected ? 1 : 1,
+      };
+    
+      if (table.shape === 'circle') {
+        return (
+          <g key={table.id} onClick={() => handleTableClick(table.id)}>
+            <circle
+              cx={table.x}
+              cy={table.y}
+              r={table.size / 2}
+              {...baseStyle}
+            />
+            <text
+              x={table.x}
+              y={table.y}
+              textAnchor="middle"
+              dominantBaseline="middle"
+              fill={isSelected ? "white" : "#fff"}
+              fontSize="12"
+              fontWeight={isSelected ? "bold" : "normal"}
+            >
+              {table.id}
+            </text>
          
-           </g>
-         );
-       }
-     };
+          </g>
+        );
+      } else {
+        return (
+          <g key={table.id} onClick={() => handleTableClick(table.id)}>
+            <rect
+              x={table.x - table.width / 2}
+              y={table.y - table.height / 2}
+              width={table.width}
+              height={table.height}
+              {...baseStyle}
+              rx={4}
+              ry={4}
+            />
+            <text
+              x={table.x}
+              y={table.y}
+              textAnchor="middle"
+              dominantBaseline="middle"
+              fill={isSelected ? "white" : "#fff"}
+              fontSize="12"
+              fontWeight={isSelected ? "bold" : "normal"}
+            >
+              {table.id}
+            </text>
+          </g>
+        );
+      }
+    };
 
 
-     const renderSeats = (table) => {
-       if (selectedTable !== table.id) return null;
+
+
+    const renderSeats = (table) => {
+      if (selectedTable !== table.id) return null;
+    
+      return table.seatPositions.map(seat => {
+        const isSelected = selectedSeats.includes(seat.id);
+        return (
+          <g key={seat.id} onClick={() => seat.available && handleSeatClick(seat.id)}>
+            <circle
+              cx={seat.x}
+              cy={seat.y}
+              r={12}
+              fill={!seat.available ? 'rgba(177, 96, 90)' : (isSelected ? 'rgb(0, 128, 0)' : '#ccba58')}
+              stroke={isSelected ? 'black' : '#444'}
+              strokeWidth={isSelected ? 2 : 1}
+              cursor={seat.available && !bookFullTable ? 'pointer' : 'default'}
+            />
+            <text
+              x={seat.x}
+              y={seat.y}
+              textAnchor="middle"
+              dominantBaseline="middle"
+              fill="#fff"
+              fontSize="10"
+              pointerEvents="none"
+            >
+              {seat.id.slice(-1)}
+            </text>
+          </g>
+        );
+      });
+    };
+
+
+
+
+    const getAvailableSeatCount = (tableId) => {
+      const table = tables.find(t => t.id === tableId);
+      if (!table) return 0;
+      return table.seatPositions.filter(seat => seat.available).length;
+    };
+
+
+
+
+    return (
+      <div className="max-w-6xl mx-auto p-4">
       
-       return table.seatPositions.map(seat => {
-         const isSelected = selectedSeats.includes(seat.id);
-         return (
-           <g key={seat.id} onClick={() => seat.available && handleSeatClick(seat.id)}>
-             <circle
-               cx={seat.x}
-               cy={seat.y}
-               r={12}
-               fill={!seat.available ? 'rgba(255, 0, 0, 0.4)' : (isSelected ? 'rgba(0, 128, 0, 0.8)' : 'rgba(255, 165, 0, 0.8)')}
-               stroke={isSelected ? '#004d00' : '#444'}
-               strokeWidth={isSelected ? 2 : 1}
-               cursor={seat.available && !bookFullTable ? 'pointer' : 'default'}
-             />
-             <text
-               x={seat.x}
-               y={seat.y}
-               textAnchor="middle"
-               dominantBaseline="middle"
-               fill="#fff"
-               fontSize="10"
-               pointerEvents="none"
-             >
-               {seat.id.slice(-1)}
-             </text>
-           </g>
-         );
-       });
-     };
-
-
-     const getAvailableSeatCount = (tableId) => {
-       const table = tables.find(t => t.id === tableId);
-       if (!table) return 0;
-       return table.seatPositions.filter(seat => seat.available).length;
-     };
-
-
-     return (
-       <div className="max-w-4xl mx-auto p-4">
-        
-         {reservationComplete ? (
-           <div className="bg-green-100 p-6 rounded-lg mb-6">
-             <h2 className="text-xl font-semibold text-green-800 mb-2">Reservation Confirmed!</h2>
-             <p className="mb-1">Thank you, {customerName}, for your reservation.</p>
-             <p className="mb-1">Date: {selectedDate}</p>
-             <p className="mb-1">Time: {selectedTime}</p>
-             <p className="mb-1">Table: {selectedTable}</p>
-             {bookFullTable ? (
-               <p className="mb-1">Full table reservation: {selectedSeats.length} seats</p>
-             ) : (
-               <p className="mb-1">Seats: {selectedSeats.join(', ')}</p>
-             )}
-             <p className="mb-1">Party Size: {partySize} people</p>
-             <p className="mb-4">We'll send a confirmation to {customerEmail}</p>
-             <button
-               onClick={resetForm}
-               className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-             >
-               Make Another Reservation
-             </button>
-           </div>
-         ) : (
-           <div className="flex flex-col md:flex-row gap-6">
-             <div className="md:w-1/3">
-               <div className="mb-6">
-                 <h2 className="text-lg font-semibold mb-2">Reservation Type</h2>
-                 <div className="flex mb-4">
-                   <label className="flex items-center mr-4">
-                     <input
-                       type="radio"
-                       name="bookingType"
-                       checked={!bookFullTable}
-                       onChange={() => handleBookingTypeChange(false)}
-                       className="mr-2"
-                     />
-                     <span>Book Individual Seats</span>
-                   </label>
-                   <label className="flex items-center">
-                     <input
-                       type="radio"
-                       name="bookingType"
-                       checked={bookFullTable}
-                       onChange={() => handleBookingTypeChange(true)}
-                       className="mr-2"
-                     />
-                     <span>Book Full Table</span>
-                   </label>
-                 </div>
-               </div>
-              
-               <div className="mb-6">
-                 <h2 className="text-lg font-semibold mb-2">Reservation Details</h2>
-                 <div className="mb-3">
-                   <label className="block text-sm font-medium mb-1">Date</label>
-                   <input
-                     type="date"
-                     value={selectedDate}
-                     onChange={(e) => setSelectedDate(e.target.value)}
-                     className="w-full p-2 border rounded"
-                     min={new Date().toISOString().split('T')[0]}
-                   />
-                 </div>
-                
-                 <div className="mb-3">
-                   <label className="block text-sm font-medium mb-1">Time</label>
-                   <select
-                     value={selectedTime}
-                     onChange={(e) => setSelectedTime(e.target.value)}
-                     className="w-full p-2 border rounded"
-                   >
-                     {timeSlots.map(time => (
-                       <option key={time} value={time}>{time}</option>
-                     ))}
-                   </select>
-                 </div>
-                
-                 {!bookFullTable && (
-                   <div className="mb-3">
-                     <label className="block text-sm font-medium mb-1">Party Size</label>
-                     <select
-                       value={partySize}
-                       onChange={(e) => setPartySize(parseInt(e.target.value))}
-                       className="w-full p-2 border rounded"
-                     >
-                       {[1, 2, 3, 4, 5, 6, 7, 8].map(size => (
-                         <option key={size} value={size}>{size} {size === 1 ? 'person' : 'people'}</option>
-                       ))}
-                     </select>
-                   </div>
-                 )}
-               </div>
-              
-               <div className="mb-6">
-                 <h2 className="text-lg font-semibold mb-2">Personal Information</h2>
-                 <div className="mb-3">
-                   <label className="block text-sm font-medium mb-1">Name *</label>
-                   <input
-                     type="text"
-                     value={customerName}
-                     onChange={(e) => setCustomerName(e.target.value)}
-                     className="w-full p-2 border rounded"
-                     required
-                   />
-                 </div>
-                
-                 <div className="mb-3">
-                   <label className="block text-sm font-medium mb-1">Email *</label>
-                   <input
-                     type="email"
-                     value={customerEmail}
-                     onChange={(e) => setCustomerEmail(e.target.value)}
-                     className="w-full p-2 border rounded"
-                     required
-                   />
-                 </div>
-                
-                 <div className="mb-3">
-                   <label className="block text-sm font-medium mb-1">Phone *</label>
-                   <input
-                     type="tel"
-                     value={customerPhone}
-                     onChange={(e) => setCustomerPhone(e.target.value)}
-                     className="w-full p-2 border rounded"
-                     required
-                   />
-                 </div>
-               </div>
-                
-               <button
-                 onClick={handleReservation}
-                 disabled={!selectedTable || (!bookFullTable && selectedSeats.length === 0)}
-                 className={`w-full p-2 rounded text-white ${!selectedTable || (!bookFullTable && selectedSeats.length === 0) ? 'bg-gray-400' : 'bg-blue-500 hover:bg-blue-600'}`}
-               >
-                 {!selectedTable ? 'Select a Table' : 'Complete Reservation'}
-               </button>
-             </div>
+       {reservationComplete ? (
+ <div className="p-6 rounded-lg mb-6" style={{
+   backgroundColor: 'white',    // White background
+   borderColor: '#8c702e', 
+   color: 'black',    // Gold border matching your buttons
+   borderWidth: '2px'
+ }}>
+ <p className="mb-1" style={{color: 'black', fontSize: '30px', fontWeight: '20px'}}>Reservation Confirmed!</p>
+   <p className="mb-1" style={{color: 'black'}}>Thank you, {customerName}, for your reservation.</p>
+   <p className="mb-1" style={{color: 'black'}}>Date: {selectedDate}</p>
+   <p className="mb-1" style={{color: 'black'}}>Time: {selectedTime}</p>
+   <p className="mb-1" style={{color: 'black'}}>Table: {selectedTable}</p>
+   {bookFullTable ? (
+     <p className="mb-1" style={{color: 'black'}}>Full table reservation: {selectedSeats.length} seats</p>
+   ) : (
+     <p className="mb-1" style={{color: 'black'}}>Seats: {selectedSeats.join(', ')}</p>
+   )}
+   <p className="mb-1" style={{color: 'black'}}>Party Size: {partySize} people</p>
+   <p className="mb-4" style={{color: 'black'}}>We'll send a confirmation email to {customerEmail} !</p>
+   <button
+     onClick={resetForm}
+     className="px-4 py-2 rounded hover:bg-yellow-600"
+     style={{
+       backgroundColor: '#8c702e',
+       borderColor: '#FFD700',
+       borderWidth: '1px',
+       color: 'white',
+       fontFamily: 'Cinzel Decorative, serif'
+     }}
+   >
+     Make Another Reservation
+   </button>
+ </div>
+) : (
+          <div className="flex flex-col md:flex-row gap-6">
+            <div className="md:w-2/5 input-section" style={{backgroundColor: '#031d1f', padding: '20px', borderRadius: '8px', borderColor: 'white', borderWidth: '1px'}}>
+              <div className="mb-6">
+                <h2 className="text-lg font-semibold mb-2" style={{color: 'white', fontFamily: 'Cinzel Decorative, serif'}}>Reservation Type</h2>
+                <div className="flex mb-4">
+                  <label className="flex items-center mr-4" style={{color: 'white'}}>
+                    <input
+                      type="radio"
+                      name="bookingType"
+                      checked={!bookFullTable}
+                      onChange={() => handleBookingTypeChange(false)}
+                      className="mr-2"
+                    />
+                    <span style={{color: '#FFD700'}}>Book Individual Seats</span>
+                  </label>
+                  <label className="flex items-center" style={{color: '#FFD700'}}>
+                    <input
+                      type="radio"
+                      name="bookingType"
+                      checked={bookFullTable}
+                      onChange={() => handleBookingTypeChange(true)}
+                      className="mr-2"
+                    />
+                    <span style={{color: '#FFD700'}}>Book Full Table</span>
+                  </label>
+                </div>
+              </div>
             
-            <div className="md:w-2/3 bg-gray-100 p-4 rounded-lg" style={{minWidth: '800px', padding: '2rem' }}>
-               <h2 className="text-lg font-semibold mb-2 text-center">Restaurant Layout</h2>
-               <p className="text-sm text-center mb-4">
-                 <span className="inline-block w-3 h-3 bg-blue-500 rounded-full mr-1"></span> Available Table
-                 <span className="inline-block w-3 h-3 bg-red-400 rounded-full mx-1 ml-3"></span> Unavailable Table
-                 <span className="inline-block w-3 h-3 bg-green-600 rounded-full mx-1 ml-3"></span> Selected Table
-               </p>
+              <div className="mb-6">
+                <h2 className="text-lg font-semibold mb-2" style={{color: 'white', fontFamily: 'Cinzel Decorative, serif'}}>Reservation Details</h2>
+                <div className="mb-3">
+                  <label className="block text-sm font-medium mb-1" style={{color: 'white'}}>Date</label>
+                  <input
+                    type="date"
+                    value={selectedDate}
+                    onChange={(e) => setSelectedDate(e.target.value)}
+                    className="w-full p-2 border rounded"
+                    min={new Date().toISOString().split('T')[0]}
+                    style={{color: 'white', backgroundColor: 'white', borderColor: '#FFD700'}}
+                  />
+                </div>
               
-               {showSeatSelector && selectedTable && !bookFullTable && (
-                 <div className="bg-blue-100 p-2 mb-3 rounded text-center">
-                   <p className="font-medium mb-1">Select seats at Table {selectedTable}</p>
-                   <p className="text-sm">
-                     <span className="inline-block w-3 h-3 bg-orange-500 rounded-full mr-1"></span> Available Seat
-                     <span className="inline-block w-3 h-3 bg-red-400 rounded-full mx-1 ml-3"></span> Unavailable Seat
-                     <span className="inline-block w-3 h-3 bg-green-600 rounded-full mx-1 ml-3"></span> Selected Seat
-                   </p>
-                 </div>
-               )}
+                <div className="mb-3">
+                  <label className="block text-sm font-medium mb-1" style={{color: '#FFD700'}}>Time</label>
+                  <select
+                    value={selectedTime}
+                    onChange={(e) => setSelectedTime(e.target.value)}
+                    className="w-full p-2 border rounded"
+                    style={{color: '#FFD700', backgroundColor: '#011d1e', borderColor: '#FFD700'}}
+                  >
+                    <option value="" disabled selected>Select a time</option>
+                    {timeSlots.map(time => (
+                      <option key={time} value={time}>{time}</option>
+                    ))}
+                  </select>
+                </div>
               
-               <div className="bg-white border rounded-lg p-2 overflow-auto" style={{ minWidth: '700px', minHeight: '500px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
- <svg width="600" height="400" viewBox="0 0 450 320" style={{ maxWidth: '100%', maxHeight: '100%', margin: 'auto' }}>
-   {/* Restaurant walls */}
-   <rect x="10" y="10" width="430" height="300" fill="none" stroke="#333" strokeWidth="2" />
-  
-   {/* Entrance */}
-   <path d="M 10,160 L 10,120 M 0,140 L 10,140" stroke="#333" strokeWidth="2" />
-   <text x="20" y="140" fontSize="10">Entrance</text>
-  
-   {/* Bar area */}
-   <rect x="330" y="10" width="110" height="60" fill="rgba(150, 75, 0, 0.2)" stroke="#333" />
-   <text x="385" y="40" textAnchor="middle" fontSize="12">Bar</text>
-  
-   {/* Kitchen area */}
-   <rect x="330" y="250" width="110" height="60" fill="rgba(200, 200, 200, 0.5)" stroke="#333" />
-   <text x="385" y="280" textAnchor="middle" fontSize="12">Kitchen</text>
-  
-   {/* Render all tables */}
-   {tables.map(table => renderTable(table))}
-  
-   {/* Render seats for selected table */}
-   {tables.map(table => renderSeats(table))}
- </svg>
-</div>
+                {!bookFullTable && (
+                  <div className="mb-3">
+                    <label className="block text-sm font-medium mb-1" style={{color: '#FFD700'}}>Party Size</label>
+                    <select
+                      value={partySize}
+                      onChange={(e) => setPartySize(parseInt(e.target.value))}
+                      className="w-full p-2 border rounded"
+                      style={{color: '#FFD700', backgroundColor: '#011d1e', borderColor: '#FFD700'}}
+                    >
+                      {[1, 2, 3, 4, 5, 6, 7, 8].map(size => (
+                        <option key={size} value={size}>{size} {size === 1 ? 'person' : 'people'}</option>
+                      ))}
+                    </select>
+                  </div>
+                )}
+              </div>
+            
+              <div className="mb-6">
+                <h2 className="text-lg font-semibold mb-2" style={{color: '#FFD700', fontFamily: 'Cinzel Decorative, serif'}}>Personal Information</h2>
+                <div className="mb-3">
+                  <label className="block text-sm font-medium mb-1" style={{color: '#FFD700'}}>Name *</label>
+                  <input
+                    type="text"
+                    value={customerName}
+                    onChange={(e) => setCustomerName(e.target.value)}
+                    className="w-full p-2 border rounded"
+                    required
+                    style={{color: 'white', backgroundColor: '#011d1e', borderColor: '#FFD700'}}
+                  />
+                </div>
               
-               <div className="mt-4">
-                 {selectedTable ? (
-                   <div>
-                     <p className="text-center font-medium mb-1">
-                       You selected Table {selectedTable} on {selectedDate} at {selectedTime}
-                     </p>
-                    
-                     {bookFullTable ? (
-                       <p className="text-center text-sm">
-                         Full table reservation: {selectedSeats.length} seats
-                       </p>
-                     ) : (
-                       <p className="text-center text-sm">
-                         {selectedSeats.length > 0 ?
-                           `Selected seats: ${selectedSeats.join(', ')} (${selectedSeats.length} seats)` :
-                           'Click on seats to select them'}
-                       </p>
-                     )}
-                   </div>
-                 ) : (
-                   <p className="text-center text-gray-600">Please select an available table</p>
-                 )}
-               </div>
-             </div>
-           </div>
-         )}
-       </div>
-     );
-   };
+                <div className="mb-3">
+                  <label className="block text-sm font-medium mb-1" style={{color: '#FFD700'}}>Email *</label>
+                  <input
+                    type="email"
+                    value={customerEmail}
+                    onChange={(e) => setCustomerEmail(e.target.value)}
+                    className="w-full p-2 border rounded"
+                    required
+                    style={{color: '#FFD700', backgroundColor: '#011d1e', borderColor: '#FFD700', fontFamily: 'Marcellus'}}
+                  />
+                </div>
+              
+                <div className="mb-3">
+                  <label className="block text-sm font-medium mb-1" style={{color: '#FFD700'}}>Phone *</label>
+                  <input
+                    type="tel"
+                    value={customerPhone}
+                    onChange={(e) => setCustomerPhone(e.target.value)}
+                    className="w-full p-2 border rounded"
+                    required
+                    style={{color: '#FFD700', backgroundColor: '#011d1e', borderColor: '#FFD700'}}
+                  />
+                </div>
+              </div>
+              
+              <button
+                onClick={handleReservation}
+                disabled={!selectedTable || (!bookFullTable && selectedSeats.length === 0)}
+                className={`w-full p-2 rounded text-white ${!selectedTable || (!bookFullTable && selectedSeats.length === 0) ? 'bg-gray-400' : 'bg-yellow-700 hover:bg-yellow-600'}`}
+                style={{backgroundColor: !selectedTable || (!bookFullTable && selectedSeats.length === 0) ? '#444' : '#8c702e', borderColor: '#FFD700', borderWidth: '1px'}}
+              >
+                {!selectedTable ? 'Select a Table' : 'Complete Reservation'}
+              </button>
+            </div>
+          
+            <div className="md:w-3/5 layout-section" style={{backgroundColor: '#10292a', padding: '20px', borderRadius: '8px', borderColor: 'white', borderWidth: '1px'}}>
+              <h2 className="text-lg font-semibold mb-2 text-center" style={{color: '#FFD700', fontFamily: 'Cinzel Decorative, serif'}}>Restaurant Layout</h2>
+              <p className="text-sm text-center mb-4" style={{color: '#FFD700'}}>
+                <span className="inline-block w-3 h-3 rounded-full mr-1" style={{backgroundColor: 'rgba(136, 159, 151, 0.9)'}}></span> Available Table
+                <span className="inline-block w-3 h-3 rounded-full mx-1 ml-3" style={{backgroundColor: 'rgba(220, 20, 60, 0.4)'}}></span> Unavailable Table
+                <span className="inline-block w-3 h-3 rounded-full mx-1 ml-3" style={{backgroundColor: 'rgba(0, 128, 0, 0.7)'}}></span> Selected Table
+              </p>
+            
+              {showSeatSelector && selectedTable && !bookFullTable && (
+                <div className="p-2 mb-3 rounded text-center" style={{backgroundColor: 'rgba(17, 44, 46, 0.8)', borderColor: 'white', borderWidth: '1px'}}>
+                  <p className="font-medium mb-1" style={{color: 'white'}}>Select seats at Table {selectedTable}</p>
+                  <p className="text-sm" style={{color: 'white'}}>
+                   <span className="inline-block w-3 h-3 rounded-full mx-1 ml-3" style={{backgroundColor: '#ccba58'}}></span> Available Seat
+ <span className="inline-block w-3 h-3 rounded-full mx-1 ml-3" style={{backgroundColor: 'rgba(177, 96, 90)'}}></span> Unavailable Seat
+ <span className="inline-block w-3 h-3 rounded-full mx-1 ml-3" style={{backgroundColor: 'rgb(0, 128, 0)'}}></span> Selected Seat
+</p>
+                </div>
+              )}
+            
+              <div className="border rounded-lg p-2 overflow-auto restaurant-layout" style={{ minHeight: '500px', backgroundColor: '#031d1f', borderColor: 'white', borderWidth: '2px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <svg width="600" height="400" viewBox="0 0 450 320" style={{ maxWidth: '100%', maxHeight: '100%', margin: 'auto' }}>
+                  {/* Restaurant walls */}
+                  <rect x="10" y="10" width="430" height="300" fill="white" stroke="white" strokeWidth="2" />
+                
+                  {/* Entrance */}
+                  <path d="M 8,215 L 8,180" stroke="white" strokeWidth="4" />
+                  <text x="20" y="200" fontSize="10" fill="black" fontFamily="Cinzel Decorative, serif">Entrance</text>
+                
+                  {/* Bar area */}
+                  <rect x="330" y="10" width="110" height="60" fill="rgba(200, 200, 200, 0.3)" stroke="black" />
+                  <text x="385" y="40" textAnchor="middle" fontSize="12" fill="black" fontFamily="Cinzel Decorative, serif">Bar</text>
+                
+                  {/* Kitchen area */}
+                  <rect x="330" y="250" width="110" height="60" fill="rgba(200, 200, 200, 0.3)" stroke="black " />
+                  <text x="385" y="280" textAnchor="middle" fontSize="12" fill="black" fontFamily="Cinzel Decorative, serif">Kitchen</text>
+                
+                  {/* Render all tables */}
+                  {tables.map(table => renderTable(table))}
+                
+                  {/* Render seats for selected table */}
+                  {tables.map(table => renderSeats(table))}
+                </svg>
+              </div>
+            
+              <div className="mt-4">
+                {selectedTable ? (
+                  <div>
+                    <p className="text-center font-medium mb-1" style={{color: 'white', fontFamily: 'Cinzel Decorative, serif'}}>
+                      You selected Table {selectedTable} on {selectedDate} at {selectedTime || "(Select a time)"}
+                    </p>
+                  
+                    {bookFullTable ? (
+                      <p className="text-center text-sm" style={{color: 'white'}}>
+                        Full table reservation: {selectedSeats.length} seats
+                      </p>
+                    ) : (
+                      <p className="text-center text-sm" style={{color: '#FFD700'}}>
+                        {selectedSeats.length > 0 ?
+                          `Selected seats: ${selectedSeats.join(', ')} (${selectedSeats.length} seats)` :
+                          'Click on seats to select them'}
+                      </p>
+                    )}
+                  </div>
+                ) : (
+                  <p className="text-center" style={{color: 'white'}}>Please select an available table</p>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  };
 
 
-   ReactDOM.render(
-     <RestaurantReservation />,
-     document.getElementById('reservation-app')
-   );
- </script>
-     <footer class="footer">
-       <div class="footer-content">
-           <div class="footer-logo">
-               <img src="images/logowbackground.png" alt="Noorani Logo" class="logo-img">
+
+
+  ReactDOM.render(
+    <RestaurantReservation />,
+    document.getElementById('reservation-app')
+  );
+</script>
+    <footer class="footer-new">
+       <div class="footer-container">
+         <!-- Column 1: Legal & Support -->
+         <div class="footer-column">
+           <h3 class="footer-heading">Legal & Support</h3>
+           <ul class="footer-links-list">
+             <li><a href="#">Terms of Service</a></li>
+             <li><a href="#">Privacy Policy</a></li>
+             <li><a href="contactus.html">Support</a></li>
+           </ul>
+         </div>
+  
+         <!-- Column 2: Subpages -->
+         <div class="footer-column">
+           <h3 class="footer-heading">Discover</h3>
+           <ul class="footer-links-list">
+             <li><a href="#our-roots">Our Roots</a></li>
+             <li><a href="#">Sustainability</a></li>
+             <li><a href="#">Menu</a></li>
+             <li><a href="#">Take Out</a></li>
+             <li><a href="#">Reserve</a></li>
+           </ul>
+         </div>
+  
+         <!-- Column 3: Hours -->
+         <div class="footer-column">
+           <h3 class="footer-heading">Hours</h3>
+           <ul class="footer-hours">
+             <li><span class="day">Monday - Thursday:</span> 11:00 AM - 10:00 PM</li>
+             <li><span class="day">Friday - Saturday:</span> 11:00 AM - 11:00 PM</li>
+             <li><span class="day">Sunday:</span> 12:00 PM - 9:00 PM</li>
+           </ul>
+         </div>
+  
+         <!-- Column 4: Social Media -->
+         <div class="footer-column">
+           <h3 class="footer-heading">Connect</h3>
+           <div class="social-icons">
+             <a href="#" class="social-icon"><img src="footer/facebook.png" alt="Facebook"></a>
+             <a href="#" class="social-icon"><img src="footer/instagram.png" alt="Instagram"></a>
+             <a href="#" class="social-icon"><img src="footer/youtube.png" alt="YouTube"></a>
+             <a href="#" class="social-icon"><img src="footer/email.png" alt="Email"></a>
            </div>
-           <div class="footer-links">
-               <a href="#">Home</a>
-               <a href="#">Menu</a>
-               <a href="farm-to-table.html">Farm-to-Table</a>
-               <a href="#our-roots">Our Roots</a>
-               <a href="#">Reserve</a>
-           </div>
-           <div class="socialMedia-container">
-               <a href="#"><img src="footer/facebook.png" alt="Facebook" class="social-icon"></a>
-               <a href="#"><img src="footer/instagram.png" alt="Instagram" class="social-icon"></a>
-               <a href="#"><img src="footer/youtube.png" alt="YouTube" class="social-icon"></a>
-               <a href="#"><img src="footer/email.png" alt="Email" class="social-icon"></a>
-           </div>
+           <a href="contactus.html" class="contact-btn">Contact Us</a>
+         </div>
        </div>
-       <p>© Noorani 2025. All rights reserved.</p>
-   </footer>
+  
+       <div class="footer-bottom">
+         <p>© Noorani 2025. All rights reserved.</p>
+       </div>
+     </footer>
 </body>
 </html>
+
+
 
