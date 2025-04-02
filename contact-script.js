@@ -133,3 +133,18 @@ document.addEventListener('DOMContentLoaded', function() {
       return re.test(email.toLowerCase());
     }
   });
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.querySelector('.menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    const aboutToggle = document.querySelector('.about-toggle');
+    const dropdown = document.querySelector('.dropdown-content');
+
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    aboutToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      dropdown.classList.toggle('show');
+    });
+  });
