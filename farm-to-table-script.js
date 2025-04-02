@@ -1,73 +1,5 @@
 // script.js
-// menu
-window.addEventListener('load', () => {
-  document.body.classList.add('loaded');
 
-// User review
-document.addEventListener("DOMContentLoaded", () => {
-  const track = document.getElementById("carousel-track");
-  const prevBtn = document.getElementById("prevBtn");
-  const nextBtn = document.getElementById("nextBtn");
-  const dotsContainer = document.getElementById("carousel-dots");
-  const reviews = track.children;
-
-  let currentSlide = 0;
-  const totalSlides = Math.ceil(reviews.length / 3);
-
-  // Dots setup
-  for (let i = 0; i < totalSlides; i++) {
-      const dot = document.createElement("span");
-      dot.className = "dot h-3 w-3 rounded-full bg-gray-300 inline-block cursor-pointer";
-      if (i === 0) dot.classList.add("bg-[#093C34]");
-      dot.addEventListener("click", () => goToSlide(i));
-      dotsContainer.appendChild(dot);
-  }
-
-  const updateDots = () => {
-      dotsContainer.querySelectorAll(".dot").forEach((dot, i) => {
-          dot.classList.toggle("bg-[#093C34]", i === currentSlide);
-          dot.classList.toggle("bg-gray-300", i !== currentSlide);
-      });
-  };
-
-  const goToSlide = (index) => {
-      currentSlide = index;
-      const slideWidth = track.offsetWidth / 3;
-      track.style.transform = `translateX(-${index * slideWidth * 3}px)`;
-      updateDots();
-  };
-
-  const nextSlide = () => {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      goToSlide(currentSlide);
-  };
-
-  const prevSlide = () => {
-      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-      goToSlide(currentSlide);
-  };
-
-  // Arrow events
-  nextBtn.addEventListener("click", nextSlide);
-  prevBtn.addEventListener("click", prevSlide);
-
-  // Auto-scroll
-  setInterval(nextSlide, 5000);
-
-  // Swipe support
-  let startX = 0;
-  let endX = 0;
-
-  track.addEventListener("touchstart", (e) => {
-      startX = e.touches[0].clientX;
-  });
-
-  track.addEventListener("touchend", (e) => {
-      endX = e.changedTouches[0].clientX;
-      if (startX - endX > 50) nextSlide();
-      else if (endX - startX > 50) prevSlide();
-  });
-});
 // Typing Effect
 const sentence = "Welcome to Noorani";
 let index = 0;
@@ -106,38 +38,38 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('.menu-btn').addEventListener('click', () => {
     document.querySelector('.nav-links').classList.toggle('active');
   });
-// Change navbar background based on scroll position
-window.addEventListener('scroll', () => {
+
+  // Change navbar background color after passing hero section
+  window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     const heroSection = document.querySelector('.hero-section');
     const quoteSection = document.querySelector('.quote-video-section');
-    const splitSection = document.querySelector('.split-section');
   
     const scrollY = window.scrollY;
-    const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+    const heroTop = heroSection.offsetTop;
+    const heroBottom = heroTop + heroSection.offsetHeight;
     const quoteTop = quoteSection.offsetTop;
     const quoteBottom = quoteTop + quoteSection.offsetHeight;
-    const splitTop = splitSection.offsetTop;
   
-    // Reset navbar state classes
+    // Clear all navbar state classes
     navbar.classList.remove('scrolled', 'blurred', 'at-top');
   
-    // Case 1: At the very top of the page
+    // Case 1: At top of page (completely transparent)
     if (scrollY === 0) {
       navbar.classList.add('at-top');
     }
-    // Case 2: Over the header video section
-    else if (scrollY < heroBottom) {
-      navbar.classList.add('blurred');
-      navbar.classList.remove('scrolled'); // Ensure scrolled class is removed
+  
+    // Case 2: Over regular section between the videos
+    else if (scrollY > heroBottom && scrollY < quoteTop) {
+      navbar.classList.add('scrolled'); // Cream background
     }
-    // Case 3: Over the quote section
-    else if (scrollY >= quoteTop && scrollY <= quoteBottom) {
-      navbar.classList.add('blurred'); // Keep it blurred for the quote section
-    }
-    // Case 4: Over the split section
-    else if (scrollY >= splitTop) {
-      navbar.classList.add('scrolled');
+  
+    // Case 3: Over either video section
+    else if (
+      (scrollY > heroTop && scrollY < heroBottom) ||
+      (scrollY > quoteTop && scrollY < quoteBottom)
+    ) {
+      navbar.classList.add('blurred'); // Blurred background
     }
   });
   window.addEventListener('load', function() {
@@ -168,7 +100,6 @@ document.addEventListener("DOMContentLoaded", function () {
       observer.observe(step);
   });
 });
-
 
 // Add to your existing JavaScript file
 document.addEventListener('DOMContentLoaded', function() {
@@ -240,5 +171,4 @@ document.addEventListener('DOMContentLoaded', function() {
   journeySteps.forEach(step => {
       observer.observe(step);
   });
-
-
+});
