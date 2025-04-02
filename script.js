@@ -38,38 +38,38 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('.menu-btn').addEventListener('click', () => {
     document.querySelector('.nav-links').classList.toggle('active');
   });
-
-  // Change navbar background color after passing hero section
-  window.addEventListener('scroll', () => {
+// Change navbar background based on scroll position
+window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     const heroSection = document.querySelector('.hero-section');
     const quoteSection = document.querySelector('.quote-video-section');
+    const splitSection = document.querySelector('.split-section');
   
     const scrollY = window.scrollY;
-    const heroTop = heroSection.offsetTop;
-    const heroBottom = heroTop + heroSection.offsetHeight;
+    const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
     const quoteTop = quoteSection.offsetTop;
     const quoteBottom = quoteTop + quoteSection.offsetHeight;
+    const splitTop = splitSection.offsetTop;
   
-    // Clear all navbar state classes
+    // Reset navbar state classes
     navbar.classList.remove('scrolled', 'blurred', 'at-top');
   
-    // Case 1: At top of page (completely transparent)
+    // Case 1: At the very top of the page
     if (scrollY === 0) {
       navbar.classList.add('at-top');
     }
-  
-    // Case 2: Over regular section between the videos
-    else if (scrollY > heroBottom && scrollY < quoteTop) {
-      navbar.classList.add('scrolled'); // Cream background
+    // Case 2: Over the header video section
+    else if (scrollY < heroBottom) {
+      navbar.classList.add('blurred');
+      navbar.classList.remove('scrolled'); // Ensure scrolled class is removed
     }
-  
-    // Case 3: Over either video section
-    else if (
-      (scrollY > heroTop && scrollY < heroBottom) ||
-      (scrollY > quoteTop && scrollY < quoteBottom)
-    ) {
-      navbar.classList.add('blurred'); // Blurred background
+    // Case 3: Over the quote section
+    else if (scrollY >= quoteTop && scrollY <= quoteBottom) {
+      navbar.classList.add('blurred'); // Keep it blurred for the quote section
+    }
+    // Case 4: Over the split section
+    else if (scrollY >= splitTop) {
+      navbar.classList.add('scrolled');
     }
   });
   window.addEventListener('load', function() {
