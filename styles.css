@@ -9,6 +9,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Kepler';
+    src: url('fonts/Kepler.otf') format('opentype'); /* Update file name if needed */
+    font-weight: normal;
+    font-style: normal;
+ } 
+
 /* Reset default margins and padding */
 * {
     margin: 0;
@@ -23,6 +30,26 @@ body, html {
     font-family: 'Marcellus', serif;
     scroll-behavior: smooth;
 }
+.fade-in-element {
+    opacity: 0; /* Make it invisible initially */
+    transform: translateY(20px); /* Start slightly below the normal position */
+    transition: opacity 1s ease, transform 1s ease; /* Smooth transition for fade and movement */
+  }
+   .fade-in-element.visible {
+    opacity: 1; /* Make it visible when the class is added */
+    transform: translateY(0); /* Move to the normal position */
+  }
+ /* Default state - initially the body is invisible */
+ body {
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out; /* Duration of the fade-in effect */
+    background-color: #d3d3d3; /* Light gray background */
+    color: #333; /* Dark text color for better readability */
+  }
+   /* When the 'loaded' class is added, the opacity will be set to 1 */
+  body.loaded {
+    opacity: 1;
+  } 
 
 .fade-in-element {
     opacity: 0; /* Make it invisible initially */
@@ -509,6 +536,17 @@ body.loaded {
         right: -1rem;
     }
 }
+
+
+/* takeoutsubpage */
+#menu-items > div {
+    scroll-margin-top: 10px;
+  }
+/* Add smooth scroll behavior inside the menu list */
+#menu-items {
+    scroll-behavior: smooth;
+}  
+
 
 /* ENTIRELY NEW FOOTER DESIGN */
 .footer-new {

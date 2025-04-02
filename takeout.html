@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noorani Takeout</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[var(--light-cream)] text-[var(--dark-green)] loaded">
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="video-container">
+      <video autoplay muted loop>
+        <source src="assets/homepage.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="overlay">
+      <h1><span class="tropikal-font fade-in-title">Takeout</span></h1>
+      <!-- <p class="subtext fade-in-subtext">Where Every Bite is a Ray of Delight</p> -->
+    </div>
+  </section>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo-container" style="display: flex; align-items: center;">
+      <img src="android-chrome-192x192.png" alt="Noorani Logo" style="height: 50px; width: auto; margin-right: 10px;">
+      <div class="logo">Noorani</div>
+    </div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Menu</a>
+      <a href="#">Farm-to-Table</a>
+      <a href="#">About</a>
+      <a href="#">Takeout</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="menu-btn">&#9776;</div>
+  </nav>
+
+  <section class="py-20 bg-[var(--light-cream)] text-[var(--dark-green)]">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-10">Takeout Orders</h2>
+  
+      <!-- STEP 1: Menu Selection -->
+      <form id="takeout-form" class="step" data-step="1">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <!-- Left: Dropdown + Scrollable Menu -->
+           <div class="bg-white rounded-xl shadow-md p-6 h-[80vh] flex flex-col">
+
+            <div class="pb-4">
+              <label for="section-jump" class="block mb-2 font-semibold">Jump to Course:</label>
+              <select id="section-jump"
+                class="w-full px-4 py-2 rounded-lg border border-gray-300 shadow-sm">
+                <option value="appetizers">Appetizers / Sides</option>
+  <option value="salads">Salads</option>
+  <option value="mains">Mains</option>
+  <option value="desserts">Desserts</option>
+  <option value="drinks">Drinks</option>
+              </select>
+            </div>
+            <div id="menu-items" class="space-y-6 pr-2 overflow-y-auto flex-grow scroll-smooth"></div>
+          </div>
+  
+          <!-- Right: Order Summary -->
+          <div class="bg-white rounded-xl shadow-md p-6">
+            <h3 class="text-2xl font-semibold mb-4">Your Order</h3>
+            <div id="order-summary" class="text-sm space-y-2"></div>
+            <div class="border-t pt-4 mt-4">
+              <p class="font-bold">Total: $<span id="order-total">0.00</span></p>
+              <button type="submit"
+                class="mt-4 w-full bg-[var(--teal)] text-white px-4 py-2 rounded-lg hover:bg-[#2c5f58] transition">Place
+                Order</button>
+            </div>
+          </div>
+        </div>
+      </form>
+  
+     <!-- STEP 2: Checkout Form -->
+<form id="checkout-form" class="step hidden" data-step="2">
+    <div class="max-w-xl mx-auto bg-white p-6 rounded-xl shadow-lg">
+      <h3 class="text-2xl font-semibold mb-4">Enter Your Details</h3>
+  
+      <!-- Total Price -->
+      <p class="text-lg font-medium mb-4">Total: $<span id="checkout-total">0.00</span></p>
+  
+      <div class="space-y-4">
+        <input required type="text" placeholder="Full Name" class="w-full border rounded px-4 py-2" />
+        <input required type="text" placeholder="Phone Number" class="w-full border rounded px-4 py-2" />
+        <input required type="text" placeholder="Address" class="w-full border rounded px-4 py-2" />
+        <textarea placeholder="Delivery Notes (Optional)" class="w-full border rounded px-4 py-2"></textarea>
+      </div>
+  
+      <!-- Confirm Button -->
+      <button type="submit"
+        class="mt-6 w-full bg-[var(--teal)] text-white px-4 py-2 rounded-lg hover:bg-[#2c5f58] transition">
+        Confirm Order
+      </button>
+    </div>
+  </form>
+  
+  
+      <!-- STEP 3: Thank You Message -->
+      <!-- STEP 3: Thank You Message -->
+<div id="thank-you" class="step hidden text-center py-20">
+    <h3 class="text-4xl font-bold mb-4">Thank You!</h3>
+    <p class="text-lg mb-6">Your order has been placed. We’ll be in touch soon!</p>
+    <button id="new-order-btn"
+      class="bg-[var(--teal)] text-white px-6 py-3 rounded-lg hover:bg-[#2c5f58] transition">
+      Place Another Order
+    </button>
+  </div>
+  
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="images/logowbackground.png" alt="Noorani Logo" class="logo-img">
+        </div>
+        <div class="footer-links">
+            <a href="#">Home</a>
+            <a href="#">Menu</a>
+            <a href="#our-roots">Our Roots</a>
+            <a href="#">Reserve</a>
+        </div>
+        <div class="socialMedia-container">
+            <a href="#"><img src="footer/facebook.png" alt="Facebook" class="social-icon"></a>
+            <a href="#"><img src="footer/instagram.png" alt="Instagram" class="social-icon"></a>
+            <a href="#"><img src="footer/youtube.png" alt="YouTube" class="social-icon"></a>
+            <a href="#"><img src="footer/email.png" alt="Email" class="social-icon"></a>
+        </div>
+    </div>
+    <p>© Noorani 2025. All rights reserved.</p>
+</footer>
+
+<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="takeout.js"></script>
+
+</body>
+</html>

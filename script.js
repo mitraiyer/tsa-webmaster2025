@@ -1,4 +1,8 @@
 // script.js
+// menu
+window.addEventListener('load', () => {
+  document.body.classList.add('loaded');
+
 // User review
 document.addEventListener("DOMContentLoaded", () => {
   const track = document.getElementById("carousel-track");
@@ -164,7 +168,3 @@ document.addEventListener("DOMContentLoaded", function () {
       observer.observe(step);
   });
 });
-
-
-
-
