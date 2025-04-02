@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Process - Noorani</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="farm-to-table-styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Tropikal&display=swap" rel="stylesheet">
+  <script src="farm-to-table-script.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+     .section-title {
+      font-size: 2rem;
+      font-weight: 400;
+      letter-spacing: 0.2rem;;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #ffffff;
+
+      text-transform: uppercase;
+    }
+    
+    .section-intro h1 {
+      margin-bottom: 1rem;
+    }
+    
+    @media (max-width: 768px) {
+      .content-section {
+        flex-direction: column;
+        align-items: center;
+      }
+      .content-section > div {
+        width: 100% !important;
+      }
+    }
+
+    .references-container {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease-in-out;
+    }
+    .references-container:hover {
+      transform: scale(1.02);
+    }
+
+    .references-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards ease-in-out;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Video Background Section -->
+  <section class="subpage-hero">
+    <div class="subpage-video-container">
+      <video autoplay muted loop>
+        <source src="assets/menuvideo.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="subpage-overlay">
+      <h1 class="subpage-title">References & Worklog</h1>
+      <button class="scroll-down-btn">References & Worklog</button>
+    </div>
+  </section>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="noorani logo.png" alt="Noorani">
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Menu</a>
+      <a href="#">About</a>
+      <a href="#">Takeout</a>
+      <a href="#">Contact</a>
+      <a href="farm-to-table.html">Our Process</a>
+    </div>
+    <div class="menu-btn">&#9776;</div>
+  </nav>
+
+
+</head>
+
+<body>
+  <section class="farm-to-table">
+
+
+    <section class="content-section d-flex justify-content-center flex-wrap">
+      <div class="w-50 p-3">
+        <h2 class="section-title">Worklog</h2>
+        <div style="position: relative; width: 100%; height: 0; padding-top: 77.2727%; overflow: hidden;
+          border-radius: 8px; box-shadow: 0 2px 8px rgba(63,69,81,0.16);">
+          <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;"
+            src="https://www.canva.com/design/DAGjYo_5e4k/MfEaYiJ_H0hRHiebcGl1oQ/view?embed" allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+      <div class="w-50 p-3">
+        <h2 class="section-title">References</h2>
+        <div class="references-container">
+          <iframe class="references-iframe" src="https://docs.google.com/document/d/e/2PACX-1vRKKU_G_Xav4_CIWdPZjfZhK10cayvHk3OsR0h8m__3XIxbEvRmz7NE38yA-mr6pecqOcSQA9PzXGDi/pub?embedded=true"></iframe>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">Noorani</div>
+      <div class="footer-links">
+        <a href="#">Home</a>
+        <a href="#">Menu</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="socialMedia-container">
+        <img src="footer/facebook.png" alt="Facebook">
+        <img src="footer/instagram.png" alt="Instagram">
+        <img src="footer/youtube.png" alt="YouTube">
+        <img src="footer/email.png" alt="Email">
+      </div>
+      <p>© Noorani 2025. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
