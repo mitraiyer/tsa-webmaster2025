@@ -1,271 +1,3 @@
-/* Contact Styles CSS */
-
-/* Hero Section Modifications */
-.hero-section .overlay h1 {
-    text-align: left;
-    padding-left: 5%;
-}
-
-.hero-section .overlay .subtext,
-.hero-section .overlay .tagline {
-    text-align: left;
-    padding-left: 5%;
-}
-
-/* Contact Information Section */
-.split-section {
-    background-color: #f9f9f9; /* Light background color */
-    padding: 5rem 2rem;
-    color: #093C34; /* Dark text color for contrast */
-}
-
-.contact-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.contact-item {
-    background: rgba(9, 60, 52, 0.1); /* Light semi-transparent background */
-    border-radius: 8px;
-    padding: 1.5rem;
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    transition: transform 0.3s;
-}
-
-.contact-item:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
-}
-
-.contact-icon {
-    background-color: rgba(9, 60, 52, 0.2); /* Slightly darker background for icons */
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.contact-icon img {
-    width: 24px;
-    height: 24px;
-}
-
-.contact-item h3 {
-    margin: 0 0 0.5rem 0;
-    font-size: 1.2rem;
-}
-
-.contact-cta {
-    text-align: center;
-    margin-top: 2rem;
-}
-
-.cta-button {
-    background-color: #093C34;
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: background-color 0.3s;
-}
-
-.cta-button:hover {
-    background-color: #05241f;
-}
-
-/* Contact Form Section */
-.form-section {
-    background-color: #f9f9f9;
-    padding: 5rem 2rem;
-}
-
-.contact-form-container {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 3rem;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form-container h2 {
-    color: #093C34;
-    margin-bottom: 0.5rem;
-    text-align: left;
-}
-
-.form-intro {
-    margin-bottom: 2rem;
-    color: #666;
-}
-
-.contact-form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group.full-width {
-    grid-column: span 2;
-}
-
-.form-label {
-    margin-bottom: 0.5rem;
-    color: #333;
-    font-weight: 500;
-}
-
-.form-input,
-.form-textarea {
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-family: inherit;
-    font-size: 1rem;
-    transition: border-color 0.3s;
-}
-
-.form-input:focus,
-.form-textarea:focus {
-    border-color: #093C34;
-    outline: none;
-}
-
-.form-submit {
-    grid-column: span 2;
-    background-color: #093C34;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.form-submit:hover {
-    background-color: #05241f;
-}
-
-.form-success {
-    background-color: #e0f7e0;
-    color: #2e7d32;
-    padding: 1rem;
-    text-align: center;
-    border-radius: 4px;
-    margin-top: 1.5rem;
-}
-
-.hide {
-    display: none;
-}
-
-/* FAQ Section */
-.faq-section {
-    padding: 5rem 2rem;
-    background-color: #fff;
-}
-
-.faq-section .container {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.section-heading {
-    text-align: center;
-    color: #093C34;
-    margin-bottom: 3rem;
-}
-
-.faq-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.faq-item {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.faq-question {
-    padding: 1.25rem;
-    background-color: #f5f5f5;
-    cursor: pointer;
-    font-weight: 600;
-    color: #093C34;
-    position: relative;
-}
-
-.faq-question:after {
-    content: '+';
-    position: absolute;
-    right: 1.25rem;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.5rem;
-}
-
-.faq-item.active .faq-question:after {
-    content: '-';
-}
-
-.faq-answer {
-    padding: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    background-color: #fff;
-}
-
-.faq-item.active .faq-answer {
-    padding: 1.25rem;
-    max-height: 500px;
-}
-
-/* Back to Top Button */
-.back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background-color: #093C34;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s;
-    z-index: 1000;
-}
-
-.back-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.arrow-up {
-    font-size: 1.5rem;
-}
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .contact-form {
         grid-template-columns: 1fr;
@@ -282,4 +14,67 @@
     .contact-form-container {
         padding: 2rem;
     }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #093C34;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 1rem;
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        display: flex;
+        animation: fadein 0.3s ease-in-out;
+    }
+
+    .nav-links a,
+    .nav-links button.about-toggle {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        background: none;
+        text-align: left;
+        width: 100%;
+    }
+
+    .dropdown-content {
+        display: none;
+        flex-direction: column;
+        padding-left: 1rem;
+    }
+
+    .dropdown-content.show {
+        display: flex;
+    }
+}
+
+/* Fade-in effect */
+.fade-in-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Root variables */
+:root {
+    --primary-color: #093C34;
+    --light-cream: #f7f4ef;
+}
+
+@keyframes fadein {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadein {
+    animation: fadein 0.5s ease-in-out;
 }
