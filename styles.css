@@ -851,6 +851,56 @@ body {
     color: black;
     border-color: white;
 }
+/* User review */
+#review-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.dot:hover {
+    transform: scale(1.2);
+    transition: transform 0.2s ease;
+}
+
+.carousel-wrapper {
+    position: relative;
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+/* Arrow Buttons */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 9999px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-arrow:hover {
+    background-color: #f3e2c4;
+}
+
+.carousel-arrow.left {
+    left: -2rem; /* Pushes outside the card edge */
+}
+
+.carousel-arrow.right {
+    right: -2rem;
+}
+
+@media (max-width: 768px) {
+    .carousel-arrow.left {
+        left: -1rem;
+    }
+
+    .carousel-arrow.right {
+        right: -1rem;
+    }
+}
 /* Footer */
 .footer {
     background: var(--teal);
