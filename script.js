@@ -144,3 +144,41 @@ window.addEventListener('scroll', () => {
 window.addEventListener('load', function() {
 document.body.classList.add('loaded');
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll('.section');
+
+  const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+          } else {
+              entry.target.classList.remove('active');
+          }
+      });
+  }, observerOptions);
+
+  sections.forEach(section => {
+      observer.observe(section);
+  });
+
+  // Subtle parallax scrolling effect
+  window.addEventListener('scroll', () => {
+      sections.forEach(section => {
+          const backgroundImage = section.querySelector('.background-image');
+          const sectionRect = section.getBoundingClientRect();
+
+          // More subtle parallax effect
+          if (sectionRect.top < window.innerHeight && sectionRect.bottom > 0) {
+              const scrollProgress = 1 - (sectionRect.top / window.innerHeight);
+              backgroundImage.style.transform = `translateY(${scrollProgress * 10}%)`;
+          }
+      });
+  });
+});
