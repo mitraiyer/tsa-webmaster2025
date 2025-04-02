@@ -13,14 +13,19 @@
   <section class="hero-section">
     <div class="video-container">
       <video autoplay muted loop>
-        <source src="assets/homepage.mp4" type="video/mp4">
+        <source src="assets/takeoutvideo.mp4" type="video/mp4">
       </video>
     </div>
-    <div class="overlay">
-      <h1><span class="tropikal-font fade-in-title">Takeout</span></h1>
-      <!-- <p class="subtext fade-in-subtext">Where Every Bite is a Ray of Delight</p> -->
+
+    <div class="subpage-overlay">
+      <h1 class="subpage-title">Takeout</h1>
+      <p class="subpage-subtext">Order exquisite dishes right to your home</p>
+      <button class="scroll-down-btn">ORDER</button>
+
     </div>
   </section>
+
+
 
   <!-- Navbar -->
   <nav class="navbar">
@@ -29,19 +34,19 @@
       <div class="logo">Noorani</div>
     </div>
     <div class="nav-links">
-      <a href="#">Home</a>
-      <a href="#">Menu</a>
-      <a href="#">Farm-to-Table</a>
-      <a href="#">About</a>
-      <a href="#">Takeout</a>
-      <a href="#">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="farm-to-table.html">Farm-to-Table</a>
+      <a href="">About</a>
+      <a href="takeout.html">Takeout</a>
+      <a href="contactus.html">Contact</a>
     </div>
     <div class="menu-btn">&#9776;</div>
   </nav>
 
-  <section class="py-20 bg-[var(--light-cream)] text-[var(--dark-green)]">
+  <section id="takeout-section" class="py-20 bg-[var(--light-cream)] text-[var(--dark-green)]">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-10">Takeout Orders</h2>
+      <h2 class="text-4xl font-bold text-center mb-10">Place Order</h2>
   
       <!-- STEP 1: Menu Selection -->
       <form id="takeout-form" class="step" data-step="1">
@@ -78,27 +83,58 @@
       </form>
   
      <!-- STEP 2: Checkout Form -->
-<form id="checkout-form" class="step hidden" data-step="2">
-    <div class="max-w-xl mx-auto bg-white p-6 rounded-xl shadow-lg">
-      <h3 class="text-2xl font-semibold mb-4">Enter Your Details</h3>
+     <form id="checkout-form" class="step hidden" data-step="2">
+        <div class="max-w-xl mx-auto bg-white p-6 rounded-xl shadow-lg">
+          <h3 class="text-2xl font-semibold mb-4">Enter Your Details</h3>
+      
+          <p class="text-lg font-medium mb-4">Total: $<span id="checkout-total">0.00</span></p>
+      
+          <!-- Full Name and Phone -->
+          <div class="space-y-4">
+            <input required type="text" placeholder="Full Name" class="w-full border rounded px-4 py-2" />
+            <input required type="text" placeholder="Phone Number" class="w-full border rounded px-4 py-2" />
+      
+            <!-- Radio Choice: Pickup or Delivery -->
+            <div>
+              <p class="font-semibold mb-2">Choose Order Type:</p>
+              <label class="block mb-1">
+                <input type="radio" name="order-type" value="pickup" required /> Pickup
+              </label>
+              <label class="block">
+                <input type="radio" name="order-type" value="delivery" /> Delivery
+              </label>
+            </div>
+      
+            <!-- Pickup Time -->
+<div id="pickup-options" class="hidden space-y-4 mt-4">
+    <label class="block">
+      Select Pickup Time:
+      <input type="time" class="w-full border rounded px-4 py-2 mt-1" />
+    </label>
+    <textarea placeholder="Order Notes (Optional)" class="w-full border rounded px-4 py-2"></textarea>
+  </div>
   
-      <!-- Total Price -->
-      <p class="text-lg font-medium mb-4">Total: $<span id="checkout-total">0.00</span></p>
+  <!-- Delivery Fields -->
+  <div id="delivery-options" class="hidden space-y-4 mt-4">
+    <input type="text" placeholder="Delivery Address" class="w-full border rounded px-4 py-2" />
+    <label>
+      Delivery Time:
+      <input type="time" class="w-full border rounded px-4 py-2 mt-1" />
+    </label>
+    <textarea placeholder="Delivery Notes (Optional)" class="w-full border rounded px-4 py-2"></textarea>
+    <textarea placeholder="Order Notes (Optional)" class="w-full border rounded px-4 py-2"></textarea>
+  </div>
   
-      <div class="space-y-4">
-        <input required type="text" placeholder="Full Name" class="w-full border rounded px-4 py-2" />
-        <input required type="text" placeholder="Phone Number" class="w-full border rounded px-4 py-2" />
-        <input required type="text" placeholder="Address" class="w-full border rounded px-4 py-2" />
-        <textarea placeholder="Delivery Notes (Optional)" class="w-full border rounded px-4 py-2"></textarea>
-      </div>
-  
-      <!-- Confirm Button -->
-      <button type="submit"
-        class="mt-6 w-full bg-[var(--teal)] text-white px-4 py-2 rounded-lg hover:bg-[#2c5f58] transition">
-        Confirm Order
-      </button>
-    </div>
-  </form>
+          </div>
+      
+          <!-- Confirm Button -->
+          <button type="submit"
+            class="mt-6 w-full bg-[var(--teal)] text-white px-4 py-2 rounded-lg hover:bg-[#2c5f58] transition">
+            Confirm Order
+          </button>
+        </div>
+      </form>
+      
   
   
       <!-- STEP 3: Thank You Message -->

@@ -37,6 +37,14 @@ const menu = {
   
   };
   
+  document.querySelector(".scroll-down-btn").addEventListener("click", function() {
+    const nextSection = document.querySelector("#takeout-section"); // Use the ID selector here
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: "smooth" }); // Scroll smoothly to the section
+    }
+  });
+
+
   const menuContainer = document.getElementById('menu-items');
   const orderSummary = document.getElementById('order-summary');
   const orderTotal = document.getElementById('order-total');
@@ -101,6 +109,22 @@ const menu = {
     document.querySelector('[data-step="2"]').classList.add("hidden");
     document.getElementById("thank-you").classList.remove("hidden");
   });
+  // Handle toggle between pickup and delivery
+document.querySelectorAll('input[name="order-type"]').forEach(radio => {
+    radio.addEventListener("change", function () {
+      const pickupDiv = document.getElementById("pickup-options");
+      const deliveryDiv = document.getElementById("delivery-options");
+  
+      if (this.value === "pickup") {
+        pickupDiv.classList.remove("hidden");
+        deliveryDiv.classList.add("hidden");
+      } else if (this.value === "delivery") {
+        deliveryDiv.classList.remove("hidden");
+        pickupDiv.classList.add("hidden");
+      }
+    });
+  });
+  
   
   // Dropdown scroll inside scroll container
   const dropdown = document.getElementById("section-jump");

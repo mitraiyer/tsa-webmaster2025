@@ -21,42 +21,53 @@
   <section class="hero-section">
     <div class="video-container">
       <video autoplay muted loop>
-        <source src="assets/contact-background.mp4" type="video/mp4">
+        <source src="assets/contactvideo.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
-    <div class="overlay">
-      <h1><span class="tropikal-font fade-in-title">Contact Us</span></h1>
-      <p class="subtext fade-in-subtext">We'd love to hear from you</p>
-      <p class="tagline fade-in-subtext">Reach out for inquiries, reservations, or just to say hello</p>
-    </div>
+<!-- Update in your contact page -->
+<div class="overlay">
+    <h1 class="contact-page-title">Contact Us</h1>
+    <p class="subtext fade-in-subtext">We'd love to hear from you</p>
+    <p class="tagline fade-in-subtext">Reach out for inquiries, reservations, or just to say hello</p>
+  </div>
   </section>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo-container" style="display: flex; align-items: center;">
-      <img src="android-chrome-192x192.png" alt="Noorani Logo" style="height: 50px; width: auto; margin-right: 10px;">
-      <div class="logo">Noorani</div>
-    </div>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="#">Menu</a>
-      <a href="farm-to-table.html">Farm-to-Table</a>
-      <a href="#">Takeout</a>
-      <a href="contactus.html">Contact</a>
-      <a href="#our-roots">Our Roots</a>
-    </div>
-    <div class="menu-btn">&#9776;</div>
-  </nav>
 
-  <!-- Contact Information Section -->
-  <section class="split-section">
+<!-- Navigation Bar Update -->
+<nav class="navbar" style="background-color: #093C34">
+  <div class="logo-container" style="display: flex; align-items: center;">
+    <img src="android-chrome-192x192.png" alt="Noorani Logo" style="height: 50px; width: auto; margin-right: 10px;">
+    <div class="logo">Noorani</div>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="takeout.html">Take-Out</a>
+    <a href="reserve.html">Reserve</a>
+    <div class="relative group">
+      <a href="#" class="peer">About Us</a>
+      <div class="absolute hidden peer-hover:flex group-hover:flex flex-col bg-[#093C34] text-white shadow-lg mt-1 rounded-lg overflow-hidden z-50">
+        <a href="sustainability.html" class="px-4 py-2 hover:bg-[#f3e2c4]">Sustainability</a>
+        <a href="roots.html" class="px-4 py-2 hover:bg-[#f3e2c4]">Our Roots</a>
+        <a href="farm-to-table.html" class="px-4 py-2 hover:bg-[#f3e2c4]">Farm-to-Table</a>
+        <a href="references.html" class="px-4 py-2 hover:bg-[#f3e2c4]">References</a>
+      </div>
+      
+    </div>
+    <a href="contactus.html">Contact</a>
+  </div>
+  <div class="menu-btn">&#9776;</div>
+</nav>
+
+<!-- Contact Information Section -->
+<section class="split-section">
     <div class="split-text fade-in-element">
       <h2>Get In Touch</h2>
       <p>Whether you have questions about our menu, want to make a reservation, or just want to connect, we're here to help. Reach out to us using any of the methods below.</p>
       
       <div class="contact-info">
-        <div class="contact-item">
+        <div class="contact-item card">
           <div class="contact-icon"><img src="assets/icons/location.png" alt="Location Icon"></div>
           <div>
             <h3>Our Location</h3>
@@ -64,7 +75,7 @@
           </div>
         </div>
         
-        <div class="contact-item">
+        <div class="contact-item card">
           <div class="contact-icon"><img src="assets/icons/phone.png" alt="Phone Icon"></div>
           <div>
             <h3>Phone</h3>
@@ -72,7 +83,7 @@
           </div>
         </div>
         
-        <div class="contact-item">
+        <div class="contact-item card">
           <div class="contact-icon"><img src="assets/icons/email.png" alt="Email Icon"></div>
           <div>
             <h3>Email</h3>
@@ -80,7 +91,7 @@
           </div>
         </div>
         
-        <div class="contact-item">
+        <div class="contact-item card">
           <div class="contact-icon"><img src="assets/icons/clock.png" alt="Clock Icon"></div>
           <div>
             <h3>Hours</h3>
@@ -90,13 +101,12 @@
           </div>
         </div>
       </div>
-    </div>
-    
-    <div class="split-image fade-in-element">
-      <img src="assets/contact-image.jpg" alt="Our restaurant">
+      
+      <div class="contact-cta">
+        <a href="#contactForm" class="cta-button">Send Us a Message</a>
+      </div>
     </div>
   </section>
-
   <!-- Contact Form Section -->
   <section class="form-section">
     <div class="contact-form-container fade-in-element">
@@ -184,21 +194,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Newsletter Section -->
-  <section class="newsletter-section">
-    <div class="newsletter-container">
-      <h2 class="newsletter-heading">Stay Connected</h2>
-      <p class="newsletter-description">Subscribe to our newsletter to receive updates, special offers, and seasonal menu announcements.</p>
-      
-      <form class="newsletter-form" id="newsletterForm">
-        <input type="email" class="newsletter-input" placeholder="Your email address" required>
-        <button type="submit" class="newsletter-button">Subscribe</button>
-      </form>
-      
-      <p class="newsletter-privacy">We respect your privacy and will never share your information.</p>
     </div>
   </section>
 

@@ -83,6 +83,7 @@ document.querySelector(".scroll-down-btn").addEventListener("click", function() 
   if (nextSection) {
       nextSection.scrollIntoView({ behavior: "smooth" });
   }
+
 });
 document.addEventListener("DOMContentLoaded", function () {
   const steps = document.querySelectorAll(".journey-step");
@@ -171,4 +172,14 @@ document.addEventListener('DOMContentLoaded', function() {
   journeySteps.forEach(step => {
       observer.observe(step);
   });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const iframe = document.getElementById("referencesIframe");
+  const loadingIndicator = document.getElementById("loading");
+
+  iframe.onload = function () {
+    loadingIndicator.style.display = "none";
+    iframe.style.opacity = "1"; // Ensure it fades in smoothly
+  };
 });
