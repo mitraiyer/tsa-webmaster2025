@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Noorani</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="contact-styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Favicon Links -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+
+<body class="loaded">
+  <!-- Video Background Section -->
+  <section class="hero-section">
+    <div class="video-container">
+      <video autoplay muted loop>
+        <source src="assets/contact-background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="overlay">
+      <h1><span class="tropikal-font fade-in-title">Contact Us</span></h1>
+      <p class="subtext fade-in-subtext">We'd love to hear from you</p>
+      <p class="tagline fade-in-subtext">Reach out for inquiries, reservations, or just to say hello</p>
+    </div>
+  </section>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo-container" style="display: flex; align-items: center;">
+      <img src="android-chrome-192x192.png" alt="Noorani Logo" style="height: 50px; width: auto; margin-right: 10px;">
+      <div class="logo">Noorani</div>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="#">Menu</a>
+      <a href="farm-to-table.html">Farm-to-Table</a>
+      <a href="#">Takeout</a>
+      <a href="contactus.html">Contact</a>
+      <a href="#our-roots">Our Roots</a>
+    </div>
+    <div class="menu-btn">&#9776;</div>
+  </nav>
+
+  <!-- Contact Information Section -->
+  <section class="split-section">
+    <div class="split-text fade-in-element">
+      <h2>Get In Touch</h2>
+      <p>Whether you have questions about our menu, want to make a reservation, or just want to connect, we're here to help. Reach out to us using any of the methods below.</p>
+      
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon"><img src="assets/icons/location.png" alt="Location Icon"></div>
+          <div>
+            <h3>Our Location</h3>
+            <p>123 Culinary Avenue<br>Food District, FD 12345</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon"><img src="assets/icons/phone.png" alt="Phone Icon"></div>
+          <div>
+            <h3>Phone</h3>
+            <p>(123) 456-7890</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon"><img src="assets/icons/email.png" alt="Email Icon"></div>
+          <div>
+            <h3>Email</h3>
+            <p>info@noorani.com</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon"><img src="assets/icons/clock.png" alt="Clock Icon"></div>
+          <div>
+            <h3>Hours</h3>
+            <p>Monday - Thursday: 11:00 AM - 10:00 PM<br>
+            Friday - Saturday: 11:00 AM - 11:00 PM<br>
+            Sunday: 12:00 PM - 9:00 PM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="split-image fade-in-element">
+      <img src="assets/contact-image.jpg" alt="Our restaurant">
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="form-section">
+    <div class="contact-form-container fade-in-element">
+      <h2>Send Us a Message</h2>
+      <p class="form-intro">Fill out the form below and we'll get back to you as soon as possible.</p>
+      
+      <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" id="name" name="name" class="form-input" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" name="email" class="form-input" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone" class="form-label">Phone</label>
+          <input type="tel" id="phone" name="phone" class="form-input">
+        </div>
+        
+        <div class="form-group">
+          <label for="subject" class="form-label">Subject</label>
+          <select id="subject" name="subject" class="form-input">
+            <option value="reservation">Make a Reservation</option>
+            <option value="feedback">Feedback</option>
+            <option value="inquiry">General Inquiry</option>
+            <option value="catering">Catering Services</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        
+        <div class="form-group full-width">
+          <label for="message" class="form-label">Message</label>
+          <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
+        </div>
+        
+        <button type="submit" class="form-submit">Send Message</button>
+      </form>
+      <div id="formSuccess" class="form-success hide">
+        Thank you for your message! We will get back to you soon.
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="section-heading">Frequently Asked Questions</h2>
+      
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">Do you take reservations?</div>
+          <div class="faq-answer">
+            <p>Yes, we accept reservations for lunch and dinner. You can make a reservation by filling out the contact form above, calling us directly at (123) 456-7890, or using our online reservation system on our website.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">What cuisine does Noorani serve?</div>
+          <div class="faq-answer">
+            <p>Noorani specializes in a fusion of Indian and Middle Eastern cuisines. Our menu features traditional dishes from both regions with our unique culinary twist, using fresh, locally-sourced ingredients whenever possible.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">Do you offer catering services?</div>
+          <div class="faq-answer">
+            <p>Yes! We offer catering for events of all sizes, from intimate gatherings to large celebrations. Our catering menu can be customized to meet your specific needs and preferences. Please contact us for more information about our catering services and pricing.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">Do you accommodate dietary restrictions?</div>
+          <div class="faq-answer">
+            <p>Absolutely. We have a variety of vegetarian, vegan, and gluten-free options available. If you have specific dietary restrictions or allergies, please let us know when making your reservation or placing your order, and our chefs will be happy to accommodate your needs.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">Is parking available?</div>
+          <div class="faq-answer">
+            <p>Yes, we have a dedicated parking lot available for our guests. Additionally, there is street parking available in the surrounding area. Valet parking is available Friday and Saturday evenings.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter-section">
+    <div class="newsletter-container">
+      <h2 class="newsletter-heading">Stay Connected</h2>
+      <p class="newsletter-description">Subscribe to our newsletter to receive updates, special offers, and seasonal menu announcements.</p>
+      
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" class="newsletter-input" placeholder="Your email address" required>
+        <button type="submit" class="newsletter-button">Subscribe</button>
+      </form>
+      
+      <p class="newsletter-privacy">We respect your privacy and will never share your information.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-new">
+    <div class="footer-container">
+      <!-- Column 1: Legal & Support -->
+      <div class="footer-column">
+        <h3 class="footer-heading">Legal & Support</h3>
+        <ul class="footer-links-list">
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="contactus.html">Support</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 2: Subpages -->
+      <div class="footer-column">
+        <h3 class="footer-heading">Discover</h3>
+        <ul class="footer-links-list">
+          <li><a href="#our-roots">Our Roots</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">Take Out</a></li>
+          <li><a href="#">Reserve</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Hours -->
+      <div class="footer-column">
+        <h3 class="footer-heading">Hours</h3>
+        <ul class="footer-hours">
+          <li><span class="day">Monday - Thursday:</span> 11:00 AM - 10:00 PM</li>
+          <li><span class="day">Friday - Saturday:</span> 11:00 AM - 11:00 PM</li>
+          <li><span class="day">Sunday:</span> 12:00 PM - 9:00 PM</li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Social Media -->
+      <div class="footer-column">
+        <h3 class="footer-heading">Connect</h3>
+        <div class="social-icons">
+          <a href="#" class="social-icon"><img src="footer/facebook.png" alt="Facebook"></a>
+          <a href="#" class="social-icon"><img src="footer/instagram.png" alt="Instagram"></a>
+          <a href="#" class="social-icon"><img src="footer/youtube.png" alt="YouTube"></a>
+          <a href="#" class="social-icon"><img src="footer/email.png" alt="Email"></a>
+        </div>
+        <a href="contactus.html" class="contact-btn">Contact Us</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© Noorani 2025. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <div class="back-to-top" id="backToTop">
+    <span class="arrow-up">↑</span>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="contact-script.js"></script>
+</body>
+
+</html>
