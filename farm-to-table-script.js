@@ -83,6 +83,7 @@ document.querySelector(".scroll-down-btn").addEventListener("click", function() 
   if (nextSection) {
       nextSection.scrollIntoView({ behavior: "smooth" });
   }
+
 });
 document.addEventListener("DOMContentLoaded", function () {
   const steps = document.querySelectorAll(".journey-step");

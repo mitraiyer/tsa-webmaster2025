@@ -1,150 +1,109 @@
-// Wait for the page to load
+// Contact Page JavaScript
 document.addEventListener('DOMContentLoaded', function() {
-    // Add 'loaded' class to body for fade-in effect
-    document.body.classList.add('loaded');
-    
-    // FAQ accordion functionality
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    
-    faqQuestions.forEach(question => {
-      question.addEventListener('click', function() {
-        // Toggle active class on question
-        this.classList.toggle('active');
-        
-        // Toggle active class on answer
-        const answer = this.nextElementSibling;
-        answer.classList.toggle('active');
-      });
+    // FAQ Accordion functionality
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+
+            // Close all FAQs
+            faqItems.forEach(faq => faq.classList.remove('active'));
+
+            // Open clicked one if it wasn't active
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
     });
-    
-    // Scroll reveal animation
-    const fadeElements = document.querySelectorAll('.fade-in-element');
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    
-    fadeElements.forEach(element => {
-      observer.observe(element);
-    });
-    
-    // Back to top button
-    const backToTopBtn = document.getElementById('backToTop');
-    
-    window.addEventListener('scroll', function() {
-      if (window.pageYOffset > 300) {
-        backToTopBtn.classList.add('visible');
-      } else {
-        backToTopBtn.classList.remove('visible');
-      }
-    });
-    
-    backToTopBtn.addEventListener('click', function() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-    
-    // Form validation and submission
+
+    // Form submission handling with validation
     const contactForm = document.getElementById('contactForm');
     const formSuccess = document.getElementById('formSuccess');
-    
+
     if (contactForm) {
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Basic validation
-        let valid = true;
-        const requiredInputs = contactForm.querySelectorAll('[required]');
-        
-        requiredInputs.forEach(input => {
-          if (!input.value.trim()) {
-            valid = false;
-            input.classList.add('error');
-          } else {
-            input.classList.remove('error');
-          }
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Form fields
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            // Basic validation
+            if (!name || !email || !message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            // Email validation
+            if (!validateEmail(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            // Simulating a successful submission
+            contactForm.reset();
+            contactForm.style.display = 'none';
+            formSuccess.classList.remove('hide');
+
+            // Show form again after 5 seconds
+            setTimeout(() => {
+                formSuccess.classList.add('hide');
+                contactForm.style.display = 'grid';
+            }, 5000);
         });
-        
-        if (valid) {
-          // Hide form and show success message
-          contactForm.style.display = 'none';
-          formSuccess.classList.remove('hide');
-          
-          // Optionally, reset the form for if they go back
-          contactForm.reset();
-          
-          // In a real implementation, you would send the form data to your server here
-          // Example:
-          // const formData = new FormData(contactForm);
-          // fetch('your-endpoint', {
-          //   method: 'POST',
-          //   body: formData
-          // })
-          // .then(response => response.json())
-          // .then(data => {
-          //   console.log('Success:', data);
-          // })
-          // .catch(error => {
-          //   console.error('Error:', error);
-          // });
-        }
-      });
-      
-      // Remove error class on input when user starts typing
-      contactForm.querySelectorAll('.form-input, .form-textarea').forEach(input => {
-        input.addEventListener('input', function() {
-          this.classList.remove('error');
-        });
-      });
     }
-    
-    // Newsletter form
-    const newsletterForm = document.getElementById('newsletterForm');
-    
-    if (newsletterForm) {
-      newsletterForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const emailInput = this.querySelector('input[type="email"]');
-        
-        if (emailInput.value.trim()) {
-          // Simple email validation
-          if (validateEmail(emailInput.value)) {
-            // Show a success message
-            alert('Thank you for subscribing to our newsletter!');
-            newsletterForm.reset();
-          } else {
-            alert('Please enter a valid email address.');
-          }
-        }
-      });
-    }
-    
+
     // Email validation helper function
     function validateEmail(email) {
-      const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(email.toLowerCase());
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
     }
-  });
-  document.addEventListener('DOMContentLoaded', () => {
+
+    // Back to top button functionality
+    const backToTopBtn = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Fade-in animations
+    const fadeInElements = document.querySelectorAll('.fade-in-element');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    fadeInElements.forEach(element => observer.observe(element));
+});
+
+// Navbar functionality
+document.addEventListener('DOMContentLoaded', () => {
     const menuBtn = document.querySelector('.menu-btn');
     const navLinks = document.querySelector('.nav-links');
     const aboutToggle = document.querySelector('.about-toggle');
     const dropdown = document.querySelector('.dropdown-content');
 
     menuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
+        navLinks.classList.toggle('active');
     });
 
     aboutToggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      dropdown.classList.toggle('show');
+        e.preventDefault();
+        dropdown.classList.toggle('show');
     });
-  });
+});

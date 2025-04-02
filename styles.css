@@ -208,7 +208,6 @@ body.loaded {
     background-color: var(--light-cream); /* Solid light cream */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-
 /* Navigation Links - Fixed color values */
 .nav-links {
     display: flex;
@@ -516,7 +515,7 @@ body.loaded {
 }
 
 .carousel-arrow:hover {
-    background-color: #f3e2c4;
+    background-color: #fbd086;
 }
 
 .carousel-arrow.left {
@@ -537,7 +536,128 @@ body.loaded {
     }
 }
 
+/* Centered nav links during video section */
+.video-section-active .nav-links {
+    justify-content: center;
+    width: 100%;
+  }
 
+  .subpage-overlay {
+    position: absolute;
+    top: 50%;
+    left: 2%;
+    transform: translateY(-50%);
+    color: white;
+    max-width: 500px;
+}
+
+.subpage-title {
+    font-family: 'Tropikal', serif;
+    font-size: 7vw !important;
+    font-weight: thin;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    letter-spacing: 5px;
+
+}
+
+
+.subpage-subtext {
+    font-size: 1 rem;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+}
+
+.subpage-subtext {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+.scroll-down-btn {
+
+    margin-top: 3rem;
+    padding: 0.75rem 3rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    border: 1px solid white;
+    border-radius: 999px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.scroll-down-btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+    color: black;
+}
+
+  
+  /* Expanded nav bar after scrolling past video */
+  .scrolled .navbar {
+    padding: 1rem 2rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Mobile menu enhancements */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 280px;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    padding-top: 80px;
+    transition: right 0.3s ease;
+    z-index: 999;
+  }
+  
+  .mobile-menu.active {
+    right: 0;
+  }
+  
+  .mobile-menu a {
+    display: block;
+    padding: 15px 25px;
+    color: #093C34;
+    text-decoration: none;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.3s;
+  }
+  
+  .mobile-menu a:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .menu-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #093C34;
+  }
+  
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+  }
+  
+  .menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
 /* takeoutsubpage */
 #menu-items > div {
     scroll-margin-top: 10px;
