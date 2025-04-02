@@ -83,7 +83,7 @@
                    <h3>Biodegradable Packaging</h3>
                </div>
                <div class="practice-card">
-                   <img src="assets/sustainabi.jpg" alt="Water conservation">
+                   <img src="assets/sustainability-water.jpg" alt="Water conservation">
                    <h3>Water-Saving Systems</h3>
                </div>
                <div class="practice-card">
@@ -146,6 +146,55 @@
 
 
  <style>
+    /* Add this to your existing CSS */
+.subpage-hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.subpage-video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.subpage-video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.subpage-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 10%; /* Add padding on left and right */
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.4); /* Optional: adds a slight overlay for better text visibility */
+}
+
+.subpage-title {
+  font-size: 4rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.subpage-subtext {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
    .text-section p {
  font-size: 3rem; /* Increase from 1.125rem */
 }
@@ -345,8 +394,58 @@ display: inline-block;
 background-color: rgba(255, 255, 255, 1);
 color: black;
 }
- </style>
+/* Add this to your existing CSS */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
 
+.subpage-video-container {
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+.subpage-video-container video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Make sure all sections respect the viewport width */
+section {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ensure content containers don't overflow */
+.content-container, 
+.practices-section, 
+.closing-statement,
+.cta-section {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+ </style>
+<script>
+    // Add this to your script.js file
+document.addEventListener('DOMContentLoaded', function() {
+  const scrollDownBtn = document.querySelector('.scroll-down-btn');
+  
+  if (scrollDownBtn) {
+    scrollDownBtn.addEventListener('click', function() {
+      // Scroll to the sustainability content section
+      const sustainabilityContent = document.querySelector('.sustainability-content');
+      if (sustainabilityContent) {
+        sustainabilityContent.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+});
+</script>
 
  <script type="text/javascript" src="script.js"></script>
 </body>
