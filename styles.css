@@ -9,6 +9,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Kepler';
+    src: url('fonts/Kepler.otf') format('opentype'); /* Update file name if needed */
+    font-weight: normal;
+    font-style: normal;
+ } 
+
 /* Reset default margins and padding */
 * {
     margin: 0;
@@ -23,6 +30,26 @@ body, html {
     font-family: 'Marcellus', serif; /* Use Marcellus as the main font */
     scroll-behavior: smooth;
 }
+.fade-in-element {
+    opacity: 0; /* Make it invisible initially */
+    transform: translateY(20px); /* Start slightly below the normal position */
+    transition: opacity 1s ease, transform 1s ease; /* Smooth transition for fade and movement */
+  }
+   .fade-in-element.visible {
+    opacity: 1; /* Make it visible when the class is added */
+    transform: translateY(0); /* Move to the normal position */
+  }
+ /* Default state - initially the body is invisible */
+ body {
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out; /* Duration of the fade-in effect */
+    background-color: #d3d3d3; /* Light gray background */
+    color: #333; /* Dark text color for better readability */
+  }
+   /* When the 'loaded' class is added, the opacity will be set to 1 */
+  body.loaded {
+    opacity: 1;
+  } 
 
 /* Hero Section Layout */
 .hero-section {
@@ -364,24 +391,460 @@ body, html {
     background-color: #2c5f58;
 }
 
-/* Responsive Fix: Stack split section on small screens */
-@media (max-width: 768px) {
+/* Farm-to-Table Section */
+
+
+.farm-to-table {
+    font-family: 'Kepler', serif;
+    width: 100%;
+    margin: 0;
+    padding: 100px 0;
+    background-color: #2a2a27;
+    color: #eaeaea;
+ }
+ 
+ 
+ /* Section Introduction */
+ .section-intro {
+    max-width: 900px;
+    margin: 0 auto 60px;
+    padding: 0 40px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+ }
+ 
+ 
+ .section-intro.visible {
+    opacity: 1;
+    transform: translateY(0);
+ }
+ 
+ 
+ .section-intro .section-start-text {
+    padding: 30px;
+    width: 100%;
+ }
+ 
+ 
+ .section-intro h1 {
+    font-size: 4.5rem;
+    color: #ffffff;
+    font-weight: 300;
+    letter-spacing: 0.4rem;
+    margin-bottom: 25px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+ }
+ 
+ 
+ .section-intro h1::after {
+    content: '';
+    display: block;
+    width: 120px;
+    height: 2px;
+    background: #c9a558;
+    margin: 20px auto 0;
+ }
+ 
+ 
+ .section-intro h2 {
+    font-size: 1.7rem;
+    color: #c9a558;
+    margin-bottom: 35px;
+    font-weight: 300;
+    line-height: 1.5;
+    font-style: italic;
+    letter-spacing: 0.1rem;
+ }
+ 
+ 
+ .section-intro p {
+    font-size: 1.3rem;
+    line-height: 1.9;
+    color: #f2f2f2;
+    max-width: 800px;
+    margin: 0 auto;
+    font-weight: 300;
+    letter-spacing: 0.05rem;
+ }
+ 
+ 
+ .highlight {
+    color: #c9a558;
+    font-weight: 400;
+    letter-spacing: 0.05rem;
+ }
+ 
+ 
+ /* Timeline Title */
+ .timeline-title {
+    text-align: center;
+    margin: 60px 0 30px;
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    color: #c9a558;
+    text-transform: uppercase;
+    font-weight: 400;
+    position: relative;
+ }
+ 
+ 
+ .timeline-title::before,
+ .timeline-title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 60px;
+    height: 1px;
+    background-color: #c9a558;
+ }
+ 
+ 
+ .timeline-title::before {
+    right: calc(50% + 80px);
+ }
+ 
+ 
+ .timeline-title::after {
+    left: calc(50% + 80px);
+ }
+ 
+ 
+ @media (max-width: 768px) {
+    .section-intro h1 {
+        font-size: 3rem;
+        letter-spacing: 0.3rem;
+    }
+   
+    .section-intro h2 {
+        font-size: 1.5rem;
+    }
+   
+    .section-intro p {
+        font-size: 1.2rem;
+    }
+   
+    .timeline-title::before {
+        width: 40px;
+        right: calc(50% + 60px);
+    }
+   
+    .timeline-title::after {
+        width: 40px;
+        left: calc(50% + 60px);
+    }
+ }
+ 
+ 
+ @media (max-width: 480px) {
+    .section-intro h1 {
+        font-size: 2.5rem;
+        letter-spacing: 0.2rem;
+    }
+   
+    .section-intro h2 {
+        font-size: 1.3rem;
+    }
+   
+    .timeline-title::before,
+    .timeline-title::after {
+        display: none;
+    }
+ }
+ 
+ 
+ /* Timeline Container */
+ .journey {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 0;
+ }
+ 
+ 
+ /* Timeline vertical line */
+ .journey::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background-color: rgba(201, 165, 88, 0.5);
+    transform: translateX(-50%);
+ }
+ 
+ 
+ /* Timeline Steps */
+ .journey-step {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin: 80px 0;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+ }
+ 
+ 
+ .journey-step.visible {
+    opacity: 1;
+    transform: translateY(0);
+ }
+ 
+ 
+ /* Alternate layout for steps */
+ .journey-step:nth-child(odd) {
+    flex-direction: row-reverse;
+ }
+ 
+ 
+ .journey-step:nth-child(odd) .text {
+    text-align: left;
+    border-left: 3px solid #c9a558;
+    border-right: none;
+ }
+ 
+ 
+ .journey-step:nth-child(even) {
+    flex-direction: row;
+ }
+ 
+ 
+ .journey-step:nth-child(even) .text {
+    text-align: right;
+    border-right: 3px solid #c9a558;
+    border-left: none;
+ }
+ 
+ 
+ /* Timeline Dot */
+ .journey-step::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    background: #c9a558;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    border: 3px solid #2a2a27;
+    box-shadow: 0 0 0 2px rgba(201, 165, 88, 0.3);
+ }
+ 
+ 
+ /* Text Box for Each Step */
+ .text {
+    flex: 1;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 45%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+ }
+ 
+ 
+ .text:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+ }
+ 
+ 
+ .text h3 {
+    font-size: 1.6rem;
+    color: #2a2a27;
+    margin-bottom: 15px;
+    font-weight: 500;
+ }
+ 
+ 
+ .text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+ }
+ 
+ 
+ .text .highlight {
+    color: #a5733b;
+    font-weight: 500;
+ }
+ 
+ 
+ /* Image Box */
+ .image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 45%;
+ }
+ 
+ 
+ .image img {
+    width: 100%;
+    max-width: 380px;
+    border-radius: 6px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+ }
+ 
+ 
+ .image img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+ }
+ 
+ 
+ /* Responsive adjustments for timeline */
+ @media (max-width: 992px) {
+    .journey::before {
+        left: 30px;
+    }
+   
+    .journey-step,
+    .journey-step:nth-child(odd),
+    .journey-step:nth-child(even) {
+        flex-direction: column;
+        margin: 60px 0;
+    }
+   
+    .journey-step::before {
+        left: 30px;
+        top: 24px;
+    }
+   
+    .text,
+    .image {
+        max-width: 100%;
+        margin-left: 60px;
+    }
+   
+    .journey-step:nth-child(odd) .text,
+    .journey-step:nth-child(even) .text {
+        text-align: left;
+        border-left: 3px solid #c9a558;
+        border-right: none;
+        margin-bottom: 20px;
+    }
+   
+    .image {
+        order: 2;
+    }
+ }
+ /* ===== Closing Section ===== */
+ .farm-to-table-closing {
+    width: 100vw;
+    height: 100vh; /* Adjust height to fit the full viewport */
+    margin: 0 auto;
+    padding: 80px 20px;
+    background-image: url("assets/farm-to-table-intro bg.jpg");
+    background-size: cover; /* Ensures the full image is shown */
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Tropikal', serif;
+    text-align: center;
+    
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ .section-closing {
+    text-align: center;
+    max-width:80%;
+    margin: 90px auto;
+  
+ }
+ 
+ 
+ .section-closing h2 {
+    font-family: 'Tropikal', serif;
+    color: #faf0dc;
+    font-size: 10vw !important;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    letter-spacing: 3px;
+ }
+ 
+ 
+ .farm-to-table-closing-paragraph {
+    text-align:center;
+    font-size: 2.5rem;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    letter-spacing: 1px;
+    line-height: 4.5rem;
+    background-color: black;
+    color:  white;
+ }
+ .section-closing-title {
+    text-align: center;
+ 
+ 
+ 
+ 
+ }
+ .farm-to-table-closing-image {
+    background-image: url("assets/farm-to-table-menu-img.jpg"); /* Replace with your image path */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    padding: 200px; /* Adds some padding around the content */
+    color: white; /* Makes text more readable on dark backgrounds */
+ }
+ .closing-normal {
+    font-family: 'Tropikal', serif;
+    text-align: center !important;
+    font-size: 4rem !important;
+    font-weight: thin;
+    margin-bottom: 0.5rem;
+    letter-spacing: .5rem;
+ }
+ .closing-italic {
+    font-family: 'Tropikal', serif;
+    text-align: center !important;
+    font-size: 4rem !important;
+    font-weight: thin;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+ }
+ 
+ /* Responsive Fix: Stack split section on small screens */
+ @media (max-width: 768px) {
     .split-section {
         flex-direction: column;
         height: auto;
     }
-
+ 
+ 
     .split-image,
     .split-text {
         height: auto;
     }
-
+ 
+ 
     .split-image img {
         height: 300px;
         border-radius: 0;
         box-shadow: none;
     }
-}
+ }
+ 
 
 /* Quote-over-Video Section */
 .quote-video-section {
@@ -503,6 +966,15 @@ body, html {
         right: -1rem;
     }
 }
+
+/* takeoutsubpage */
+#menu-items > div {
+    scroll-margin-top: 10px;
+  }
+/* Add smooth scroll behavior inside the menu list */
+#menu-items {
+    scroll-behavior: smooth;
+}  
 
 /* Footer */
 .footer {

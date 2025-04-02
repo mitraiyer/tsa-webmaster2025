@@ -1,5 +1,8 @@
 // script.js
-
+// menu
+window.addEventListener('load', () => {
+  document.body.classList.add('loaded');
+});
 // Typing Effect
 const sentence = "Welcome to Noorani";
 let index = 0;
@@ -116,4 +119,27 @@ document.addEventListener("DOMContentLoaded", () => {
       if (startX - endX > 50) nextSlide();
       else if (endX - startX > 50) prevSlide();
     });
+});
+
+document.querySelector(".scroll-down-btn").addEventListener("click", function() {
+  const nextSection = document.querySelector(".farm-to-table"); // Replace with your actual section class
+  if (nextSection) {
+      nextSection.scrollIntoView({ behavior: "smooth" });
+  }
+});
+document.addEventListener("DOMContentLoaded", function () {
+  const steps = document.querySelectorAll(".journey-step");
+
+  const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+          }
+      });
+  }, { threshold: 0.3 });
+
+  steps.forEach(step => {
+      observer.observe(step);
+  });
 });
