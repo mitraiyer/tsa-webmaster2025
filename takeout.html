@@ -78,27 +78,58 @@
       </form>
   
      <!-- STEP 2: Checkout Form -->
-<form id="checkout-form" class="step hidden" data-step="2">
-    <div class="max-w-xl mx-auto bg-white p-6 rounded-xl shadow-lg">
-      <h3 class="text-2xl font-semibold mb-4">Enter Your Details</h3>
+     <form id="checkout-form" class="step hidden" data-step="2">
+        <div class="max-w-xl mx-auto bg-white p-6 rounded-xl shadow-lg">
+          <h3 class="text-2xl font-semibold mb-4">Enter Your Details</h3>
+      
+          <p class="text-lg font-medium mb-4">Total: $<span id="checkout-total">0.00</span></p>
+      
+          <!-- Full Name and Phone -->
+          <div class="space-y-4">
+            <input required type="text" placeholder="Full Name" class="w-full border rounded px-4 py-2" />
+            <input required type="text" placeholder="Phone Number" class="w-full border rounded px-4 py-2" />
+      
+            <!-- Radio Choice: Pickup or Delivery -->
+            <div>
+              <p class="font-semibold mb-2">Choose Order Type:</p>
+              <label class="block mb-1">
+                <input type="radio" name="order-type" value="pickup" required /> Pickup
+              </label>
+              <label class="block">
+                <input type="radio" name="order-type" value="delivery" /> Delivery
+              </label>
+            </div>
+      
+            <!-- Pickup Time -->
+<div id="pickup-options" class="hidden space-y-4 mt-4">
+    <label class="block">
+      Select Pickup Time:
+      <input type="time" class="w-full border rounded px-4 py-2 mt-1" />
+    </label>
+    <textarea placeholder="Order Notes (Optional)" class="w-full border rounded px-4 py-2"></textarea>
+  </div>
   
-      <!-- Total Price -->
-      <p class="text-lg font-medium mb-4">Total: $<span id="checkout-total">0.00</span></p>
+  <!-- Delivery Fields -->
+  <div id="delivery-options" class="hidden space-y-4 mt-4">
+    <input type="text" placeholder="Delivery Address" class="w-full border rounded px-4 py-2" />
+    <label>
+      Delivery Time:
+      <input type="time" class="w-full border rounded px-4 py-2 mt-1" />
+    </label>
+    <textarea placeholder="Delivery Notes (Optional)" class="w-full border rounded px-4 py-2"></textarea>
+    <textarea placeholder="Order Notes (Optional)" class="w-full border rounded px-4 py-2"></textarea>
+  </div>
   
-      <div class="space-y-4">
-        <input required type="text" placeholder="Full Name" class="w-full border rounded px-4 py-2" />
-        <input required type="text" placeholder="Phone Number" class="w-full border rounded px-4 py-2" />
-        <input required type="text" placeholder="Address" class="w-full border rounded px-4 py-2" />
-        <textarea placeholder="Delivery Notes (Optional)" class="w-full border rounded px-4 py-2"></textarea>
-      </div>
-  
-      <!-- Confirm Button -->
-      <button type="submit"
-        class="mt-6 w-full bg-[var(--teal)] text-white px-4 py-2 rounded-lg hover:bg-[#2c5f58] transition">
-        Confirm Order
-      </button>
-    </div>
-  </form>
+          </div>
+      
+          <!-- Confirm Button -->
+          <button type="submit"
+            class="mt-6 w-full bg-[var(--teal)] text-white px-4 py-2 rounded-lg hover:bg-[#2c5f58] transition">
+            Confirm Order
+          </button>
+        </div>
+      </form>
+      
   
   
       <!-- STEP 3: Thank You Message -->
