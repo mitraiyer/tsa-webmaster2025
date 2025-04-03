@@ -149,3 +149,12 @@
     line-height: 1.6;
     color: #444;
   }
+
+  .subpage-title {
+    font-family: 'Tropikal', serif;
+    font-size: 5.5vw !important;
+    font-weight: thin;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    letter-spacing: 5px;
+}

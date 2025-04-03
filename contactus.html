@@ -16,19 +16,20 @@
   <link rel="manifest" href="/site.webmanifest">
 </head>
 
-<body class="loaded">
+<body>
   <!-- Video Background Section -->
-  <section class="hero-section">
-    <div class="video-container">
+  </section>
+  <section class="subpage-hero">
+    <div class="subpage-video-container">
       <video autoplay muted loop>
-        <source src="assets/contact-background.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+        <source src="assets/farmtotable.mp4" type="video/mp4">
       </video>
     </div>
-    <div class="overlay">
-      <h1 class="contact-page-title">Contact Us</h1>
-      <p class="subtext fade-in-subtext">We'd love to hear from you</p>
-      <p class="tagline fade-in-subtext">Reach out for inquiries, reservations, or just to say hello</p>
+
+    <div class="subpage-overlay">
+      <h1 class="subpage-title">Contact Us</h1>
+      <p class="subpage-subtext">We'd <i>love</i> to hear from you</p>
+      <button class="scroll-down-btn">Reach out for inquiries, reservations, or just to say hello</button>
     </div>
   </section>
 
@@ -60,7 +61,7 @@
   </nav>
 
   <!-- Contact Information Section -->
-  <section class="split-section bg-gradient-to-b from-[#f8f5ed] to-white">
+  <section id = "contact" class="split-section bg-gradient-to-b from-[#f8f5ed] to-white">
     <div class="split-text fade-in-element max-w-6xl mx-auto p-8">
       <h2 class="text-4xl font-bold text-[#093C34] mb-6 text-center">Get In Touch</h2>
       <p class="text-lg text-center max-w-3xl mx-auto mb-12">Whether you have questions about our menu, want to make a reservation, or just want to connect, we're here to help. Reach out to us using any of the methods below.</p>
@@ -268,6 +269,9 @@
   </div>
 
   <script>
+window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+  });
     document.addEventListener('DOMContentLoaded', function() {
       // FAQ Accordion functionality
       const faqItems = document.querySelectorAll('.faq-item');
@@ -293,7 +297,15 @@
           }
         });
       });
+// Scroll down button
 
+document.querySelector(".scroll-down-btn").addEventListener("click", function() {
+        const nextSection = document.querySelector("#contact");
+        if (nextSection) {
+          nextSection.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+      
       // Form submission handling with validation
       const contactForm = document.getElementById('contactForm');
       const formSuccess = document.getElementById('formSuccess');
@@ -376,6 +388,8 @@
         navLinks.classList.toggle('active');
       });
     });
+
+
   </script>
 </body>
 

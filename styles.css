@@ -47,8 +47,8 @@ body, html {
 /* Default state - initially the body is invisible */
 body {
     opacity: 0;
-    transition: opacity 1.5s ease-in-out; /* Duration of the fade-in effect */
-    background-color: #d3d3d3; /* Light gray background */
+    transition: opacity 1s ease-in-out; /* Duration of the fade-in effect */
+    background-color: #b5b4b4; /* Light gray background */
     color: #333; /* Dark text color for better readability */
 }
 
@@ -154,6 +154,17 @@ body.loaded {
     }
 }
 
+
+/* Fade-in effect */
+.fade-in-element {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .fade-in-element.visible {
+    opacity: 1;
+  }
+  
 :root {
     --dark-green: #093C34;
     --teal: #447C74;
