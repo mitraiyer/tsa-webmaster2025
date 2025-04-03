@@ -21,138 +21,151 @@
   <section class="hero-section">
     <div class="video-container">
       <video autoplay muted loop>
-        <source src="assets/contactvideo.mp4" type="video/mp4">
+        <source src="assets/contact-background.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
-<!-- Update in your contact page -->
-<div class="subpage-overlay">
-  <h1 class="subpage-title">Takeout</h1>
-  <p class="subpage-subtext">Order exquisite dishes right to your home</p>
-  <button class="scroll-down-btn">ORDER</button>
-</div>
-
-<!-- Navigation Bar Update -->
-<nav class="navbar" style="background-color: #093C34">
-  <div class="logo-container" style="display: flex; align-items: center;">
-    <img src="android-chrome-192x192.png" alt="Noorani Logo" style="height: 50px; width: auto; margin-right: 10px;">
-    <div class="logo">Noorani</div>
-  </div>
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="menu.html">Menu</a>
-    <a href="takeout.html">Take-Out</a>
-    <a href="reserve.html">Reserve</a>
-    <div class="relative group">
-      <a href="#" class="peer">About Us</a>
-      <div class="absolute hidden peer-hover:flex group-hover:flex flex-col bg-[#093C34] text-white shadow-lg mt-1 rounded-lg overflow-hidden z-50">
-        <a href="sustainability.html" class="px-4 py-2 hover:bg-[#f3e2c4]">Sustainability</a>
-        <a href="roots.html" class="px-4 py-2 hover:bg-[#f3e2c4]">Our Roots</a>
-        <a href="farm-to-table.html" class="px-4 py-2 hover:bg-[#f3e2c4]">Farm-to-Table</a>
-        <a href="references.html" class="px-4 py-2 hover:bg-[#f3e2c4]">References</a>
-      </div>
-      
+    <div class="overlay">
+      <h1 class="contact-page-title">Contact Us</h1>
+      <p class="subtext fade-in-subtext">We'd love to hear from you</p>
+      <p class="tagline fade-in-subtext">Reach out for inquiries, reservations, or just to say hello</p>
     </div>
-    <a href="contactus.html">Contact</a>
-  </div>
-  <div class="menu-btn">&#9776;</div>
-</nav>
+  </section>
 
-<!-- Contact Information Section -->
-<section class="split-section">
-    <div class="split-text fade-in-element">
-      <h2>Get In Touch</h2>
-      <p>Whether you have questions about our menu, want to make a reservation, or just want to connect, we're here to help. Reach out to us using any of the methods below.</p>
+  <!-- Navigation Bar -->
+  <nav class="navbar" style="background-color: #093C34">
+    <div class="logo-container" style="display: flex; align-items: center;">
+      <a href="index.html" style="display: flex; align-items: center;">
+        <img src="android-chrome-192x192.png" alt="Noorani Logo" style="height: 50px; width: auto; margin-right: 10px;">
+        <div class="logo">Noorani</div>
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="takeout.html">Take-Out</a>
+      <a href="reserve.html">Reserve</a>
+      <div class="relative group">
+        <a href="#" class="peer">About Us</a>
+        <div class="absolute hidden peer-hover:flex group-hover:flex flex-col bg-[#093C34] text-white shadow-lg mt-1 rounded-lg overflow-hidden z-50">
+          <a href="sustainability.html" class="px-4 py-2 hover:bg-[#f3e2c4]">Sustainability</a>
+          <a href="roots.html" class="px-4 py-2 hover:bg-[#f3e2c4]">Our Roots</a>
+          <a href="farm-to-table.html" class="px-4 py-2 hover:bg-[#f3e2c4]">Farm-to-Table</a>
+          <a href="references.html" class="px-4 py-2 hover:bg-[#f3e2c4]">References</a>
+        </div>
+      </div>
+      <a href="contactus.html">Contact</a>
+    </div>
+    <div class="menu-btn">&#9776;</div>
+  </nav>
+
+  <!-- Contact Information Section -->
+  <section class="split-section bg-gradient-to-b from-[#f8f5ed] to-white">
+    <div class="split-text fade-in-element max-w-6xl mx-auto p-8">
+      <h2 class="text-4xl font-bold text-[#093C34] mb-6 text-center">Get In Touch</h2>
+      <p class="text-lg text-center max-w-3xl mx-auto mb-12">Whether you have questions about our menu, want to make a reservation, or just want to connect, we're here to help. Reach out to us using any of the methods below.</p>
       
-      <div class="contact-info">
-        <div class="contact-item card">
-          <div class="contact-icon"><img src="assets/icons/location.png" alt="Location Icon"></div>
+      <div class="contact-info grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="contact-item card hover:shadow-lg transition-shadow duration-300 bg-white rounded-xl p-6 flex flex-col items-center text-center">
+          <div class="contact-icon mb-4 bg-[#f3e2c4] p-4 rounded-full">
+            <img src="assets/icons/location.png" alt="Location Icon" class="w-10 h-10">
+          </div>
           <div>
-            <h3>Our Location</h3>
-            <p>123 Culinary Avenue<br>Food District, FD 12345</p>
+            <h3 class="text-xl font-semibold text-[#093C34] mb-2">Our Location</h3>
+            <p class="text-gray-700">123 Culinary Avenue<br>Food District, FD 12345</p>
           </div>
         </div>
         
-        <div class="contact-item card">
-          <div class="contact-icon"><img src="assets/icons/phone.png" alt="Phone Icon"></div>
+        <div class="contact-item card hover:shadow-lg transition-shadow duration-300 bg-white rounded-xl p-6 flex flex-col items-center text-center">
+          <div class="contact-icon mb-4 bg-[#f3e2c4] p-4 rounded-full">
+            <img src="assets/icons/phone.png" alt="Phone Icon" class="w-10 h-10">
+          </div>
           <div>
-            <h3>Phone</h3>
-            <p>(123) 456-7890</p>
+            <h3 class="text-xl font-semibold text-[#093C34] mb-2">Phone</h3>
+            <p class="text-gray-700">(123) 456-7890</p>
           </div>
         </div>
         
-        <div class="contact-item card">
-          <div class="contact-icon"><img src="assets/icons/email.png" alt="Email Icon"></div>
+        <div class="contact-item card hover:shadow-lg transition-shadow duration-300 bg-white rounded-xl p-6 flex flex-col items-center text-center">
+          <div class="contact-icon mb-4 bg-[#f3e2c4] p-4 rounded-full">
+            <img src="assets/icons/email.png" alt="Email Icon" class="w-10 h-10">
+          </div>
           <div>
-            <h3>Email</h3>
-            <p>info@noorani.com</p>
+            <h3 class="text-xl font-semibold text-[#093C34] mb-2">Email</h3>
+            <p class="text-gray-700">info@noorani.com</p>
           </div>
         </div>
         
-        <div class="contact-item card">
-          <div class="contact-icon"><img src="assets/icons/clock.png" alt="Clock Icon"></div>
+        <div class="contact-item card hover:shadow-lg transition-shadow duration-300 bg-white rounded-xl p-6 flex flex-col items-center text-center">
+          <div class="contact-icon mb-4 bg-[#f3e2c4] p-4 rounded-full">
+            <img src="assets/icons/clock.png" alt="Clock Icon" class="w-10 h-10">
+          </div>
           <div>
-            <h3>Hours</h3>
-            <p>Monday - Thursday: 11:00 AM - 10:00 PM<br>
+            <h3 class="text-xl font-semibold text-[#093C34] mb-2">Hours</h3>
+            <p class="text-gray-700">Monday - Thursday: 11:00 AM - 10:00 PM<br>
             Friday - Saturday: 11:00 AM - 11:00 PM<br>
             Sunday: 12:00 PM - 9:00 PM</p>
           </div>
         </div>
       </div>
       
-      <div class="contact-cta">
-        <a href="#contactForm" class="cta-button">Send Us a Message</a>
+      <div class="contact-cta text-center mt-10">
+        <a href="#contactForm" class="cta-button bg-[#093C34] hover:bg-[#0c4f45] text-white font-semibold py-3 px-8 rounded-full inline-block transition-colors duration-300">Send Us a Message</a>
       </div>
     </div>
   </section>
+
   <!-- Contact Form Section -->
-  <section class="form-section">
-    <div class="contact-form-container fade-in-element">
-      <h2>Send Us a Message</h2>
-      <p class="form-intro">Fill out the form below and we'll get back to you as soon as possible.</p>
+  <section class="form-section bg-[#f3e2c4] py-16">
+    <div class="contact-form-container fade-in-element max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-8">
+      <h2 class="text-3xl font-bold text-[#093C34] mb-4 text-center">Send Us a Message</h2>
+      <p class="form-intro text-center text-gray-700 mb-8">Fill out the form below and we'll get back to you as soon as possible.</p>
       
       <form class="contact-form" id="contactForm">
-        <div class="form-group">
-          <label for="name" class="form-label">Name</label>
-          <input type="text" id="name" name="name" class="form-input" required>
+        <div class="form-group grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <label for="name" class="form-label block text-gray-700 mb-2">Name</label>
+            <input type="text" id="name" name="name" class="form-input w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#093C34]" required>
+          </div>
+          
+          <div>
+            <label for="email" class="form-label block text-gray-700 mb-2">Email</label>
+            <input type="email" id="email" name="email" class="form-input w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#093C34]" required>
+          </div>
         </div>
         
-        <div class="form-group">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" id="email" name="email" class="form-input" required>
+        <div class="form-group grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <label for="phone" class="form-label block text-gray-700 mb-2">Phone</label>
+            <input type="tel" id="phone" name="phone" class="form-input w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#093C34]">
+          </div>
+          
+          <div>
+            <label for="subject" class="form-label block text-gray-700 mb-2">Subject</label>
+            <select id="subject" name="subject" class="form-input w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#093C34]">
+              <option value="feedback">Feedback</option>
+              <option value="inquiry">General Inquiry</option>
+              <option value="catering">Catering Services</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
         </div>
         
-        <div class="form-group">
-          <label for="phone" class="form-label">Phone</label>
-          <input type="tel" id="phone" name="phone" class="form-input">
+        <div class="form-group full-width mb-6">
+          <label for="message" class="form-label block text-gray-700 mb-2">Message</label>
+          <textarea id="message" name="message" class="form-textarea w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#093C34]" rows="5" required></textarea>
         </div>
         
-        <div class="form-group">
-          <label for="subject" class="form-label">Subject</label>
-          <select id="subject" name="subject" class="form-input">
-            <option value="reservation">Make a Reservation</option>
-            <option value="feedback">Feedback</option>
-            <option value="inquiry">General Inquiry</option>
-            <option value="catering">Catering Services</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-        
-        <div class="form-group full-width">
-          <label for="message" class="form-label">Message</label>
-          <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
-        </div>
-        
-        <button type="submit" class="form-submit">Send Message</button>
+        <button type="submit" class="form-submit w-full bg-[#093C34] hover:bg-[#0c4f45] text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300">Send Message</button>
       </form>
-      <div id="formSuccess" class="form-success hide">
+      <div id="formSuccess" class="form-success hide mt-4 p-4 bg-green-100 text-green-700 rounded-lg text-center">
         Thank you for your message! We will get back to you soon.
       </div>
     </div>
   </section>
 
-  <!-- FAQ Section -->
-  <section class="faq-section">
+   <!-- FAQ Section -->
+   <section class="faq-section">
     <div class="container">
       <h2 class="section-heading">Frequently Asked Questions</h2>
       
@@ -195,7 +208,8 @@
     </div>
   </section>
 
-  <!-- Footer -->
+
+  <!-- Redesigned Footer -->
   <footer class="footer-new">
     <div class="footer-container">
       <!-- Column 1: Legal & Support -->
@@ -249,12 +263,120 @@
   </footer>
 
   <!-- Back to Top Button -->
-  <div class="back-to-top" id="backToTop">
-    <span class="arrow-up">↑</span>
+  <div class="back-to-top fixed bottom-8 right-8 bg-[#093C34] text-white w-12 h-12 rounded-full flex items-center justify-center cursor-pointer opacity-0 transition-opacity duration-300 shadow-lg hover:bg-[#0c4f45]" id="backToTop">
+    <span class="arrow-up text-2xl">↑</span>
   </div>
 
-  <script src="script.js"></script>
-  <script src="contact-script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // FAQ Accordion functionality
+      const faqItems = document.querySelectorAll('.faq-item');
+
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+          const answer = item.querySelector('.faq-answer');
+          const isActive = item.classList.contains('active');
+
+          // Close all FAQs
+          faqItems.forEach(faq => {
+            faq.classList.remove('active');
+            faq.querySelector('.faq-answer').classList.add('hidden');
+            faq.querySelector('.toggle-icon').textContent = '➕'; // Reset icon
+          });
+
+          // Open clicked one if it wasn't active
+          if (!isActive) {
+            item.classList.add('active');
+            answer.classList.remove('hidden');
+            question.querySelector('.toggle-icon').textContent = '➖'; // Change icon
+          }
+        });
+      });
+
+      // Form submission handling with validation
+      const contactForm = document.getElementById('contactForm');
+      const formSuccess = document.getElementById('formSuccess');
+
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+
+          // Form fields
+          const name = document.getElementById('name').value.trim();
+          const email = document.getElementById('email').value.trim();
+          const message = document.getElementById('message').value.trim();
+
+          // Basic validation
+          if (!name || !email || !message) {
+            alert('Please fill in all required fields.');
+            return;
+          }
+
+          // Email validation
+          if (!validateEmail(email)) {
+            alert('Please enter a valid email address.');
+            return;
+          }
+
+          // Simulating a successful submission
+          contactForm.reset();
+          contactForm.style.display = 'none';
+          formSuccess.classList.remove('hide');
+
+          // Show form again after 5 seconds
+          setTimeout(() => {
+            formSuccess.classList.add('hide');
+            contactForm.style.display = 'grid';
+          }, 5000);
+        });
+      }
+
+      // Email validation helper function
+      function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+
+      // Back to top button functionality
+      const backToTopBtn = document.getElementById('backToTop');
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          backToTopBtn.classList.add('visible');
+        } else {
+          backToTopBtn.classList.remove('visible');
+        }
+      });
+
+      backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // Fade-in animations
+      const fadeInElements = document.querySelectorAll('.fade-in-element');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      fadeInElements.forEach(element => observer.observe(element));
+    });
+
+    // Navbar functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuBtn = document.querySelector('.menu-btn');
+      const navLinks = document.querySelector('.nav-links');
+
+      menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+    });
+  </script>
 </body>
 
 </html>
