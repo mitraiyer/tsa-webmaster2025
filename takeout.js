@@ -37,6 +37,14 @@ const menu = {
   
   };
   
+  document.querySelector(".scroll-down-btn").addEventListener("click", function() {
+    const nextSection = document.querySelector("#takeout-section"); // Use the ID selector here
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: "smooth" }); // Scroll smoothly to the section
+    }
+  });
+
+
   const menuContainer = document.getElementById('menu-items');
   const orderSummary = document.getElementById('order-summary');
   const orderTotal = document.getElementById('order-total');
