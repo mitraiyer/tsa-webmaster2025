@@ -1381,3 +1381,79 @@ body.loaded {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--dark-green);
 }
+
+/* === Elegant Typography Updates === */
+
+/* Our Roots Section */
+.split-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.split-text p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    max-width: 600px;
+    color: #2d2d2d;
+}
+
+/* Review Section */
+.carousel-wrapper .italic {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.2rem;
+    color: #3b3b3b;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+.carousel-wrapper .font-semibold {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: var(--dark-green);
+}
+
+/* Font for 'What Our Customers Are Saying' heading */
+.carousel-wrapper h2 {
+    font-family: 'Cinzel', serif; /* or 'Playfair Display', serif for a softer look */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* === Elegant Fonts for Menu Page === */
+
+/* Section headers like Appetizers, Salads, etc. */
+section h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.4rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  
+  /* Menu item names */
+  .menu-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  /* Menu descriptions */
+  .menu-card p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  /* Prices */
+  .menu-card p.font-bold {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    color: var(--dark-green);
+  }
