@@ -1,6 +1,7 @@
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&display=swap');
+
 /* Import Tropikal font */
 @font-face {
     font-family: 'Tropikal';
@@ -15,6 +16,7 @@
     font-weight: normal;
     font-style: normal;
 }
+
 @font-face {
     font-family: 'Enriqueta';
     src: url('/fonts/Enriqueta-Regular.woff2') format('woff2'),
@@ -47,29 +49,30 @@ body, html {
     font-family: 'Marcellus', serif;
     scroll-behavior: smooth;
 }
+
 .fade-in-element {
     opacity: 0; /* Make it invisible initially */
     transform: translateY(20px); /* Start slightly below the normal position */
     transition: opacity 1s ease, transform 1s ease; /* Smooth transition for fade and movement */
-  }
-  
-  .fade-in-element.visible {
+}
+
+.fade-in-element.visible {
     opacity: 1; /* Make it visible when the class is added */
     transform: translateY(0); /* Move to the normal position */
-  }
+}
+
 /* Default state - initially the body is invisible */
 body {
     opacity: 0;
     transition: opacity 1.5s ease-in-out; /* Duration of the fade-in effect */
     background-color: #d3d3d3; /* Light gray background */
     color: #333; /* Dark text color for better readability */
-  }
-  
-  /* When the 'loaded' class is added, the opacity will be set to 1 */
-  body.loaded {
+}
+
+/* When the 'loaded' class is added, the opacity will be set to 1 */
+body.loaded {
     opacity: 1;
-  }
-  
+}
 
 /* Hero Section Layout */
 .hero-section {
@@ -172,6 +175,7 @@ body {
     --dark-green: #093C34;
     --teal: #447C74;
     --light-cream: #F3E2C4;
+    --golden-yellow: #cdad65; /* Added for consistency */
 }
 
 /* Navbar Styling */
@@ -181,43 +185,58 @@ body {
     left: 0;
     width: 100%;
     height: 11vh;
-    background-color: transparent;
+    background-color: transparent; /* Start transparent */
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Changed to space-between for better spacing */
     align-items: center;
     padding: 0.8rem 2rem;
     z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /* Smooth transition */
     font-family: 'Inter', sans-serif;
+}
+
+/* Blurred navbar for video sections - Updated opacity and blur strength */
+.navbar.blurred {
+    background-color: rgba(255, 255, 255, 0.15); /* More subtle background */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 /* Navbar background on scroll */
 .navbar.scrolled {
-    background-color: var(--light-cream);
-    transition: background-color 0.3s ease;
+    background-color: var(--light-cream); /* Solid light cream */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-.navbar.scrolled .logo,
+
+/* Navigation Links - Fixed color values */
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.nav-links a {
+    position: relative;
+    text-decoration: none;
+    color: var(--light-cream); /* Default light cream color for all states */
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+/* Navbar links - darker color when scrolled */
 .navbar.scrolled .nav-links a {
     color: var(--dark-green);
 }
 
-/* Logo Styling */
-.logo a {
-    display: inline-block; /* Ensures the anchor behaves like a block element */
+/* Enhanced hover effect for navigation links */
+.nav-links a:hover {
+    color: var(--golden-yellow); /* Golden yellow on hover */
+    transform: translateY(-2px); /* Slight lift effect */
 }
 
-.logo img {
-    width: 35px; /* Adjust as needed */
-    height: auto;
-    transition: transform 0.3s ease-in-out;
-}
-
-.logo img:hover {
-    transform: scale(1.1); /* Slight zoom effect */
-}
-
+/* Underline effect on hover */
 .nav-links a::after {
     content: "";
     position: absolute;
@@ -225,42 +244,30 @@ body {
     bottom: -4px;
     width: 0;
     height: 2px;
-    background: var(--teal);
-    transition: width 0.3s ease-in-out;
+    background: var(--golden-yellow); /* Changed to golden yellow */
+    transition: width 0.3s ease;
     transform: translateX(-50%);
 }
 
 .nav-links a:hover::after {
-    width: 100%;
+    width: 100%; /* Expand underline on hover */
 }
 
-.nav-links a:hover {
-    color: #222222;
+/* Logo Styling */
+.logo {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--light-cream); /* Changed to light cream */
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    transition: color 0.3s ease;
 }
-.navbar.blurred {
-    background-color: rgba(255, 255, 255, 0.05); /* subtle light tint */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px); /* for Safari */
-    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
-    box-shadow: none;
-  }
-  
-  .navbar.blurred .logo,
-  .navbar.blurred .nav-links a {
-    color: white;
-  }
-  .navbar.at-top {
-    background-color: transparent;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    box-shadow: none;
-  }
-  
-  .navbar.at-top .logo,
-  .navbar.at-top .nav-links a {
-    color: white;
-  }
-  
+
+.navbar.scrolled .logo {
+    color: var(--dark-green); /* Dark green when scrolled */
+}
+
 /* Mobile Menu Button */
 .menu-btn {
     font-size: 2rem;
@@ -294,10 +301,6 @@ body {
         color: var(--dark-green);
     }
 
-    .nav-links a:hover {
-        color: #222222;
-    }
-
     .menu-btn {
         display: block;
     }
@@ -313,7 +316,6 @@ body {
     padding-bottom: 3rem;
     gap: 2rem;
 }
-
 
 .split-image,
 .split-text {
@@ -335,8 +337,6 @@ body {
     align-items: center;
 }
 
-
-
 .split-image img {
     width: 100%;
     max-height: 80vh;
@@ -344,9 +344,6 @@ body {
     object-fit: cover;
     border-radius: 150px; /* Rounds all corners */
 }
-
-
-
 
 .split-text {
     background-color: var(--light-cream);
@@ -385,13 +382,7 @@ body {
 
 .hero-button:hover {
     background-color: #2c5f58;
-
 }
-
-
-
-
-
 
 /* -----FARM TO TABLE SUBPAGE ---- */
 .subpage-hero {
@@ -431,23 +422,17 @@ body {
     text-transform: uppercase;
     margin-bottom: 0.5rem;
     letter-spacing: 5px;
-
 }
 
-
 .subpage-subtext {
-    font-size: 1 rem;
+    font-size: 1rem; /* Fixed typo */
     letter-spacing: 1px;
     margin-top: 0.5rem;
-}
-
-.subpage-subtext {
     opacity: 0;
     animation: fadeIn 1.5s ease-in-out forwards;
 }
 
 .scroll-down-btn {
-
     margin-top: 3rem;
     padding: 0.75rem 3rem;
     background-color: rgba(0, 0, 0, 0.6);
@@ -466,9 +451,6 @@ body {
     color: black;
 }
 
-
-/* Farm-to-Table Section */
-/* Farm-to-Table Section */
 /* Farm-to-Table Section */
 .farm-to-table {
     font-family: 'Kepler', serif;
@@ -724,7 +706,6 @@ body {
     max-width: 45%;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
-
 }
 
 .text:hover {
@@ -737,14 +718,12 @@ body {
     color: #2a2a27;
     margin-bottom: 15px;
     font-weight: 500;
-    
 }
 
 .text p {
     font-size: 1.1rem;
     line-height: 1.7;
     color: #555;
-   
 }
 
 .text .highlight {
@@ -997,6 +976,7 @@ body {
         max-width: 60px;
     }
 }
+
 /* ===== Closing Section ===== */
 .farm-to-table-closing {
     width: 100vw;
@@ -1009,17 +989,12 @@ body {
     background-repeat: no-repeat;
     font-family: 'Tropikal', serif;
     text-align: center;
-  
-    
 }
-
-
 
 .section-closing {
     text-align: center;
-    max-width:80%;
+    max-width: 80%;
     margin: 90px auto;
-   
 }
 
 .section-closing h2 {
@@ -1033,7 +1008,7 @@ body {
 }
 
 .farm-to-table-closing-paragraph {
-    text-align:center;
+    text-align: center;
     font-size: 2.5rem;
     padding-left: 50px;
     padding-right: 50px;
@@ -1042,13 +1017,13 @@ body {
     letter-spacing: 1px;
     line-height: 4.5rem;
     background-color: black;
-    color:  white;
+    color: white;
 }
+
 .section-closing-title {
     text-align: center;
-
-
 }
+
 .farm-to-table-closing-image {
     background-image: url("assets/farm-to-table-menu-img.jpg"); /* Replace with your image path */
     background-size: cover; /* Ensures the image covers the entire section */
@@ -1057,6 +1032,7 @@ body {
     padding: 200px; /* Adds some padding around the content */
     color: white; /* Makes text more readable on dark backgrounds */
 }
+
 .closing-normal {
     font-family: 'Tropikal', serif;
     text-align: center !important;
@@ -1065,6 +1041,7 @@ body {
     margin-bottom: 0.5rem;
     letter-spacing: .5rem;
 }
+
 .closing-italic {
     font-family: 'Tropikal', serif;
     text-align: center !important;
@@ -1073,11 +1050,11 @@ body {
     margin-bottom: 0.5rem;
     font-style: italic;
 }
+
 @media (max-width: 480px) {
-    .closing-normal{
+    .closing-normal {
         font-size: 2.5rem;
         letter-spacing: 0.2rem;
-
     }
     .closing-italic {
         font-size: 2.5rem;
@@ -1087,17 +1064,7 @@ body {
         font-size: 2.5rem;
         letter-spacing: 0.2rem;
     }
-
 }
-
-
-
-
-
-
-
-
-
 
 /* Responsive Fix: Stack split section on small screens */
 @media (max-width: 768px) {
@@ -1117,6 +1084,7 @@ body {
         box-shadow: none;
     }
 }
+
 /* Quote-over-Video Section */
 .quote-video-section {
     position: relative;
@@ -1165,10 +1133,11 @@ body {
 
 /* Responsive quote text */
 @media (max-width: 768px) {
-  .quote-text {
-    font-size: 2rem;
-  }
+    .quote-text {
+        font-size: 2rem;
+    }
 }
+
 .quote-button {
     margin-top: 1.5rem;
     padding: 0.75rem 2rem;
@@ -1197,42 +1166,54 @@ body {
     position: relative;
     bottom: 0;
     width: 100%;
-  }
-  
-  .footer-content {
+}
+
+.footer-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  .footer-links {
+}
+
+.footer-links {
     display: flex;
     gap: 1.5rem;
     margin: 10px 0;
-  }
-  
-  .footer-links a {
+}
+
+.footer-links a {
     color: var(--dark-green);
     text-decoration: none;
     transition: 0.3s;
-  }
-  
-  .footer-links a:hover {
+}
+
+.footer-links a:hover {
     color: white;
-  }
-  
-  .socialMedia-container {
+}
+
+.socialMedia-container {
     display: flex;
     gap: 10px;
-  }
-  
-  .socialMedia-container img {
+}
+
+.socialMedia-container img {
     width: 40px;
     transition: 0.3s;
-  }
-  
-  .socialMedia-container img:hover {
-    transform: scale(1.1);
-  }
+}
 
-  
+.socialMedia-container img:hover {
+    transform: scale(1.1);
+}
+/* Remove underline from specific links */
+.nav-links a,
+.contact-btn,
+.logo {
+    text-decoration: none; /* Remove underline */
+}
+
+/* Ensure the hover effect does not add an underline */
+.nav-links a:hover,
+.contact-btn:hover,
+.logo:hover {
+    text-decoration: none; /* Ensure no underline on hover */
+    color: var(--golden-yellow); /* Change color on hover if needed */
+}

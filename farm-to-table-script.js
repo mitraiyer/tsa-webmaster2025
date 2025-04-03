@@ -173,13 +173,29 @@ document.addEventListener('DOMContentLoaded', function() {
       observer.observe(step);
   });
 });
+// Change navbar background color based on scroll position
+window.addEventListener('scroll', () => {
+  const navbar = document.querySelector('.navbar');
+  const heroSection = document.querySelector('.subpage-hero');
+  const timelineSection = document.querySelector('.farm-to-table');
 
-document.addEventListener("DOMContentLoaded", function () {
-  const iframe = document.getElementById("referencesIframe");
-  const loadingIndicator = document.getElementById("loading");
+  const scrollY = window.scrollY;
+  const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+  const timelineTop = timelineSection.offsetTop;
 
-  iframe.onload = function () {
-    loadingIndicator.style.display = "none";
-    iframe.style.opacity = "1"; // Ensure it fades in smoothly
-  };
+  // Reset navbar state classes
+  navbar.classList.remove('scrolled', 'blurred');
+
+  // Case 1: Over the hero section
+  if (scrollY < heroBottom) {
+      navbar.classList.add('blurred'); // Keep it blurred for the video section
+  }
+  // Case 2: Scrolled past the hero section but before the timeline
+  else if (scrollY >= heroBottom && scrollY < timelineTop) {
+      navbar.classList.add('scrolled'); // Change to light cream
+  }
+  // Case 3: Over the timeline section
+  else {
+      navbar.classList.add('scrolled'); // Keep it light cream
+  }
 });
