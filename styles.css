@@ -1,5 +1,6 @@
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Cormorant+Garamond:wght@400;500&family=EB+Garamond:ital@1&family=Cinzel:wght@600&display=swap');
 
 /* Import Tropikal font */
 @font-face {
@@ -381,19 +382,6 @@ body.loaded {
     padding: 2rem;
     text-align: center;
     height: 100%;
-}
-
-.split-text h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    font-family: 'Marcellus', serif;
-}
-
-.split-text p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    font-family: 'Inter', sans-serif;
-    max-width: 600px;
 }
 
 .hero-button {
@@ -1391,4 +1379,47 @@ body.loaded {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--dark-green);
+}
+
+/* === Elegant Typography Updates === */
+
+/* Our Roots Section */
+.split-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.split-text p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    max-width: 600px;
+    color: #2d2d2d;
+}
+
+/* Review Section */
+.carousel-wrapper .italic {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.2rem;
+    color: #3b3b3b;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+.carousel-wrapper .font-semibold {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: var(--dark-green);
+}
+
+/* Font for 'What Our Customers Are Saying' heading */
+.carousel-wrapper h2 {
+    font-family: 'Cinzel', serif; /* or 'Playfair Display', serif for a softer look */
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
