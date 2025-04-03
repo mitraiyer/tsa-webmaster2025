@@ -25,36 +25,86 @@
       transform: translateY(-5px) scale(1.02);
       box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
     }
-    .sticky-dropdown-wrapper {
-      position: sticky;
-      top: 11vh;
-      z-index: 40;
-      background-color: var(--light-cream);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
+    
+    /* Navbar styles */
     .navbar {
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      height: 80px; /* Fixed height in pixels */
+    }
+    
+    /* Completely revamped sticky dropdown */
+    .sticky-dropdown-container {
+      position: sticky;
+      top: 80px; /* Exactly matches navbar height */
+      z-index: 40;
+      width: 100%;
+      background-color: var(--light-cream);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 12px 0;
+    }
+    
+    .dropdown-select {
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px 15px;
+      width: 100%;
+      max-width: 400px;
+      font-size: 16px;
+      color: var(--dark-green);
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 16px;
+    }
+    
+    .dropdown-select:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(9, 60, 52, 0.2);
+      border-color: var(--dark-green);
+    }
+    
+    /* Adjust scroll padding to account for both navbar and dropdown */
+    html {
+      scroll-padding-top: 140px; /* navbar + dropdown + some buffer */
+      scroll-behavior: smooth;
     }
   </style>
 </head>
 <body class="bg-[var(--light-cream)] text-[var(--dark-green)]">
 
-  <!-- Navbar -->
-  <nav class="navbar at-top fixed top-0 left-0 w-full z-50 px-4 py-3 flex justify-between items-center bg-transparent">
-    <div class="flex items-center space-x-3">
-      <img src="android-chrome-192x192.png" alt="Noorani Logo" class="h-10 w-auto" />
-      <div class="text-xl font-bold text-white">Noorani</div>
+ 
+  <nav class="navbar">
+    <div class="logo-container" style="display: flex; align-items: center;">
+      <a href="index.html" style="display: flex; align-items: center;">
+        <img src="android-chrome-192x192.png" alt="Noorani Logo" style="height: 50px; width: auto; margin-right: 10px;">
+        <div class="logo">Noorani</div>
+        </a>
     </div>
-    <div class="hidden md:flex space-x-6 font-medium text-white">
-        <a href="#appetizers">Appetizers</a>
-        <a href="#salads">Salads</a>
-        <a href="#mains">Mains</a>
-        <a href="#desserts">Desserts</a>
-        <a href="#drinks">Drinks</a>
-      </div>      
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="takeout.html">Take-Out</a>
+      <a href="reserve.html">Reserve</a>
+      <div class="relative group">
+        <a href="#" class="peer desktop-only">About Us</a>
+        <!-- Mobile dropdown will be created by JavaScript -->
+        <div class="absolute hidden peer-hover:flex group-hover:flex flex-col bg-white text-[#093C34] shadow-lg mt-1 rounded-lg overflow-hidden z-50 desktop-dropdown">
+          <a href="sustainability.html" class="px-4 py-2 hover:bg-[#f3e2c4]">Sustainability</a>
+          <a href="roots.html" class="px-4 py-2 hover:bg-[#f3e2c4]">Our Roots</a>
+          <a href="farm-to-table.html" class="px-4 py-2 hover:bg-[#f3e2c4]">Farm-to-Table</a>
+          <a href="references.html" class="px-4 py-2 hover:bg-[#f3e2c4]">References</a>
+        </div>
+      </div>
+      <a href="contactus.html">Contact</a>
+    </div>
+    <div class="menu-btn">&#9776;</div>
   </nav>
+
 
   <!-- Hero Section -->
   <section class="hero-section relative h-[100vh]">
@@ -68,17 +118,17 @@
     </div>
   </section>
 
-  <!-- Sticky Dropdown -->
-  <div class="sticky-dropdown-wrapper py-4">
-    <div class="max-w-4xl mx-auto text-center">
-        <select onchange="document.getElementById(this.value).scrollIntoView({behavior: 'smooth'})"
-        class="px-4 py-2 rounded-lg border border-gray-300 shadow-sm w-full md:w-1/2">
-        <option value="appetizers">Jump to Appetizers</option>
-        <option value="salads">Jump to Salads</option>
-        <option value="mains">Jump to Mains</option>
-        <option value="desserts">Jump to Desserts</option>
-        <option value="drinks">Jump to Drinks</option>
-      </select>      
+  <!-- Sticky Dropdown - Complete Rebuild -->
+  <div id="menuDropdown" class="sticky-dropdown-container">
+    <div class="container mx-auto px-4 flex justify-center">
+      <select id="menuJumper" class="dropdown-select">
+        <option value="" disabled selected>Jump to a section</option>
+        <option value="appetizers">Appetizers</option>
+        <option value="salads">Salads</option>
+        <option value="mains">Mains</option>
+        <option value="desserts">Desserts</option>
+        <option value="drinks">Drinks</option>
+      </select>
     </div>
   </div>
 
@@ -104,14 +154,14 @@
       <div class="menu-card bg-white p-5 rounded-xl shadow-md">
         <img src="menuimage/samosa.png" class="mb-4 w-full h-48 object-cover rounded-md" alt="Spiced Feta and Paneer Samosas" />
         <h3 class="text-xl font-semibold mb-2">Spiced Feta and Paneer Samosas</h3>
-        <p>Stuffed with a blend of crumbled feta and paneer, sautéed onions, garlic, cumin, coriander, and za’atar. Served with mint chutney.</p>
+        <p>Stuffed with a blend of crumbled feta and paneer, sautéed onions, garlic, cumin, coriander, and za'atar. Served with mint chutney.</p>
         <p class="mt-2 font-bold">$9.49</p>
       </div>
       
       <div class="menu-card bg-white p-5 rounded-xl shadow-md">
-        <img src="menuimage/aloogobi.png" class="mb-4 w-full h-48 object-cover rounded-md" alt="Za’atar Spiced Aloo Gobi Kofta" />
-        <h3 class="text-xl font-semibold mb-2">Za’atar Spiced Aloo Gobi Kofta</h3>
-        <p>Crispy aloo gobi koftas seasoned with za’atar and turmeric. Served with tahini yogurt dip and spicy pomegranate sauce.</p>
+        <img src="menuimage/aloogobi.png" class="mb-4 w-full h-48 object-cover rounded-md" alt="Za'atar Spiced Aloo Gobi Kofta" />
+        <h3 class="text-xl font-semibold mb-2">Za'atar Spiced Aloo Gobi Kofta</h3>
+        <p>Crispy aloo gobi koftas seasoned with za'atar and turmeric. Served with tahini yogurt dip and spicy pomegranate sauce.</p>
         <p class="mt-2 font-bold">$8.25</p>
       </div>
       
@@ -277,29 +327,69 @@
       </div>
       
       <div class="menu-card bg-white p-5 rounded-xl shadow-md">
-        <img src="menuimage/water.png" class="mb-4 w-full h-48 object-cover rounded-md" alt="Saratoga Sparkling Water" />
+        <img src="menuimage/water.png" class="mb-4 w-full h-48 object-cover rounded-md" alt="Saratoga Water" />
         <h3 class="text-xl font-semibold mb-2">Saratoga Water</h3>
         <p>Refreshing mineral water served in a glass bottle.</p>
         <p class="mt-2 font-bold">$3.00</p>
       </div>
       
-      <!-- <div class="menu-card bg-white p-5 rounded-xl shadow-md">
-        <img src="https://source.unsplash.com/600x400/?soda" class="mb-4 w-full h-48 object-cover rounded-md" alt="Soda" />
-        <h3 class="text-xl font-semibold mb-2">Soda</h3>
-        <p>Chilled cans of classic sodas. Ask for available options.</p>
-        <p class="mt-2 font-bold">$2.50</p>
-      </div> -->
-      
     </div>
   </section>
   
-  <!-- Footer -->
-  <footer class="footer mt-16 bg-[var(--dark-green)] text-white text-center py-6">
-    <p>&copy; Noorani 2025. All rights reserved.</p>
-  </footer>
+      <!-- Redesigned Footer -->
+      <footer class="footer-new">
+        <div class="footer-container">
+          <!-- Column 1: Legal & Support -->
+          <div class="footer-column">
+            <h3 class="footer-heading">Legal & Support</h3>
+            <ul class="footer-links-list">
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="contactus.html">Support</a></li>
+            </ul>
+          </div>
+    
+          <!-- Column 2: Subpages -->
+          <div class="footer-column">
+            <h3 class="footer-heading">Discover</h3>
+            <ul class="footer-links-list">
+              <li><a href="#our-roots">Our Roots</a></li>
+              <li><a href="#">Sustainability</a></li>
+              <li><a href="#">Menu</a></li>
+              <li><a href="#">Take Out</a></li>
+              <li><a href="#">Reserve</a></li>
+            </ul>
+          </div>
+    
+          <!-- Column 3: Hours -->
+          <div class="footer-column">
+            <h3 class="footer-heading">Hours</h3>
+            <ul class="footer-hours">
+              <li><span class="day">Monday - Thursday:</span> 11:00 AM - 10:00 PM</li>
+              <li><span class="day">Friday - Saturday:</span> 11:00 AM - 11:00 PM</li>
+              <li><span class="day">Sunday:</span> 12:00 PM - 9:00 PM</li>
+            </ul>
+          </div>
+    
+          <!-- Column 4: Social Media -->
+          <div class="footer-column">
+            <h3 class="footer-heading">Connect</h3>
+            <div class="social-icons">
+              <a href="#" class="social-icon"><img src="footer/facebook.png" alt="Facebook"></a>
+              <a href="#" class="social-icon"><img src="footer/instagram.png" alt="Instagram"></a>
+              <a href="#" class="social-icon"><img src="footer/youtube.png" alt="YouTube"></a>
+              <a href="#" class="social-icon"><img src="footer/email.png" alt="Email"></a>
+            </div>
+            <a href="contactus.html" class="contact-btn">Contact Us</a>
+          </div>
+        </div>
+    
+        <div class="footer-bottom">
+          <p>© Noorani 2025. All rights reserved.</p>
+        </div>
+      </footer>
 
   <script>
-
     // Animate fade-in cards
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -314,13 +404,37 @@
       observer.observe(card);
     });
         
+    // Scroll down button
     document.querySelector(".scroll-down-btn").addEventListener("click", function() {
-  const nextSection = document.querySelector("#appetizers"); // Use the ID selector here
-  if (nextSection) {
-    nextSection.scrollIntoView({ behavior: "smooth" }); // Scroll smoothly to the section
-  }
-});
-
+      const nextSection = document.querySelector("#appetizers");
+      if (nextSection) {
+        nextSection.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+    
+    // Menu dropdown functionality
+    document.getElementById("menuJumper").addEventListener("change", function() {
+      const selectedSection = this.value;
+      if (selectedSection) {
+        document.getElementById(selectedSection).scrollIntoView({ behavior: "smooth" });
+        // Reset dropdown to placeholder after scrolling
+        setTimeout(() => {
+          this.selectedIndex = 0;
+        }, 500);
+      }
+    });
+    
+    // Change navbar background on scroll
+    window.addEventListener("scroll", function() {
+      const navbar = document.querySelector(".navbar");
+      if (window.scrollY > 50) {
+        navbar.classList.add("bg-[var(--dark-green)]");
+        navbar.classList.add("shadow-md");
+      } else {
+        navbar.classList.remove("bg-[var(--dark-green)]");
+        navbar.classList.remove("shadow-md");
+      }
+    });
   </script>
 </body>
 </html>
