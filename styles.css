@@ -1456,3 +1456,50 @@ section h2 {
     letter-spacing: 1px;
     color: var(--dark-green);
   }
+
+  /* priv policy and terms and conditions */
+  /* MODAL STYLING */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal.hidden {
+    display: none;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 2rem;
+    max-width: 600px;
+    width: 90%;
+    border-radius: 12px;
+    position: relative;
+    font-family: 'Inter', sans-serif;
+    color: #093C34;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #888;
+  }
+  
+  .modal-close:hover {
+    color: #c9a558;
+  }
+  

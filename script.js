@@ -182,3 +182,36 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   });
 });
+
+// Privacy Policy and Terms modals
+document.addEventListener('DOMContentLoaded', () => {
+  const openPrivacy = document.getElementById('open-privacy');
+  const openTerms = document.getElementById('open-terms');
+  const closePrivacy = document.getElementById('close-privacy');
+  const closeTerms = document.getElementById('close-terms');
+  const privacyModal = document.getElementById('privacy-modal');
+  const termsModal = document.getElementById('terms-modal');
+
+  openPrivacy.addEventListener('click', (e) => {
+    e.preventDefault();
+    privacyModal.classList.remove('hidden');
+  });
+
+  openTerms.addEventListener('click', (e) => {
+    e.preventDefault();
+    termsModal.classList.remove('hidden');
+  });
+
+  closePrivacy.addEventListener('click', () => {
+    privacyModal.classList.add('hidden');
+  });
+
+  closeTerms.addEventListener('click', () => {
+    termsModal.classList.add('hidden');
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === privacyModal) privacyModal.classList.add('hidden');
+    if (e.target === termsModal) termsModal.classList.add('hidden');
+  });
+});
