@@ -1,47 +1,341 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Our Roots</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap">
-        <link rel="stylesheet" href="our-roots-styles.css">
-    </head>
-<body>
-    <!-- Favicon Links -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Roots</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="our-roots-styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <style>
+        /* Additional styles for light cream text */
+        .text-content p {
+            color: var(--light-cream); /* Set text color to light cream */
+        }
+        :root {
+            --light-cream: #f3e2c4;
+            --dark-green: #093C34;
+        }
+        
+        .text-content p {
+            color: var(--light-cream); /* Set text color to light cream */
+        }
+
+        /* Navbar styles - transparent at top, light cream when scrolled */
+        .navbar {
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background-color: var(--light-cream);
+        }
+        
+        .navbar .logo,
+        .navbar .nav-links a {
+            color: white; /* Default text color for transparent navbar */
+            transition: color 0.3s ease;
+        }
+        
+        .navbar.scrolled .logo,
+        .navbar.scrolled .nav-links a {
+            color: var(--dark-green); /* Text color when navbar is scrolled */
+        }
+        
+        /* Dropdown styles - improved */
+        .nav-links .group {
+            position: relative;
+        }
+        
+        .nav-links .group .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--light-cream);
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: none;
+            min-width: 180px;
+            z-index: 100;
+        }
+        
+        .nav-links .group:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .nav-links .group .dropdown-menu a {
+            display: block;
+            padding: 10px 15px;
+            color: var(--dark-green);
+            text-decoration: none;
+        }
+        
+        .nav-links .group .dropdown-menu a:hover {
+            background-color: var(--dark-green);
+            color: var(--light-cream);
+        }
+        
+        /* Remove the purple underline for Noorani title */
+        .logo-container a {
+            text-decoration: none; /* Remove underline */
+        }
+        
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none; /* Ensure no underline */
+        }
+
+        /* Footer color scheme update to light cream */
+        .footer-new {
+            background-color: var(--light-cream);
+            color: var(--dark-green);
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-heading {
+            color: var(--dark-green);
+            border-bottom: 2px solid var(--dark-green);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .footer-links-list a, 
+        .footer-hours li, 
+        .footer-bottom p {
+            color: var(--dark-green);
+        }
+        
+        .footer-links-list a:hover {
+            color: #447C74; /* Light teal hover color */
+        }
+        
+        .contact-btn {
+            background-color: transparent;
+            border: 2px solid var(--dark-green);
+            color: var(--dark-green);
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-btn:hover {
+            background-color: var(--dark-green);
+            color: var(--light-cream);
+        }
+        
+        /* Social icons in footer */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--dark-green);
+            transition: transform 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        .social-icon img {
+            width: 18px;
+            height: 18px;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background-color: #093C34;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Mobile menu styles */
+        .menu-btn {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: white;
+            z-index: 1001;
+        }
+        
+        .navbar.scrolled .menu-btn {
+            color: var(--dark-green);
+        }
+        
+        @media screen and (max-width: 768px) {
+            .menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 250px;
+                height: 100vh;
+                background-color: var(--dark-green);
+                padding: 80px 20px 30px;
+                flex-direction: column;
+                z-index: 999;
+                transition: right 0.3s ease;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links a {
+                color: var(--light-cream) !important;
+                padding: 12px 0;
+                margin: 5px 0;
+                display: block;
+            }
+            
+            .nav-links .group {
+                width: 100%;
+            }
+            
+            .nav-links .group .dropdown-menu {
+                position: relative;
+                width: 100%;
+                top: 0;
+                background-color: rgba(243, 226, 196, 0.1);
+                box-shadow: none;
+                display: none;
+                padding: 5px 0;
+                margin-left: 15px;
+            }
+            
+            .nav-links .group.open .dropdown-menu {
+                display: block;
+            }
+            
+            .nav-links .group > a:after {
+                content: '+';
+                float: right;
+            }
+            
+            .nav-links .group.open > a:after {
+                content: '-';
+            }
+        }
+        
+        /* Footer responsive styles */
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-column {
+            flex: 1 1 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links-list, .footer-hours {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links-list li, .footer-hours li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(9, 60, 52, 0.2);
+            margin-top: 20px;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+            }
+            
+            .footer-column {
+                margin-bottom: 25px;
+            }
+        }
+    </style>
 </head>
-    <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo-container" style="display: flex; align-items: center;">
-      <img src="android-chrome-192x192.png" alt="Noorani Logo" style="height: 50px; width: auto; margin-right: 10px;">
-      <div class="logo">Noorani</div>
-    </div>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="menu.html">Menu</a>
-      <a href="farm-to-table.html">Farm-to-Table</a>
-      <a href="takeout.html">Takeout</a>
-      <a href="contactus.html">Contact</a>
-      <a href="#our-roots.html">Our Roots</a>
-    </div>
-    <div class="menu-btn">&#9776;</div>
-  </nav>
+<body>
+    <!-- Navbar - Fixed dropdown menu -->
+    <nav class="navbar" id="mainNav">
+        <div class="logo-container" style="display: flex; align-items: center;">
+            <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+                <img src="android-chrome-192x192.png" alt="Noorani Logo" style="height: 50px; width: auto; margin-right: 10px;">
+                <div class="logo">Noorani</div>
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="takeout.html">Take-Out</a>
+            <a href="reserve.html">Reserve</a>
+            <div class="group">
+                <a href="#">About Us</a>
+                <div class="dropdown-menu">
+                    <a href="sustainability.html">Sustainability</a>
+                    <a href="roots.html">Our Roots</a>
+                    <a href="farm-to-table.html">Farm-to-Table</a>
+                    <a href="references.html">References</a>
+                </div>
+            </div>
+            <a href="contactus.html">Contact</a>
+        </div>
+        <div class="menu-btn">&#9776;</div>
+    </nav>
 
     <section id="roots" class="section">
         <div class="background-image" style="background-image: url('assets/header.jpg');"></div>
         <div class="subpage-overlay">
-                <h1 class="subpage-title">Our roots</h1>
-                <p class="subpage-subtext">The meaning behind <i>Noorani</i></p>
-               
-            </div>
-            </div>
+            <h1 class="subpage-title">Our Roots</h1>
+            <p class="subpage-subtext">The meaning behind <i>Noorani</i></p>
         </div>
     </section>
+
     <section id="philosophy" class="section">
         <div class="section-content">
             <div class="text-content">
@@ -53,17 +347,18 @@
             </div>
         </div>
     </section>
+
     <section id="name" class="section">
         <div class="background-image" style="background-image: url('assets/middle.png');"></div>
         <div class="section-content">
             <div class="text-content">
                 <h1>OUR NAME</h1>
                 <p>At Noorani, our name, in itself, carries the essence of our culinary palette. When breaking up our name, "Noor" means light, symbolizing the warmth and rich heritage that Indian and Middle Eastern bring to our table.</p>
-                <p> </p> <p> </p>
                 <h1>noor·ah·ni</h1>
             </div>
         </div>
     </section>
+
     <section id="craft" class="section">
         <div class="section-content">
             <div class="image-content">
@@ -73,65 +368,138 @@
                 <h1>OUR CRAFT</h1>
                 <p>At Noorani, every dish is a masterpiece, crafted with precision and passion. Our chefs draw inspiration from generations-old recipes, infusing them with a contemporary twist to create an unforgettable fusion of Indian and Middle Eastern flavors. From the perfect spice blends to the artful plating, we ensure that every plate is a harmonious blend of authenticity and innovation.</p>
             </div>
-
-
         </div>
     </section>
 
- <!-- Redesigned Footer -->
- <footer class="footer-new">
-    <div class="footer-container">
-      <!-- Column 1: Legal & Support -->
-      <div class="footer-column">
-        <h3 class="footer-heading">Legal & Support</h3>
-        <ul class="footer-links-list">
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="contactus.html">Support</a></li>
-        </ul>
-      </div>
+    <!-- Redesigned Footer -->
+    <footer class="footer-new">
+        <div class="footer-container">
+            <!-- Column 1: Legal & Support -->
+            <div class="footer-column">
+                <h3 class="footer-heading">Legal & Support</h3>
+                <ul class="footer-links-list">
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="contactus.html">Support</a></li>
+                </ul>
+            </div>
 
-      <!-- Column 2: Subpages -->
-      <div class="footer-column">
-        <h3 class="footer-heading">Discover</h3>
-        <ul class="footer-links-list">
-          <li><a href="#our-roots">Our Roots</a></li>
-          <li><a href="#">Sustainability</a></li>
-          <li><a href="#">Menu</a></li>
-          <li><a href="#">Take Out</a></li>
-          <li><a href="#">Reserve</a></li>
-        </ul>
-      </div>
+            <!-- Column 2: Subpages -->
+            <div class="footer-column">
+                <h3 class="footer-heading">Discover</h3>
+                <ul class="footer-links-list">
+                    <li><a href="#our-roots">Our Roots</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">Take Out</a></li>
+                    <li><a href="#">Reserve</a></li>
+                </ul>
+            </div>
 
-      <!-- Column 3: Hours -->
-      <div class="footer-column">
-        <h3 class="footer-heading">Hours</h3>
-        <ul class="footer-hours">
-          <li><span class="day">Monday - Thursday:</span> 11:00 AM - 10:00 PM</li>
-          <li><span class="day">Friday - Saturday:</span> 11:00 AM - 11:00 PM</li>
-          <li><span class="day">Sunday:</span> 12:00 PM - 9:00 PM</li>
-        </ul>
-      </div>
+            <!-- Column 3: Hours -->
+            <div class="footer-column">
+                <h3 class="footer-heading">Hours</h3>
+                <ul class="footer-hours">
+                    <li><span class="day">Monday - Thursday:</span> 11:00 AM - 10:00 PM</li>
+                    <li><span class="day">Friday - Saturday:</span> 11:00 AM - 11:00 PM</li>
+                    <li><span class="day">Sunday:</span> 12:00 PM - 9:00 PM</li>
+                </ul>
+            </div>
 
-      <!-- Column 4: Social Media -->
-      <div class="footer-column">
-        <h3 class="footer-heading">Connect</h3>
-        <div class="social-icons">
-          <a href="#" class="social-icon"><img src="footer/facebook.png" alt="Facebook"></a>
-          <a href="#" class="social-icon"><img src="footer/instagram.png" alt="Instagram"></a>
-          <a href="#" class="social-icon"><img src="footer/youtube.png" alt="YouTube"></a>
-          <a href="#" class="social-icon"><img src="footer/email.png" alt="Email"></a>
+            <!-- Column 4: Social Media -->
+            <div class="footer-column">
+                <h3 class="footer-heading">Connect</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><img src="footer/facebook.png" alt="Facebook"></a>
+                    <a href="#" class="social-icon"><img src="footer/instagram.png" alt="Instagram"></a>
+                    <a href="#" class="social-icon"><img src="footer/youtube.png" alt="YouTube"></a>
+                    <a href="#" class="social-icon"><img src="footer/email.png" alt="Email"></a>
+                </div>
+                <a href="contactus.html" class="contact-btn">Contact Us</a>
+            </div>
         </div>
-        <a href="contactus.html" class="contact-btn">Contact Us</a>
-      </div>
-    </div>
 
-    <div class="footer-bottom">
-      <p>© Noorani 2025. All rights reserved.</p>
-    </div>
-  </footer>
+        <div class="footer-bottom">
+            <p>© Noorani 2025. All rights reserved.</p>
+        </div>
+    </footer>
 
-    <script src="script.js"></script>
+<!-- Back to Top Button -->
+<div class="back-to-top" id="backToTop">
+    <span class="arrow-up">↑</span>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Navbar functionality
+        const menuBtn = document.querySelector('.menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        const navbar = document.getElementById('mainNav');
+        const dropdownGroups = document.querySelectorAll('.nav-links .group');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Mobile dropdown toggle
+        dropdownGroups.forEach(group => {
+            const groupLink = group.querySelector('a');
+            groupLink.addEventListener('click', function(e) {
+                // Only handle dropdown toggle on mobile
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    group.classList.toggle('open');
+                }
+            });
+        });
+
+        // Handle navbar color change on scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Initial check for page load state
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        }
+
+        // Back to top button functionality
+        const backToTopBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = navLinks.contains(event.target) || menuBtn.contains(event.target);
+            if (!isClickInsideNav && navLinks.classList.contains('active') && window.innerWidth <= 768) {
+                navLinks.classList.remove('active');
+            }
+        });
+        
+        // Close mobile menu on window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                navLinks.classList.remove('active');
+                dropdownGroups.forEach(group => {
+                    group.classList.remove('open');
+                });
+            }
+        });
+    });
+</script>
 </body>
 </html>
-
