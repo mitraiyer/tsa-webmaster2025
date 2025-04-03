@@ -558,7 +558,11 @@ body {
     font-weight: 400;
     letter-spacing: 0.05rem;
 }
-
+.scrolled-visible {
+    transition: opacity 1s ease;
+    opacity: 1 !important;
+  }
+  
 /* Timeline Title */
 .timeline-title {
     text-align: center;

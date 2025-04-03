@@ -183,3 +183,24 @@ document.addEventListener("DOMContentLoaded", function () {
     iframe.style.opacity = "1"; // Ensure it fades in smoothly
   };
 });
+
+// Fade in text on scroll using Intersection Observer
+document.addEventListener("DOMContentLoaded", function() {
+  // Select common text elements; you can adjust the selectors as needed.
+  const textElements = document.querySelectorAll("p, h1, h2, h3, h4, h5, h6, span, a, li, div");
+
+  const fadeObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("scrolled-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  
+  textElements.forEach(el => {
+    // Start with opacity 0 (in case it isn't set already)
+    el.style.opacity = 0;
+    fadeObserver.observe(el);
+  });
+});
