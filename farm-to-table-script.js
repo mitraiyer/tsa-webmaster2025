@@ -173,34 +173,29 @@ document.addEventListener('DOMContentLoaded', function() {
       observer.observe(step);
   });
 });
+// Change navbar background color based on scroll position
+window.addEventListener('scroll', () => {
+  const navbar = document.querySelector('.navbar');
+  const heroSection = document.querySelector('.subpage-hero');
+  const timelineSection = document.querySelector('.farm-to-table');
 
-document.addEventListener("DOMContentLoaded", function () {
-  const iframe = document.getElementById("referencesIframe");
-  const loadingIndicator = document.getElementById("loading");
+  const scrollY = window.scrollY;
+  const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+  const timelineTop = timelineSection.offsetTop;
 
-  iframe.onload = function () {
-    loadingIndicator.style.display = "none";
-    iframe.style.opacity = "1"; // Ensure it fades in smoothly
-  };
-});
+  // Reset navbar state classes
+  navbar.classList.remove('scrolled', 'blurred');
 
-// Fade in text on scroll using Intersection Observer
-document.addEventListener("DOMContentLoaded", function() {
-  // Select common text elements; you can adjust the selectors as needed.
-  const textElements = document.querySelectorAll("p, h1, h2, h3, h4, h5, h6, span, a, li, div");
-
-  const fadeObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("scrolled-visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  
-  textElements.forEach(el => {
-    // Start with opacity 0 (in case it isn't set already)
-    el.style.opacity = 0;
-    fadeObserver.observe(el);
-  });
+  // Case 1: Over the hero section
+  if (scrollY < heroBottom) {
+      navbar.classList.add('blurred'); // Keep it blurred for the video section
+  }
+  // Case 2: Scrolled past the hero section but before the timeline
+  else if (scrollY >= heroBottom && scrollY < timelineTop) {
+      navbar.classList.add('scrolled'); // Change to light cream
+  }
+  // Case 3: Over the timeline section
+  else {
+      navbar.classList.add('scrolled'); // Keep it light cream
+  }
 });
