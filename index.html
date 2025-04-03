@@ -32,30 +32,32 @@
     </div>
   </section>
 
-<nav class="navbar">
-  <div class="logo-container" style="display: flex; align-items: center;">
-    <img src="android-chrome-192x192.png" alt="Noorani Logo" style="height: 50px; width: auto; margin-right: 10px;">
-    <div class="logo">Noorani</div>
-  </div>
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="menu.html">Menu</a>
-    <a href="takeout.html">Take-Out</a>
-    <a href="reserve.html">Reserve</a>
-    <div class="relative group">
-      <a href="#" class="peer">About Us</a>
-      <div class="absolute hidden peer-hover:flex group-hover:flex flex-col bg-white text-[#093C34] shadow-lg mt-1 rounded-lg overflow-hidden z-50">
-        <a href="sustainability.html" class="px-4 py-2 hover:bg-[#f3e2c4]">Sustainability</a>
-        <a href="roots.html" class="px-4 py-2 hover:bg-[#f3e2c4]">Our Roots</a>
-        <a href="farm-to-table.html" class="px-4 py-2 hover:bg-[#f3e2c4]">Farm-to-Table</a>
-        <a href="references.html" class="px-4 py-2 hover:bg-[#f3e2c4]">References</a>
-      </div>
+  <nav class="navbar">
+    <div class="logo-container" style="display: flex; align-items: center;">
+      <a href="index.html" style="display: flex; align-items: center;">
+        <img src="android-chrome-192x192.png" alt="Noorani Logo" style="height: 50px; width: auto; margin-right: 10px;">
+        <div class="logo">Noorani</div>
+        </a>
     </div>
-    <a href="contactus.html">Contact</a>
-  </div>
-  <div class="menu-btn">&#9776;</div>
-</nav>
-
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="takeout.html">Take-Out</a>
+      <a href="reserve.html">Reserve</a>
+      <div class="relative group">
+        <a href="#" class="peer desktop-only">About Us</a>
+        <!-- Mobile dropdown will be created by JavaScript -->
+        <div class="absolute hidden peer-hover:flex group-hover:flex flex-col bg-white text-[#093C34] shadow-lg mt-1 rounded-lg overflow-hidden z-50 desktop-dropdown">
+          <a href="sustainability.html" class="px-4 py-2 hover:bg-[#f3e2c4]">Sustainability</a>
+          <a href="roots.html" class="px-4 py-2 hover:bg-[#f3e2c4]">Our Roots</a>
+          <a href="farm-to-table.html" class="px-4 py-2 hover:bg-[#f3e2c4]">Farm-to-Table</a>
+          <a href="references.html" class="px-4 py-2 hover:bg-[#f3e2c4]">References</a>
+        </div>
+      </div>
+      <a href="contactus.html">Contact</a>
+    </div>
+    <div class="menu-btn">&#9776;</div>
+  </nav>
 
   <!-- Split Layout Section -->
   <section class="split-section" id="our-roots">
@@ -65,7 +67,7 @@
     <div class="split-text">
         <h2>Our Roots</h2>
         <p>At Noorani, our name, in itself, carries the essence of our culinary palette. When breaking up our name, ‘Noor’ – means light, symbolizing the warmth and rich heritage that Indian and Middle Eastern bring to our table. Our exquisitely picked-out menu shines with bold flavors, fresh ingredients, and traditional food, bringing together two cultures and creating culinary excellence.</p>
-        <br><a href="our-roots.html" class="hero-button">Learn More</a>
+        <a href="our-roots.html" class="hero-button">Learn More</a>
     </div>
 </section>
 
