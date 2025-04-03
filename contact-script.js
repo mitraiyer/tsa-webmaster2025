@@ -1,4 +1,9 @@
 // Wait for the page to load
+// Menu loaded event
+window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+  });
+      
 document.addEventListener('DOMContentLoaded', function() {
     // Add 'loaded' class to body for fade-in effect
     document.body.classList.add('loaded');
@@ -16,6 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
         answer.classList.toggle('active');
       });
     });
+
+
     
 
     // Form submission handling with validation

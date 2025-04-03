@@ -1,3 +1,27 @@
+
+// Menu loaded event
+// Menu loaded event
+// Fade-in elements when they enter the viewport
+document.addEventListener('DOMContentLoaded', function() {
+  const fadeInElements = document.querySelectorAll('.fade-in-element');
+  if (fadeInElements.length > 0) {
+      const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  entry.target.classList.add('visible'); // Apply fade-in
+                  observer.unobserve(entry.target); // Stop observing once it's in view
+              }
+          });
+      }, { threshold: 0.5 });
+
+      fadeInElements.forEach(element => {
+          observer.observe(element);
+      });
+  } else {
+      console.warn('No elements with the "fade-in-element" class found!');
+  }
+});
+
 // take out
 const menu = {
     "Appetizers / Sides": [
