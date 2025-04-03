@@ -214,11 +214,11 @@
     <div class="footer-container">
       <!-- Column 1: Legal & Support -->
       <div class="footer-column">
-        <h3 class="footer-heading">Legal & Support</h3>
+        <h3 class="footer-heading">Legal & References</h3>
         <ul class="footer-links-list">
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="contactus.html">Support</a></li>
+          <li><a href="#" id="open-terms">Terms of Service</a></li>
+          <li><a href="#" id="open-privacy">Privacy Policy</a></li>
+          <li><a href="references.html">References</a></li>
         </ul>
       </div>
 
@@ -226,11 +226,11 @@
       <div class="footer-column">
         <h3 class="footer-heading">Discover</h3>
         <ul class="footer-links-list">
-          <li><a href="#our-roots">Our Roots</a></li>
-          <li><a href="#">Sustainability</a></li>
-          <li><a href="#">Menu</a></li>
-          <li><a href="#">Take Out</a></li>
-          <li><a href="#">Reserve</a></li>
+          <li><a href="our-roots.html">Our Roots</a></li>
+          <li><a href="sustainability.html">Sustainability</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="takeout.html">Take Out</a></li>
+          <li><a href="reserve.html">Reserve</a></li>
         </ul>
       </div>
 
@@ -261,6 +261,63 @@
       <p>© Noorani 2025. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    // Privacy Policy and Terms modals
+    document.addEventListener('DOMContentLoaded', () => {
+        const openPrivacy = document.getElementById('open-privacy');
+        const openTerms = document.getElementById('open-terms');
+        const closePrivacy = document.getElementById('close-privacy');
+        const closeTerms = document.getElementById('close-terms');
+        const privacyModal = document.getElementById('privacy-modal');
+        const termsModal = document.getElementById('terms-modal');
+      
+        openPrivacy.addEventListener('click', (e) => {
+          e.preventDefault();
+          privacyModal.classList.remove('hidden');
+        });
+      
+        openTerms.addEventListener('click', (e) => {
+          e.preventDefault();
+          termsModal.classList.remove('hidden');
+        });
+      
+        closePrivacy.addEventListener('click', () => {
+          privacyModal.classList.add('hidden');
+        });
+      
+        closeTerms.addEventListener('click', () => {
+          termsModal.classList.add('hidden');
+        });
+      
+        window.addEventListener('click', (e) => {
+          if (e.target === privacyModal) privacyModal.classList.add('hidden');
+          if (e.target === termsModal) termsModal.classList.add('hidden');
+        });
+      });
+   </script>
+  <!-- Terms of Service Modal -->
+<div id="terms-modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="modal-close" id="close-terms">&times;</span>
+    <h2><b>Terms of Service</b></h2>
+    <!-- <p><strong>Last updated:</strong> April 2, 2025</p> -->
+    <p>By using this site, you agree to these terms. Do not misuse the website or its content. Noorani owns all rights to materials displayed unless stated otherwise.</p>
+    <p>You must be of legal age to place orders or make reservations.</p>
+  </div>
+</div>
+
+<!-- Privacy Policy Modal -->
+<div id="privacy-modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="modal-close" id="close-privacy">&times;</span>
+    <h2><b>Privacy Policy</b></h2>
+    <!-- <p><strong>Last updated:</strong> April 2, 2025</p> -->
+    <p>Noorani respects your privacy. We collect limited data for booking, support, and improving your experience. We do not share your personal data with third parties.</p>
+    <p>We use cookies for basic site functionality. Contact us for any questions.</p>
+  </div>
+</div>
+
 
   <!-- Back to Top Button -->
   <div class="back-to-top fixed bottom-8 right-8 bg-[#093C34] text-white w-12 h-12 rounded-full flex items-center justify-center cursor-pointer opacity-0 transition-opacity duration-300 shadow-lg hover:bg-[#0c4f45]" id="backToTop">
